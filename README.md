@@ -5,6 +5,8 @@ git clone git@github.com:deanqx/dotfiles.git .config
 curl -LJO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
-sudo mv squashfs-root /usr/local/bin/nvim
-sudo ln -s /usr/local/bin/nvim /bin/vim
-
+rm nvim.appimage
+sudo mv squashfs-root /usr/bin/nvim
+sudo ln -s /usr/bin/nvim/AppRun /usr/bin/nvim
+sudo ln -s /usr/bin/nvim/AppRun /usr/bin/vim
+sudo ln -s /usr/bin/nvim/nvim.desktop /usr/share/applications
