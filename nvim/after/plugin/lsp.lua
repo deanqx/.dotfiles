@@ -15,15 +15,15 @@ cmp.setup({
 		{name = 'nvim_lsp'},
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-y>'] = cmp.mapping.complete(),
 		['<C-f>'] = cmp_action.luasnip_jump_forward(),
 		['<C-b>'] = cmp_action.luasnip_jump_backward(),
 		['<C-u>'] = cmp.mapping.scroll_docs(-4),
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-		['<C-y>'] = cmp.mapping.confirm({ select = true }),
-		["<C-Space>"] = cmp.mapping.complete(),
+		['<C-Space>'] = cmp.mapping.confirm({ select = true }),
+		["<C-y>"] = cmp.mapping.complete(),
 	})
 })
 
@@ -55,7 +55,8 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'rust_analyzer'
+		'rust_analyzer',
+        'jdtls'
 	},
 	handlers = {
 		lsp.default_setup
