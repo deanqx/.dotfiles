@@ -1,9 +1,10 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>o", ":vsplit<CR>")
 
 -- Line moving
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv'")
+vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv")
 
 -- Lock cursor
 vim.keymap.set("n", "J", "mzJ`z")
