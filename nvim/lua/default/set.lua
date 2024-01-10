@@ -25,5 +25,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+vim.cmd('set gdefault')
 
 -- vim.opt.colorcolumn = "80"
