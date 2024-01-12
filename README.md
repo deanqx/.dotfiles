@@ -19,6 +19,7 @@ sudo ln -s /usr/bin/nvim/AppRun /usr/bin/vim
 sudo ln -s /usr/bin/nvim/nvim.desktop /usr/share/applications
 ```
 ```
-cd ~/.config
-git clone --depth 1 https://github.com/wbthomason/packer.nvim
+mv after after_
+:PackerSync
+mv after_ after
 ```
