@@ -5,6 +5,5 @@ vim.keymap.set("n", "<leader>h", mark.add_file)
 vim.keymap.set("n", "<C-h>", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<C-q>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<C-s>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<C-e>", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<C-t>", function() ui.nav_file(4) end)
+vim.keymap.set("n", "<C-e>", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<C-t>", function() ui.nav_file(3) end)

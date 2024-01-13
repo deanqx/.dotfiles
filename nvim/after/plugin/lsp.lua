@@ -12,7 +12,8 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	sources = {
-		{name = 'nvim_lsp'},
+		{ name = 'nvim_lsp' },
+        { name = "nvim_lsp_signature_help" },
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-y>'] = cmp.mapping.complete(),
@@ -22,8 +23,7 @@ cmp.setup({
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-		['<C-Space>'] = cmp.mapping.confirm({ select = true }),
-		["<C-y>"] = cmp.mapping.complete(),
+		['<C-Space>'] = cmp.mapping.confirm({ select = true })
 	})
 })
 
@@ -50,7 +50,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 require('mason').setup({})
