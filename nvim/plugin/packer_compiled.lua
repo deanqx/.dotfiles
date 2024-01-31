@@ -84,14 +84,11 @@ _G.packer_plugins = {
     path = "/home/dean/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-<<<<<<< HEAD
-=======
   ["cmp-nvim-lsp-signature-help"] = {
     loaded = true,
     path = "/home/dean/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
->>>>>>> c82de3c (Updated function hint)
   harpoon = {
     loaded = true,
     path = "/home/dean/.local/share/nvim/site/pack/packer/start/harpoon",
