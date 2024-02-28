@@ -1,8 +1,8 @@
 # GIMP user context
 
-(tool "gimp-pencil-tool")
-(paint-info "gimp-pencil")
-(brush "2. Hardness 025")
+(tool "gimp-eraser-tool")
+(paint-info "gimp-eraser")
+(brush "2. Hardness 075")
 (dynamics "Dynamics Off")
 (mybrush "Standard")
 (pattern "Pine")
