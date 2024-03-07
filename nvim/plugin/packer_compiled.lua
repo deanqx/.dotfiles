@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/dean/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-dirdiff"] = {
+    loaded = true,
+    path = "/home/dean/.local/share/nvim/site/pack/packer/start/vim-dirdiff",
+    url = "https://github.com/will133/vim-dirdiff"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/dean/.local/share/nvim/site/pack/packer/start/vim-fugitive",
