@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('theprimeagen/harpoon')
   use('tpope/vim-fugitive')
+  use('will133/vim-dirdiff')
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
