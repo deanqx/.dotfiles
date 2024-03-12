@@ -58,7 +58,8 @@ require('mason-lspconfig').setup({
 	ensure_installed = {
 		'rust_analyzer',
         'jdtls',
-        'pyright'
+        'pyright',
+        'dockerls'
 	},
 	handlers = {
 		lsp.default_setup
