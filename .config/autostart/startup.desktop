@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Startup
+Exec=/home/dean/startup.sh
+Comment=Startup script
