@@ -1533,3 +1533,7 @@ stow .
 git add .
 git commit -m "Added theme and missing files"
 git push
+git add .
+git commit -m "Added profile pic"
+git push
+stow .
