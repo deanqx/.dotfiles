@@ -1,10 +1,12 @@
 ```
-git clone git@github.com:deanqx/dotfiles.git .config
+git clone git@github.com:deanqx/dotfiles.git .dotfiles
 ```
 
-Optional: Bind caps to escape
+## Creating Symlinks
 ```
-dconf write "/org/gnome/desktop/input-sources/xkb-options" "[ 'caps:escape'"
+sudo apt install stow
+cd .dotfiles
+stow .
 ```
 
 ## Neovim
@@ -22,4 +24,9 @@ sudo ln -s /usr/bin/nvim/nvim.desktop /usr/share/applications
 mv after after_
 :PackerSync
 mv after_ after
+```
+
+Optional: Bind caps to escape
+```
+dconf write "/org/gnome/desktop/input-sources/xkb-options" "[ 'caps:escape'"
 ```
