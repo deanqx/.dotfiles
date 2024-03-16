@@ -1523,3 +1523,13 @@ git status
 git clone git@github.com:deanqx/.dotfiles.git
 sudo crontab -e
 vim .
+sudo apt install stow
+stow .
+git status
+git add .
+git commit -m "Moved to .dotfiles folder"
+git push
+stow .
+git add .
+git commit -m "Added theme and missing files"
+git push
