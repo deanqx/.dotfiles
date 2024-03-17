@@ -1,3 +1,5 @@
 [user]
     email = 110404616+deanqx@users.noreply.github.com
     name = deanqx
+[push]
+	autoSetupRemote = true
