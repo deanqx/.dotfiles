@@ -1537,3 +1537,227 @@ git add .
 git commit -m "Added profile pic"
 git push
 stow .
+git add .
+git commit -m "Expanded .config"
+git push
+git add .
+git commit -m "Removed libreoffice"
+git push
+cargo run
+cd
+ls
+cd Documents/
+ls
+vim proxmox.
+vim proxmox.sh
+sh proxmox.sh 
+ssh -p 8007 dean@cloud.kowatsch.de
+ssh -p 8007 dean@10.10.15.10
+ssh -p 8007 dean@localhost
+ssh -p 8007 dean@10.10.15.238
+sudo systemctl start mysql
+mysql
+mysql -u dean
+mysql -u root -p 0000
+mysql -u root
+mysql -u root -p
+cd /var/lib/mysql
+sudo su -
+cd
+sudo systemctl stop mysql
+sudo su -
+cd
+mysql -h localhost -p
+mysql -h localhost -u root -p
+mysql -h localhost -P 3306 -u root -p
+docker ps
+sudo r ps
+sudo docker ps
+sudo mysql -h localhost -P 3306 -u root -p
+mysql -h localhost -P 3306 -u root -p
+sudo systemctl disable mysql
+whereis mysql
+docker-compose ps
+sudo docker-compose ps
+mysql -h localhost -P 3306 -u root -p
+docker exec -it mysql bash
+sudo docker exec -it mysql bash
+sudo docker pull mysql
+sudo docker exec -it mysql bash
+sudo docker exec -it mysql:latest bash
+sudo docker ps
+sudo docker exec mysql_container
+sudo docker exec -it mysql_container
+sudo docker exec -it mysql_container bash
+sudo docker ps
+sudo docker exec -it xmrtogo-server_db_1 bash
+docker volume ls
+sudo docker volume ls
+docker volume rm xmrtogo-server_db-data
+sudo docker volume rm xmrtogo-server_db-data
+docker volume ls
+sudo docker volume ls
+sudo docker exec -it xmrtogo-server_db_1 bash
+docker volume ls
+sudo docker volume ls
+sudo docker volume rm 
+sudo docker volume rm $(docker volume ls -q)
+docker volume ls -q
+sudo docker volume rm $(sudo docker volume ls -q)
+sudo docker ps
+sudo docker volume rm -f $(sudo docker volume ls -q)
+sudo docker exec -it xmrtogo-server_db_1 bash
+sudo docker volume rm -f $(sudo docker volume ls -q)
+sudo docker exec -it xmrtogo-server_db_1 bash
+sudo systemctl start mysql
+mysql -p
+mysql -uroot -p
+sudo systemctl stop mysql
+sudo docker exec -it xmrtogo-server_db_1 bash
+cd /etc/mysql
+ls
+mysql
+mysql -h localhost -P 3306 -uroot -p0000
+mysql -h localhost -P 33060 -uroot -p0000
+sudo systemctl start mysql
+mysql -uroot -p0000
+sudo systemctl stop mysql
+docker root dir
+sudo 
+sudo su -
+sudo docker ps
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ca6a4f6a428d
+sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ca6a4f6a428d
+sudo docker ps
+ping
+ping db
+sudo docker inspect b951870e3673
+ls
+cargo
+cargo run
+ls
+ls -a
+trash .vscode
+ls
+cargo run
+git status
+git branch -r
+git fetch --all
+git branch -r
+git ls-remote
+git ls-remote --heads origin
+git ls-remote --heads
+git add .
+git commit -m "Removed vscode"
+git checkout -b dockerize
+cargo build deanqx/xmrToGo:1.0
+cargo build -t deanqx/xmrToGo:1.0
+docker build -t deanqx/xmrToGo:1.0
+docker build -t deanqx/xmrToGo:1.0 .
+sudo docker build -t deanqx/xmrToGo:1.0 .
+sudo docker build -t deanqx/xmrtogo:1.0 .
+sudo docker build -t deanqx/xmrtogo:1.1 .
+rustc -version
+rustc --version
+rustup
+sudo docker build -t deanqx/xmrtogo:1.1 .
+docker run -it xmrtogo:1.1
+sudo docker run -it xmrtogo:1.1
+sudo docker run -it deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it deanqx/xmrtogo:1.1
+sudo docker run -it deanqx/xmrtogo:1.1 -v .:/app
+sudo docker run -it -v .:/app deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it -v .:/app deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it -v .:/app deanqx/xmrtogo:1.1
+sudo docker build -t deanqx/xmrtogo:1.1 .
+sudo docker run -it -v .:/app deanqx/xmrtogo:1.1
+docker-compose up
+sudo apt install docker-compose
+docker-compose up
+sudo docker-compose up
+docker-compose build
+sudo docker-compose build
+docker ps
+sudo docker ps
+sudo docker ps -a
+docker images
+sudo docker images
+sudo docker-compose up
+sudo systemctl stop mysql
+sudo docker-compose up
+docker-compose up db
+sudo docker-compose up db
+sudo docker-compose up -d db
+sudo docker-compose up web
+sudo docker-compose build web
+sudo docker-compose up web
+sudo docker-compose build web
+sudo docker-compose up web
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker-compose build web
+mysql -h localhost -P 3306 -uroot -p0000
+mysql -h 127.0.0.1 -P 3306 -uroot -p0000
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+mysql -h 127.0.0.1 -P 3306 -uroot -p0000
+mysql -h 127.0.0.1 -P 3306 -u default -p0000
+cargo run
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+mysql -h 127.0.0.1 -P 3306 -u default -p0000
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker run -it xmrtogo-server_web:latest echo $DATABASE_URL
+sudo docker run -it xmrtogo-server_web:latest echo $PATH
+sudo docker run -it xmrtogo-server_web:latest echo $DATABASE_URL
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest echo $DATABASE_URL
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest echo $DATABASE_URL
+sudo docker run -it xmrtogo-server_web:latest 'echo $DATABASE_URL'
+sudo docker run -it xmrtogo-server_web:latest sh -c 'echo $DATABASE_URL'
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker run -it xmrtogo-server_web:latest bash
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest
+sudo docker run -it xmrtogo-server_web:latest bash
+docker-compose down
+sudo docker-compose down
+sudo docker-compose up -d db
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest bash
+docker ps -a
+sudo docker ps -a
+sudo docker ps -a -q
+sudo docker rm $(sudo docker ps -a -q)
+docker ps
+sudo docker ps
+sudo docker stop mysql:latest
+sudo docker ca6a4f6a428d mysql:latest
+sudo docker stop ca6a4f6a428d 
+sudo docker rm $(sudo docker ps -a -q)
+sudo docker-compose up -d db
+sudo docker-compose up web bash
+sudo docker-compose build web
+sudo docker run -it xmrtogo-server_web:latest bash
+vim .
