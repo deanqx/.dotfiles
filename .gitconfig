@@ -3,3 +3,5 @@
     name = deanqx
 [push]
 	autoSetupRemote = true
+[credential]
+	helper = cache
