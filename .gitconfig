@@ -5,3 +5,7 @@
 	autoSetupRemote = true
 [credential]
 	helper = cache
+[init]
+	defaultBranch = main
+[safe]
+	directory = /home/dean/server0/root/registry

@@ -1,3 +1,5 @@
+Using Debian 12 Gnome
+
 ## Setup
 ```
 cd ~
