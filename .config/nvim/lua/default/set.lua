@@ -27,4 +27,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.cmd('set gdefault')
 
+vim.cmd("command! -bar Q mksession! .session.vim | execute 'qa'")
+
 -- vim.opt.colorcolumn = "80"
