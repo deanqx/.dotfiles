@@ -103,3 +103,14 @@ source $ZSH/oh-my-zsh.sh
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]='bold'
+
+function vim_wrapper()
+{
+    if [[ $# -eq 0 ]]; then
+        vim -S .session.vim
+    else
+        command vim "$@"
+    fi
+}
+
+alias vim='vim_wrapper'
