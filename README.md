@@ -1,6 +1,6 @@
 Using Debian 12 Gnome
 
-## Setup
+# Setup
 ```
 cd ~
 git clone git@github.com:deanqx/dotfiles.git .dotfiles
@@ -8,14 +8,15 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git .dotfiles/.oh-my-zsh/
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git .dotfiles/.oh-my-zsh/plugins/zsh-syntax-highlighting
 ```
 
-## Creating Symlinks
+# Creating Symlinks
 ```
 sudo apt install stow
 cd .dotfiles
 stow .
 ```
 
-## Neovim
+# Neovim
+## Installation
 ```
 curl -LJO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
@@ -32,7 +33,11 @@ mv after after_
 mv after_ after
 ```
 
-Optional: Bind caps to escape
+### Optional: Bind caps to escape
 ```
 dconf write "/org/gnome/desktop/input-sources/xkb-options" "[ 'caps:escape'"
 ```
+
+## How to keep currently open files
+Use `:Q` to quit and save the session in a '.session.vim' file
+Use 'vim' to open session in current directory
