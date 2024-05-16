@@ -107,7 +107,11 @@ ZSH_HIGHLIGHT_STYLES[path]='bold'
 function vim_wrapper()
 {
     if [[ $# -eq 0 ]]; then
-        vim -S .session.vim
+        if [[ -e .session.vim ]]; then
+            vim -S .session.vim
+        else
+            vim .
+        fi
     else
         command vim "$@"
     fi
