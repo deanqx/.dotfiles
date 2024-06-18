@@ -6,6 +6,8 @@ cd ~
 git clone git@github.com:deanqx/dotfiles.git .dotfiles
 git clone git@github.com:zsh-users/zsh-autosuggestions.git .dotfiles/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git .dotfiles/.oh-my-zsh/plugins/zsh-syntax-highlighting
+
+sudo apt install -y ripgrep
 ```
 
 # Creating Symlinks
