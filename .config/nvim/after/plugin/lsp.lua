@@ -23,7 +23,7 @@ cmp.setup({
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-		['<C-Space>'] = cmp.mapping.confirm({ select = true })
+		['<C-d>'] = cmp.mapping.confirm({ select = true })
 	})
 })
 
