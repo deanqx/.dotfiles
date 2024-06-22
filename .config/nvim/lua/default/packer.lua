@@ -28,10 +28,6 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('tpope/vim-fugitive')
   use('will133/vim-dirdiff')
-  use {
-      'christoomey/vim-tmux-navigator',
-      lazy = false
-  }
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
