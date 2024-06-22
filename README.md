@@ -10,6 +10,16 @@ git clone git@github.com:zsh-users/zsh-syntax-highlighting.git .dotfiles/.oh-my-
 sudo apt install -y ripgrep
 ```
 
+# tmux
+[Tutorial](https://youtu.be/DzNmUNvnB04)
+
+```
+tmux source ~/.config/tmux/tmux.conf
+```
+
+Prefix key: <C-Space>
+To install the plugins: <prefix>I
+
 # Creating Symlinks
 ```
 sudo apt install stow
