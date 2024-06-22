@@ -32,15 +32,9 @@ vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
 
--- tmux
-vim.keymap.set("n", "C-h", "<cmd>TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "C-l", "<cmd>TmuxNavigateRight<CR>")
-vim.keymap.set("n", "C-j", "<cmd>TmuxNavigateDown<CR>")
-vim.keymap.set("n", "C-k", "<cmd>TmuxNavigateUp<CR>")
-
 -- Quickfix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
