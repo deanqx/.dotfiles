@@ -13,6 +13,9 @@ sudo apt install -y ripgrep
 # tmux
 [Tutorial](https://youtu.be/DzNmUNvnB04)
 
+[Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip)
+JetBrainsMono for the Terminal
+
 ```
 tmux source ~/.config/tmux/tmux.conf
 ```
