@@ -29,6 +29,10 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('will133/vim-dirdiff')
 
+  use('neovim/nvim-lspconfig')
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v3.x',
