@@ -26,6 +26,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 vim.cmd('set gdefault')
+vim.opt.guicursor = ""
 
 vim.cmd("command! -bar Q mksession! .session.vim | execute 'qa'")
 
