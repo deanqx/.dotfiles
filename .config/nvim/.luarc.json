@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": {
+      "/usr/bin/nvim/usr/share/nvim/runtime/lua": true
+    }
+  },
+  "telemetry": {
+    "enable": false
+  }
+}
