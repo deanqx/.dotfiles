@@ -3,7 +3,7 @@ local lsp = require('lsp-zero')
 lsp.preset("recommended")
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
@@ -14,6 +14,8 @@ cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
         { name = "nvim_lsp_signature_help" },
+        { name = 'buffer' },
+        { name = 'path' },
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-y>'] = cmp.mapping.complete(),
@@ -59,7 +61,9 @@ require('mason-lspconfig').setup({
 		'rust_analyzer',
         'jdtls',
         'pyright',
-        'dockerls'
+        'dockerls',
+        'tailwindcss',
+        'tsserver'
 	},
 	handlers = {
 		lsp.default_setup
