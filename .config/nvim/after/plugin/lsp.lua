@@ -76,6 +76,9 @@ require('lspconfig').cssls.setup {
     settings = {
         css = {
             validate = true,
+            format = {
+                enable = false
+            },
             lint = {
                 unknownAtRules = "ignore"
             }
