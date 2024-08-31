@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>s", ":vsplit<CR>")
-vim.keymap.set("n", "U", "<C-r>")
 
 -- Lines
 vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
