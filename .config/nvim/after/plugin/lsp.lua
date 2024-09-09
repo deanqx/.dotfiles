@@ -66,6 +66,7 @@ require('mason-lspconfig').setup({
         'tsserver',
         'cssls',
         'lua_ls',
+        'clangd',
     },
     handlers = {
         lsp.default_setup
