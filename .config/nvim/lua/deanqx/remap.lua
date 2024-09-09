@@ -26,7 +26,8 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-vim.api.nvim_set_keymap("n", "<C-a>", "`]<CR>", { noremap = true, silent = true })
+-- TODO find new keybind:
+-- vim.api.nvim_set_keymap("n", "<C-a>", "`]<CR>", { noremap = true, silent = true })
 
 -- Switch projects
 vim.keymap.set("n", "Q", "<nop>")
