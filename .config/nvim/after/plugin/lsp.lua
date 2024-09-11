@@ -54,7 +54,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opts)
 
-    if client.server_capabilities.documentFormattingProvider then
+    if client.server_capabilities.documentFormattingProvider and client.name ~= "null-ls" then
         vim.api.nvim_create_autocmd('BufWritePre', {
             group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
             buffer = bufnr,
