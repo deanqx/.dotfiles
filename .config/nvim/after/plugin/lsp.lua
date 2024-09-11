@@ -73,7 +73,6 @@ require('mason-lspconfig').setup({
         'pyright',
         'dockerls',
         'tailwindcss',
-        'ts_ls',
         'cssls',
         'lua_ls',
         'clangd',
