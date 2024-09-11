@@ -53,6 +53,16 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opts)
+
+    if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd('BufWritePre', {
+            group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end
+        })
+    end
 end)
 
 require('mason').setup({})
@@ -63,7 +73,7 @@ require('mason-lspconfig').setup({
         'pyright',
         'dockerls',
         'tailwindcss',
-        'tsserver',
+        'ts_ls',
         'cssls',
         'lua_ls',
         'clangd',

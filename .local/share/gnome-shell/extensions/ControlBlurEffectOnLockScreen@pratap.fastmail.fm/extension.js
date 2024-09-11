@@ -1,51 +1,44 @@
+import St from 'gi://St';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-const { Gio, GLib, Shell, St } = imports.gi;
+const GNOME_SHELL_VERSION = Number(Config.PACKAGE_VERSION.split('.')[0]);
 
-const Main = imports.ui.main;
-const Background = imports.ui.background;
-const UnlockDialog = imports.ui.unlockDialog;
-const ExtensionUtils = imports.misc.extensionUtils;
-
-const SCHEMA_NAME = 'org.gnome.shell.extensions.blur';
-
-let native = UnlockDialog.UnlockDialog.prototype._updateBackgroundEffects;
-let native2 = UnlockDialog.UnlockDialog.prototype._updateBackgrounds;
-
-class modified {
-    constructor() {
-    }
-
+export default class ControlBlurExtension extends Extension {
     enable() {
-    	UnlockDialog.UnlockDialog.prototype._updateBackgroundEffects = this._controlBlur;
+        this._settings = this.getSettings();
+        this._dialog = Main.screenShield._dialog;
+        if (this._dialog)
+            this._dialog._updateBackgroundEffects = this._myEffects();
     }
 
-    disable() {
-        if(Main.sessionMode.currentMode == 'unlock-dialog') {
-        UnlockDialog.UnlockDialog.prototype._updateBackgroundEffects = this._controlBlur; } else {
-        UnlockDialog.UnlockDialog.prototype._updateBackgroundEffects = native; }
-    }
-    
-    _controlBlur() {
+    _myEffects() {
         const themeContext = St.ThemeContext.get_for_stage(global.stage);
-        
-        this.gsettings = ExtensionUtils.getSettings(SCHEMA_NAME);
-        
-        let BRIGHTNESS_VALUE = this.gsettings.get_double('brightness');
-        let SIGMA_VALUE = this.gsettings.get_int('sigma');
 
-	for (const widget of this._backgroundGroup) {
+        for (const widget of this._dialog._backgroundGroup) {
             const effect = widget.get_effect('blur');
 
             if (effect) {
-                effect.set({
-                    brightness: BRIGHTNESS_VALUE,
-                    sigma: SIGMA_VALUE * themeContext.scale_factor,
-            });
-         }
-       }
-     }
-}
+                if (GNOME_SHELL_VERSION >= 46) {
+                    effect.set({
+                        brightness: this._settings.get_double('brightness'),
+                        radius: this._settings.get_int('sigma') * themeContext.scale_factor,
+                    });
+                } else {
+                    effect.set({
+                        brightness: this._settings.get_double('brightness'),
+                        sigma: this._settings.get_int('sigma') * themeContext.scale_factor,
+                    });
+                }
+            }
+        }
+    }
 
-function init() {
-return new modified();
+    // unlock-dialog is used in session-modes because this extension purpose is
+    // to tweak blur effect on lock screen itself.
+    disable() {
+        this._dialog = null;
+        this._settings = null;
+    }
 }
