@@ -1,42 +1,46 @@
 'use strict';
 
-import Adw from 'gi://Adw';
-import Gio from 'gi://Gio';
-import Gtk from 'gi://Gtk';
+const Gio = imports.gi.Gio;
+const Gtk = imports.gi.Gtk;
 
-import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+const Gettext = imports.gettext.domain('gnome-shell-extensions');
+const _ = Gettext.gettext;
 
-export default class FullscreenAvoiderPreferences extends ExtensionPreferences {
-	fillPreferencesWindow(window) {
-		let settings = this.getSettings();
-		const page = Adw.PreferencesPage.new();
+const ExtensionUtils = imports.misc.extensionUtils;
 
-		const group = Adw.PreferencesGroup.new();
-		group.set_title(_("Settings"));
-
-		page.add(group);
-
-		group.add(buildSwitcher(settings, 'move-hot-corners', _('Move Hot Corners:')));
-		group.add(buildSwitcher(settings, 'move-notifications', _('Move Notifications:')));
-
-		window.add(page)
-	}
+function init() {
+	ExtensionUtils.initTranslations();
 }
 
+function buildPrefsWidget() {
+    let settings = ExtensionUtils.getSettings();
+	let box = new Gtk.Box({
+		halign: Gtk.Align.CENTER,
+		orientation: Gtk.Orientation.VERTICAL,
+		'margin-top': 20,
+		'margin-bottom': 20,
+		'margin-start': 20,
+		'margin-end': 20,
+		spacing: 16
+	});
+
+	box.append(buildSwitcher(settings, 'move-hot-corners', _('Move Hot Corners:')));
+	box.append(buildSwitcher(settings, 'move-notifications', _('Move Notifications:')));
+
+	return box;
+}
 
 function buildSwitcher(settings, key, labeltext) {
-	let adwrow = new Adw.ActionRow({
-		title: labeltext,
-	});
-	const switcher = new Gtk.Switch({
-		active: settings.get_boolean(key),
-		valign: Gtk.Align.CENTER,
-	});
+	let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL, spacing: 10 });
+
+	let label = new Gtk.Label({label: labeltext });
+
+	let switcher = new Gtk.Switch();
 
 	settings.bind(key, switcher, 'active', Gio.SettingsBindFlags.DEFAULT);
 
-	adwrow.add_suffix(switcher);
-	adwrow.activatable_widget = switcher;
+	hbox.append(label);
+	hbox.append(switcher);
 
-	return adwrow;
+	return hbox;
 }

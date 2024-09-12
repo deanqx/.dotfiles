@@ -6,10 +6,13 @@
   "name": "Fullscreen Avoider",
   "settings-schema": "org.gnome.shell.extensions.fullscreen-avoider",
   "shell-version": [
-    "45",
-    "46"
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
   ],
   "url": "https://github.com/Noobsai/fullscreen-avoider",
   "uuid": "fullscreen-avoider@noobsai.github.com",
-  "version": 12
+  "version": 9
 }
