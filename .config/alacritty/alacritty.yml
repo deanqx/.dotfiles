@@ -1,33 +1,8 @@
+import:
+  - "~/.config/alacritty/dracula.yml"
+
 font:
   normal:
     family: "JetBrainsMono Nerd Font Mono"
-    style: Regular
+    style: "Regular"
   size: 12.0
-
-environment:
-  TERM: xterm-256color
-
-colors:
-  primary:
-    background: "0x1e1e1e"
-    foreground: "0xc5c8c6"
-
-  normal:
-    black: "0x1e1e1e"
-    red: "0xc54e00"
-    green: "0xb5bd68"
-    yellow: "0xf0c674"
-    blue: "0x81a2be"
-    magenta: "0xb294bb"
-    cyan: "0x8abeb7"
-    white: "0xc5c8c6"
-
-  bright:
-    black: "0x969896"
-    red: "0xf92672"
-    green: "0xa6e22e"
-    yellow: "0xe6db74"
-    blue: "0x66d9ef"
-    magenta: "0xae81ff"
-    cyan: "0x66d9ef"
-    white: "0xf8f8f2"
