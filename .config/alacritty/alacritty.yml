@@ -5,8 +5,14 @@ key_bindings:
   - { key: Up, mods: Control, action: ScrollPageUp } # Ctrl + Up Arrow
   - { key: Down, mods: Control, action: ScrollPageDown } # Ctrl + Down Arrow
 
+window:
+  opacity: 0.799
+
 font:
   normal:
     family: "JetBrainsMono Nerd Font Mono"
     style: "Regular"
   size: 12.0
+
+env:
+  TERM: xterm-256color
