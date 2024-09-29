@@ -16,6 +16,7 @@ sudo apt install -y ripgrep
 # i3 Desktop
 
 ```
+sudo pacman -Sy zsh feh picom ttf-jetbrains-mono-nerd
 sudo apt install -y python3-i3ipc feh picom
 ```
 
