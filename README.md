@@ -16,7 +16,7 @@ sudo apt install -y ripgrep
 # i3 Desktop
 
 ```
-sudo apt install python3-i3ipc
+sudo apt install -y python3-i3ipc feh picom
 ```
 
 # tmux
