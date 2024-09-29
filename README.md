@@ -1,4 +1,6 @@
-Using Debian 12 Gnome or i3
+Distro: Debian 12
+Desktop: i3-wm
+Windowsystem: X11
 
 # Setup
 
