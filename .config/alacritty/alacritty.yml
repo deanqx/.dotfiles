@@ -6,7 +6,7 @@ key_bindings:
   - { key: Down, mods: Control, action: ScrollPageDown } # Ctrl + Down Arrow
 
 window:
-  opacity: 0.799
+  opacity: 0.87
 
 font:
   normal:
