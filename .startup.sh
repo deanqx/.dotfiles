@@ -1,11 +1,10 @@
 setxkbmap -option caps:escape
 
-if [ "$(whoami)" = "dean" ]; then
-    xrandr --output DP-4 --primary
-    xrandr --output DP-4 --right-of DP-0
-fi
-
-sleep 9
+i3-msg workspace 10
 nvidia-settings &
-sleep 1
+sleep 2
+
+i3-msg workspace 2
+sleep 6
+
 killall nvidia-settings
