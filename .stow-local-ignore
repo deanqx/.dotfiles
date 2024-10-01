@@ -1,0 +1,4 @@
+.git
+.stow-ignore
+.gitmodules
+packages-pacman.txt

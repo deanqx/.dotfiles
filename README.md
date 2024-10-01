@@ -2,74 +2,53 @@ Distro: Debian 12
 Desktop: i3-wm
 Windowsystem: X11
 
-# Setup
+## Packages
+
+```
+sudo pacman -S --needed - < packages-pacman.txt
+```
+
+## oh-my-zsh
+
+```
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## Dotfiles
 
 ```
 cd ~
 git clone git@github.com:deanqx/dotfiles.git .dotfiles
-git clone git@github.com:zsh-users/zsh-autosuggestions.git .dotfiles/.oh-my-zsh/plugins/zsh-autosuggestions
-git clone git@github.com:zsh-users/zsh-syntax-highlighting.git .dotfiles/.oh-my-zsh/plugins/zsh-syntax-highlighting
-
-sudo apt install -y ripgrep
-```
-
-# i3 Desktop
-
-```
-sudo pacman -Sy zsh feh picom ttf-jetbrains-mono-nerd
-sudo apt install -y python3-i3ipc feh picom
-```
-
-# tmux
-
-[Tutorial](https://youtu.be/DzNmUNvnB04)
-
-[Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip)
-JetBrainsMono for the Terminal
-
-```
-tmux source ~/.config/tmux/tmux.conf
-```
-
-Prefix key: <C-Space>
-To install the plugins: <prefix>I
-
-# Creating Symlinks
-
-```
-sudo apt install stow
 cd .dotfiles
 stow .
 ```
 
-# Neovim
-
-## Installation
+## tmux
 
 ```
-curl -LJO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-rm nvim.appimage
-sudo mv squashfs-root /usr/bin/nvim
-sudo ln -s /usr/bin/nvim/AppRun /usr/bin/nvim
-sudo ln -s /usr/bin/nvim/AppRun /usr/bin/vim
-sudo ln -s /usr/bin/nvim/nvim.desktop /usr/share/applications
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux
 ```
 
+Press `<Space-C>` + `I` to install plugins. Close all session to apply plugins.
+
+## Neovim
+
+### Install plugins
+
+Prepare:
+
 ```
-mv after after_
+npm install -g prettier
+```
+
+Inside nvim:
+
+```
 :PackerSync
-mv after_ after
 ```
 
-### Optional: Bind caps to escape
+### How to keep currently open files
 
-```
-dconf write "/org/gnome/desktop/input-sources/xkb-options" "[ 'caps:escape'"
-```
-
-## How to keep currently open files
-
-Use `:Q` to quit and save the session in a '.session.vim' file
-Use 'vim' to open session in current directory
+Use `:Q` to quit and save the session in a `.session.vim` file.
+Use `vim` to open session in current directory.

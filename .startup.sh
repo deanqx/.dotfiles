@@ -1,5 +1,8 @@
-setxkbmap -option caps:escape
-xset r rate 250 35
+#!/bin/bash
+sleep 1
+firefox &
+discord &
+spotify &
 
 i3-msg workspace 10
 nvidia-settings &
