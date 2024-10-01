@@ -108,12 +108,12 @@ function vim_wrapper()
 {
     if [[ $# -eq 0 ]]; then
         if [[ -e .session.vim ]]; then
-            vim -S .session.vim
+            nvim -S .session.vim
         else
-            vim .
+            nvim .
         fi
     else
-        command vim "$@"
+        command nvim "$@"
     fi
 }
 

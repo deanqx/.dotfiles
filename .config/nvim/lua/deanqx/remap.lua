@@ -6,9 +6,9 @@ vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
 
--- Move line
-vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv")
+-- Move line (currently disabled because copyng seems prefered)
+-- vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv")
 
 -- Lock cursor and keep cursor in center
 vim.keymap.set("n", "J", "mzJ`z")
