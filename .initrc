@@ -1,9 +1,13 @@
 #!/bin/sh
+killall playerctld
+playerctld daemon &
+
 xrdb -merge ~/.Xresources
 feh --bg-fill ~/Pictures/Wallpapers/IMG_4656.JPG
+~/.config/polybar/launch.sh
 
-polybar-msg cmd quit
-polybar &
+killall dunst
+dunst &
 
 setxkbmap de
 setxkbmap -option caps:escape
