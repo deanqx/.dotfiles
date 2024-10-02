@@ -5,7 +5,6 @@ alacritty
 archlinux-keyring
 curl
 discord_arch_electron
-dmenu
 feh
 htop
 i3blocks
@@ -33,3 +32,5 @@ yay
 zsh
 polybar
 playerctl
+rofi
+dunst
