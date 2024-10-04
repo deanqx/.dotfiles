@@ -4,7 +4,6 @@ adwaita-icon-theme-legacy
 alacritty
 archlinux-keyring
 curl
-discord_arch_electron
 feh
 htop
 i3blocks
@@ -19,7 +18,6 @@ pipewire-alsa
 pipewire-audio
 pipewire-pulse
 python-i3ipc
-spotify
 stow
 tmux
 trash-cli
@@ -28,9 +26,11 @@ wget
 wireplumber
 xclip
 xdg-utils
-yay
 zsh
 polybar
 playerctl
 rofi
 dunst
+ttf-dejavu
+ttf-liberation
+noto-fonts
