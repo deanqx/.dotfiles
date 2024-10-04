@@ -6,6 +6,7 @@ Windowsystem: X11
 
 ```
 sudo pacman -S --needed - < packages-pacman.txt
+sudo yay -S --needed - < packages-yay.txt
 ```
 
 ## oh-my-zsh
