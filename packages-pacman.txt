@@ -34,3 +34,5 @@ dunst
 ttf-dejavu
 ttf-liberation
 noto-fonts
+ffmpeg4.4
+zenity
