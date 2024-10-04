@@ -36,3 +36,4 @@ ttf-liberation
 noto-fonts
 ffmpeg4.4
 zenity
+ly
