@@ -1,4 +1,6 @@
 .git
 .stow-ignore
 .gitmodules
+README.md
+packages-yay.txt
 packages-pacman.txt
