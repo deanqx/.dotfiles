@@ -1,14 +1,11 @@
 #!/bin/bash
-sleep 1
-firefox &
-discord &
 spotify &
+discord &
+nvidia-settings --load-config-only
 
-i3-msg workspace 10
-nvidia-settings &
-sleep 2
+while ! pgrep -x "dunst" > /dev/null; do
+    sleep 1
+done
+firefox &
 
-i3-msg workspace 1
-sleep 6
-
-killall nvidia-settings
+i3-msg workspace 9

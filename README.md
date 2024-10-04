@@ -9,6 +9,12 @@ sudo pacman -S --needed - < packages-pacman.txt
 sudo yay -S --needed - < packages-yay.txt
 ```
 
+Enable services:
+
+```
+sudo systemctl enable ly
+```
+
 ## oh-my-zsh
 
 ```
