@@ -1,6 +1,6 @@
-Distro: Debian 12
-Desktop: i3-wm
-Windowsystem: X11
+Distro: Arch Linux
+Window Manager: i3
+Window System: X11
 
 ## Packages
 
@@ -43,19 +43,17 @@ Press `<Space-C>` + `I` to install plugins. Close all session to apply plugins.
 
 ### Install plugins
 
-Prepare:
-
 ```
 npm install -g prettier
-```
-
-Inside nvim:
-
-```
-:PackerSync
+nvim -c 'PackerSync'
 ```
 
 ### How to keep currently open files
 
 Use `:Q` to quit and save the session in a `.session.vim` file.
-Use `vim` to open session in current directory.
+
+```
+vim
+```
+
+to open session from current directory.

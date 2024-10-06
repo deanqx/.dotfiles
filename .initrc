@@ -21,3 +21,5 @@ if [ "$USER" = "deanqx" ]; then
     xrandr --output DP-4 --primary
     xrandr --output DP-4 --right-of DP-0
 fi
+
+xset -dpms
