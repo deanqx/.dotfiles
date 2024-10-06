@@ -37,3 +37,4 @@ noto-fonts
 ffmpeg4.4
 zenity
 ly
+noto-fonts-cjk
