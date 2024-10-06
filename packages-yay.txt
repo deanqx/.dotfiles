@@ -1,2 +1,3 @@
 spotify
 discord_arch_electron
+ttf-apple-emoji
