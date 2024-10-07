@@ -12,14 +12,13 @@ dunst &
 killall picom
 picom -b
 
-setxkbmap de
-setxkbmap -option caps:escape
-set enable-bracketed-paste Off
-xset r rate 250 35
-
 if [ "$USER" = "deanqx" ]; then
+    setxkbmap -layout us -variant altgr-intl
     xrandr --output DP-4 --primary
     xrandr --output DP-4 --right-of DP-0
 fi
 
+setxkbmap -option caps:escape
+set enable-bracketed-paste Off
+xset r rate 250 35
 xset -dpms
