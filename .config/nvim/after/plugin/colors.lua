@@ -1,5 +1,8 @@
 require('onedark').setup {
     transparent = true,
-    style = 'darker'
+    style = 'dark',
+    colors = {
+        grey = '#868686',
+    }
 }
-require('onedark').load()
+require('onedark').load() -- comment test
