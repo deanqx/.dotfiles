@@ -3,7 +3,7 @@ killall playerctld
 playerctld daemon &
 
 xrdb -merge ~/.Xresources
-feh --bg-fill ~/Pictures/Wallpapers/Sunrise.JPG
+feh --bg-fill ~/Pictures/Wallpapers/amina_zoom.JPG
 ~/.config/polybar/launch.sh
 
 killall dunst
@@ -25,4 +25,4 @@ xset r rate 250 35
 
 # Trying to fix not waking up bug
 xset -dpms
-xset s off
+# xset s off
