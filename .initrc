@@ -25,4 +25,4 @@ xset r rate 250 35
 
 # Trying to fix not waking up bug
 xset -dpms
-# xset s off
+xset s off
