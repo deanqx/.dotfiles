@@ -16,7 +16,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous && $refresh_i3stat
 # Switch audio device
 bindsym $mod+Shift+a exec --no-startup-id wpctl status | grep "\*   59." && wpctl set-default 61 || wpctl set-default 58
 
-bindsym $mod+b exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/amina_zoom.JPG
+bindsym $mod+b exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Sunrise.JPG
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -27,7 +27,7 @@ tiling_drag modifier titlebar
 
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
-bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindcode $mod+40 exec "rofi -show drun -modi drun,window"
 
 # change focus
 bindsym $mod+h focus left
