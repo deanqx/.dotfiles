@@ -10,7 +10,7 @@ killall dunst
 dunst &
 
 killall picom
-picom -b
+picom --backend xrender
 
 if [ "$USER" = "deanqx" ]; then
     setxkbmap -layout us -variant altgr-intl
