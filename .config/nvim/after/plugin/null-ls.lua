@@ -7,7 +7,17 @@ local async = event == "BufWritePost"
 null_ls.setup({
     sources = {
         null_ls.builtins.formatting.prettier.with({
-            filetypes = { "css" },
+            filetypes = {
+                "css",
+                "html",
+                "javascript",
+                "javascriptreact",
+                "json",
+                "markdown",
+                "typescript",
+                "typescriptreact",
+                "yaml",
+            },
         }),
     },
     on_attach = function(client, bufnr)
