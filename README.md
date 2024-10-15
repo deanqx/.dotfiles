@@ -1,5 +1,9 @@
+My personal system configs
+
 Distro: Arch Linux
+
 Window Manager: i3
+
 Window System: X11
 
 ## Packages
