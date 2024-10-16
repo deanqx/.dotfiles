@@ -3,7 +3,7 @@ killall playerctld
 playerctld daemon &
 
 xrdb -merge ~/.Xresources
-feh --bg-fill ~/Pictures/Wallpapers/amina_zoom.JPG
+feh --bg-fill ~/Pictures/Wallpapers/bg_*.JPG
 ~/.config/polybar/launch.sh
 
 killall dunst
