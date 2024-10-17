@@ -78,20 +78,6 @@ require('mason-lspconfig').setup({
     }
 })
 
-require('lspconfig').cssls.setup {
-    settings = {
-        css = {
-            validate = true,
-            format = {
-                enable = false
-            },
-            lint = {
-                unknownAtRules = "ignore"
-            }
-        },
-    },
-}
-
 lsp.setup()
 
 vim.diagnostic.config({
