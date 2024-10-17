@@ -11,7 +11,6 @@ source update.sh
 
 sudo systemctl enable ly
 
-npm install -g prettier
 git submodule update --init --recursive
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
