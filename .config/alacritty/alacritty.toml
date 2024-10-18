@@ -1,7 +1,7 @@
 import = ["/home/deanqx/.config/alacritty/dracula.toml"]
 
 [window]
-opacity = 0.88 # comment
+opacity = 0.85 # comment
 
 [env]
 TERM = "xterm-256color" # Test comment
