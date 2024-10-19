@@ -1,10 +1,10 @@
 import = ["/home/deanqx/.config/alacritty/dracula.toml"]
 
 [window]
-opacity = 0.85 # comment
+opacity = 0.85
 
 [env]
-TERM = "xterm-256color" # Test comment
+TERM = "xterm-256color"
 
 [shell]
 program = "/bin/zsh"
