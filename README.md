@@ -56,6 +56,12 @@ Press `<C-Space>` + `I` to install plugins.
 tmux kill-server
 ```
 
+### Optional programs
+
+```
+yay -S spotify discord_arch_electron
+```
+
 ## Update
 
 Update to new commit of this repo.
