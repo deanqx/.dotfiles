@@ -24,7 +24,11 @@ return require('packer').startup(function(use)
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('mbbill/undotree')
-    use('theprimeagen/harpoon')
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
     use('tpope/vim-fugitive')
     use('will133/vim-dirdiff')
     use('tpope/vim-commentary')
