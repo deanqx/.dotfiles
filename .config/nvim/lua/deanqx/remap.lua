@@ -1,10 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>s", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "U", "<C-r>")
-vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
-end)
 
 -- Move line (currently disabled because copyng seems prefered)
 -- vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
@@ -18,8 +14,14 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- without losing buffer
-vim.keymap.set("x", "<leader>p", "\"_dP")
+-- vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>d", "\"_d")
+vim.keymap.set("n", "<leader>D", "\"_D")
+vim.keymap.set("n", "<leader>x", "\"_x")
+vim.keymap.set("n", "<leader>X", "\"_X")
+vim.keymap.set("n", "<leader>s", "\"_s")
+vim.keymap.set("n", "<leader>S", "\"_S")
+vim.keymap.set("n", "<leader>c", "\"_C")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- System clipboard

@@ -36,6 +36,17 @@ lsp.set_preferences({
     }
 })
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+function table.contains(table, element)
+    for _, value in ipairs(table) do
+        if value == element then
+            return true
+        end
+    end
+    return false
+end
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -49,14 +60,31 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
 
-    -- clangd formatting instead of prettier
-    if client.server_capabilities.documentFormattingProvider and client.name ~= "null-ls" then
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
+    local current_filetype = vim.bo.filetype
+    local prettier_filetypes = { "javascript", "typescriptreact", "typescript", "css", "html", "json" }
+
+    if table.contains(prettier_filetypes, current_filetype) then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
             buffer = bufnr,
             callback = function()
-                vim.lsp.buf.format({ async = false })
+                vim.cmd('Prettier')
             end
+        })
+    elseif client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({
+                    filter = function()
+                        return client.name ~= "ts_ls" and client.name ~= "cssls"
+                    end,
+                    bufnr = bufnr,
+                })
+            end,
         })
     end
 end)

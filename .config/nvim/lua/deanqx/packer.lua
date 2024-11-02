@@ -32,10 +32,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('will133/vim-dirdiff')
     use('tpope/vim-commentary')
-
-    use('neovim/nvim-lspconfig')
-    use('jose-elias-alvarez/null-ls.nvim')
-    use('MunifTanjim/prettier.nvim')
+    use('prettier/vim-prettier')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
