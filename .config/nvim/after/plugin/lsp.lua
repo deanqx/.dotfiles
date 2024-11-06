@@ -61,7 +61,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
 
     local current_filetype = vim.bo.filetype
-    local prettier_filetypes = { "javascript", "typescriptreact", "typescript", "css", "html", "json" }
+    local prettier_filetypes = { "javascript", "svelte", "typescriptreact", "typescript", "css", "html", "json" }
 
     if table.contains(prettier_filetypes, current_filetype) then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
