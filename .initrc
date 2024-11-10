@@ -17,6 +17,11 @@ if [ "$USER" = "deanqx" ]; then
     xrandr --output DP-4 --primary
     xrandr --output DP-4 --right-of DP-0
     polychromatic-cli -e Default
+elif [ "$(cat /etc/hostname)" = "archmobile" ]; then
+    xinput set-prop 11 "libinput Tapping Enabled" 1
+    xinput set-prop 11 "libinput Scrolling Pixel Distance" 10
+    xinput set-prop 11 "libinput Accel Speed" 0.3
+    xinput set-prop 11 "libinput Disable While Typing Enabled" 0
 fi
 
 setxkbmap -option caps:escape
