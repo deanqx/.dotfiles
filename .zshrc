@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export NODE_OPTIONS="--no-experimental-require-module"
+#export NODE_OPTIONS="--no-experimental-require-module"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 ZSH_THEME="superjarin"
