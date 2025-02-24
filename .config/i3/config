@@ -14,12 +14,12 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next && $refresh_i3status
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous && $refresh_i3status
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date).png"
-bindsym Shift+Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
+bindsym Print exec --no-startup-id maim --hidecursor --select "/home/$USER/Pictures/Screenshots/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --hidecursor "/home/$USER/Pictures/Screenshots/$(date).png"
 
 ## Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+Print exec --no-startup-id maim --hidecursor --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --hidecursor | xclip -selection clipboard -t image/png
 
 # Switch audio device
 bindsym $mod+Shift+a exec --no-startup-id wpctl set-default $(wpctl status | sed -n 's/ │\s*\([0-9]\+\).*Analog Stereo.*/\1/p' | head -n 1)
