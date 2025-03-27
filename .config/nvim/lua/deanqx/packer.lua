@@ -35,6 +35,15 @@ return require('packer').startup(function(use)
     use('prettier/vim-prettier')
 
     use {
+        'lervag/vimtex',
+        lazy = false,
+        config = function()
+            vim.g.vimtex_view_method = 'zathura'
+            vim.g.vimtex_compiler_method = 'latexmk'
+        end
+    }
+
+    use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
