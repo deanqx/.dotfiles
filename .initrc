@@ -13,7 +13,7 @@ fi
 setxkbmap -layout us -variant altgr-intl
 setxkbmap -option caps:escape
 set enable-bracketed-paste Off
-xset r rate 250 35
+xset r rate 260 35
 
 killall playerctld
 playerctld daemon &
