@@ -1,4 +1,6 @@
 #!/bin/bash
+sleep 2
+
 spotify &
 discord &
 nvidia-settings --load-config-only
@@ -6,8 +8,6 @@ nvidia-settings --load-config-only
 while ! pgrep -x "dunst" > /dev/null; do
     sleep 1
 done
-
-sleep 2
 
 firefox &
 

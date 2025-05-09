@@ -1,0 +1,6 @@
+# GIMP gimp-transform-3d-tool options
+
+(interpolation linear)
+(mode move)
+
+# end of gimp-transform-3d-tool options

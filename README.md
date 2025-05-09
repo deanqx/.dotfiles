@@ -34,7 +34,7 @@ to open session from current directory.
 
 ## First Installation
 
-After the Arch Installerlation following the official guide.
+After the Arch Installation following the official guide.
 
 Hint: Close Neovim after plugins are updated.
 
@@ -42,6 +42,19 @@ Hint: Close Neovim after plugins are updated.
 cd ~
 git clone git@github.com:deanqx/dotfiles.git .dotfiles
 .dotfiles/install.sh
+```
+
+### LanguageTool for Neovim
+
+I use LTeX for that. Download the [binaries](https://github.com/valentjn/ltex-ls/releases/download/16.0.0/ltex-ls-16.0.0-linux-x64.tar.gz).
+
+```
+tar -xzf ~/Downloads/ltex-ls-16.0.0-linux-x64.tar.gz ~/.local/share/nvim/language_servers
+cd ~/.local/share/nvim/language_servers
+
+mv ltex-ls-16.0.0-linux-x64 temp
+mv temp/ltex-ls-16.0.0 ltex-ls-16.0.0-linux-x64
+rmdir temp
 ```
 
 ### tmux

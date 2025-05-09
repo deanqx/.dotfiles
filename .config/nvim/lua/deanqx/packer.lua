@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
             vim.g.vimtex_compiler_latexmk = {
                 background = 1,
                 build_method = 'continuous',
-                latexmk_options = '-pdf',
                 latexmk_biber = 1,
             }
         end
