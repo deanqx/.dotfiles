@@ -18,8 +18,7 @@ cmp.setup({
         { name = 'path' },
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        ['<C-Tab>'] = cmp_action.luasnip_jump_forward(),
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-v>'] = cmp.mapping.confirm({ select = true })
@@ -49,6 +48,15 @@ end
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function()
+            if vim.snippet then
+                vim.snippet.stop()
+            end
+        end
+    })
 
     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
