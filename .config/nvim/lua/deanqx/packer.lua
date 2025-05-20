@@ -49,6 +49,13 @@ return require('packer').startup(function(use)
     }
 
     use {
+        "m4xshen/hardtime.nvim",
+        lazy = false,
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {},
+    }
+
+    use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
