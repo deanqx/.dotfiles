@@ -15,24 +15,12 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-
+    -- Theme
     use 'navarasu/onedark.nvim'
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use('mbbill/undotree')
-    use {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        requires = { { "nvim-lua/plenary.nvim" } }
-    }
-    use('tpope/vim-fugitive')
-    use('will133/vim-dirdiff')
-    use('tpope/vim-commentary')
-    use('prettier/vim-prettier')
+    -- LSP Package manager
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
 
     use {
         'lervag/vimtex',
@@ -48,29 +36,38 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- LSP Support
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('neovim/nvim-lspconfig')
+
+    -- Autocompletion
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-nvim-lsp')
+    use('hrsh7th/cmp-nvim-lsp-signature-help')
+    use('L3MON4D3/LuaSnip')
+
+    use {
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
+
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
+    use('will133/vim-dirdiff')
+    use('tpope/vim-commentary')
+
+    use('prettier/vim-prettier')
+
     use {
         "m4xshen/hardtime.nvim",
         lazy = false,
         dependencies = { "MunifTanjim/nui.nvim" },
         opts = {},
-    }
-
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment these if you want to manage LSP servers from neovim
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
-
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-            { 'L3MON4D3/LuaSnip' },
-        }
     }
 
     if packer_bootstrap then
