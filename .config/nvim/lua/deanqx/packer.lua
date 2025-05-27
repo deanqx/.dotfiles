@@ -19,18 +19,18 @@ return require('packer').startup(function(use)
     use 'navarasu/onedark.nvim'
 
     -- LSP Package manager
-    use 'williamboman/mason.nvim' 
-    use 'williamboman/mason-lspconfig.nvim' 
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
 
     -- LSP Support
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use 'neovim/nvim-lspconfig' 
+    use 'neovim/nvim-lspconfig'
 
     -- Autocompletion
-    use 'hrsh7th/nvim-cmp' 
-    use 'hrsh7th/cmp-nvim-lsp' 
-    use 'hrsh7th/cmp-nvim-lsp-signature-help' 
-    use 'L3MON4D3/LuaSnip' 
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'L3MON4D3/LuaSnip'
 
     use {
         'lervag/vimtex',
