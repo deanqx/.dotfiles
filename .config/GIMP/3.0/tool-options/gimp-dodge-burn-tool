@@ -7,7 +7,7 @@
 (brush "2. Hardness 075")
 (dynamics "Pressure Size")
 (palette "Color History")
-(brush-size 51)
+(brush-size 6)
 (brush-hardness 0.75)
 
 # end of gimp-dodge-burn-tool options

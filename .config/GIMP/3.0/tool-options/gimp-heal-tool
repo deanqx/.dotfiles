@@ -8,7 +8,7 @@
 (dynamics "Pressure Size")
 (pattern "Pine")
 (palette "Color History")
-(brush-size 51)
+(brush-size 6)
 (brush-hardness 0.75)
 
 # end of gimp-heal-tool options
