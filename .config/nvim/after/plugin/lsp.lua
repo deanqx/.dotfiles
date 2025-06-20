@@ -63,7 +63,6 @@ function table.contains(table, element)
     return false
 end
 
-
 -- is called every time a LSP attaches
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
@@ -92,6 +91,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end
             end
         })
+
+        vim.lsp.config.clangd = {
+            flags = {
+                -- Fixes: clangd stops working after removing window focus (https://github.com/neovim/neovim/issues/13049)
+                allow_incremental_sync = false,
+                -- Wait 150ms after the last change before sending update to clangd
+                debounce_text_changes = 150,
+                -- How long to wait before killing clangd after Neovim exits
+                exit_timeout = 5000,
+            },
+        }
 
         local current_filetype = vim.bo.filetype
         local prettier_filetypes = { "javascript", "svelte", "typescriptreact", "typescript", "css", "html", "json" }
