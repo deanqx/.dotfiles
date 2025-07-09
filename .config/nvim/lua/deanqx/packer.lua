@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-commentary')
 
     use('prettier/vim-prettier')
+    use('tpope/vim-sleuth')
 
     use {
         "m4xshen/hardtime.nvim",
