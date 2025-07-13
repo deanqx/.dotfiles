@@ -11,3 +11,4 @@
 	directory = /home/dean/server0/root/registry
 [core]
 	editor = nvim
+	pager = less -X
