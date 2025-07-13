@@ -57,6 +57,14 @@ mv temp/ltex-ls-16.0.0 ltex-ls-16.0.0-linux-x64
 rmdir temp
 ```
 
+### Git config
+
+To keep for example `git log` on screen after quitting.
+
+```
+git config --global core.pager "less -X"
+```
+
 ### tmux
 
 ```
