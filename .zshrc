@@ -30,4 +30,4 @@ function vim_wrapper()
 alias vim='vim_wrapper'
 
 # Disable confirm
-alias yay='yay --noconfirm'
+alias yayc='yay --noconfirm'
