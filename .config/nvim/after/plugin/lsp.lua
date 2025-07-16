@@ -1,13 +1,12 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
+-- clangd is not installed via Mason
+-- to support custom clangd implementations
+vim.lsp.enable('clangd')
+
 vim.diagnostic.config({
     virtual_text = true
-})
-
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    automatic_enable = true,
 })
 
 cmp.setup({
@@ -132,3 +131,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end
 })
+
+require('mason').setup()
+require('mason-lspconfig').setup()
