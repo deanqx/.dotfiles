@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.cargo/bin:$PATH"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Djdk.xml.totalEntitySizeLimit=1000000'
 export ARDUINO_LANGUAGE_SERVER_CLIPATH="~/.arduino15/arduino-cli.yaml"
 #export NODE_OPTIONS="--no-experimental-require-module"
