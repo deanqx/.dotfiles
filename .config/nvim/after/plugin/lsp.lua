@@ -129,6 +129,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end,
             })
         end
+
+        -- Disable auto insert comments when pressing o
+        vim.opt.formatoptions:remove { "o" }
     end
 })
 
