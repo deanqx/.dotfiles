@@ -1,6 +1,7 @@
 #!/bin/bash
 sleep 2
 
+signal-desktop &
 spotify &
 discord &
 nvidia-settings --load-config-only
