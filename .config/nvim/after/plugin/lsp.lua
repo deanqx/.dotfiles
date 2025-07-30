@@ -26,8 +26,14 @@ vim.diagnostic.config({
 
 cmp.setup({
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = {
+            border = 'rounded',
+            winhighlight = "Normal:Normal,FloatBorder:Normal"
+        },
+        documentation = {
+            border = 'rounded',
+            winhighlight = "Normal:Normal,FloatBorder:Normal"
+        },
     },
     snippet = {
         expand = function(args)
