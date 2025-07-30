@@ -5,6 +5,21 @@ local luasnip = require('luasnip')
 -- to support custom clangd implementations
 vim.lsp.enable('clangd')
 
+require('mason').setup()
+require('mason-lspconfig').setup()
+
+vim.lsp.config['rust_analyzer'].settings = {
+    ['rust-analyzer'] = {
+        check = {
+            command = 'clippy',
+            features = 'all',
+        },
+        procMacro = {
+            enable = true,
+        },
+    },
+}
+
 vim.diagnostic.config({
     virtual_text = true
 })
@@ -134,6 +149,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.opt.formatoptions:remove { "o" }
     end
 })
-
-require('mason').setup()
-require('mason-lspconfig').setup()
