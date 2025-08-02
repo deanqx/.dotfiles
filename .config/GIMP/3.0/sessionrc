@@ -87,8 +87,7 @@
     (size 887 559))
 (session-info "toplevel"
     (factory-entry "gimp-image-new-dialog")
-    (position 1100 238)
-    (monitor 1))
+    (position 1098 216))
 (session-info "toplevel"
     (factory-entry "gimp-keyboard-shortcuts-dialog")
     (position 648 360)

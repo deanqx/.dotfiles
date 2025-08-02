@@ -3,5 +3,6 @@
 /.config/GIMP/**
 !/.config/GIMP/*
 !/.config/GIMP/*/sessionrc
+!/.config/GIMP/*/shortcutsrc
 !/.config/GIMP/*/gimprc
 !/.config/GIMP/*/themes/
