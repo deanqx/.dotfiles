@@ -20,8 +20,8 @@ vim.keymap.set('n', '<leader>pf', function()
     builtin.find_files({
         find_command = { 'rg', '--files', '-uu', '-g', '!.git' },
     })
-end, { desc = 'Search all files in current directory' })
-vim.keymap.set('n', '<leader>f', builtin.find_files)
-vim.keymap.set('n', '<leader>/', builtin.live_grep)
-vim.keymap.set('n', '<leader>t', builtin.treesitter)
-vim.keymap.set('n', '<leader>pr', builtin.resume)
+end, { desc = 'Fuzzy find files including hidden files' })
+vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Fuzzy find files' })
+vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = 'Fuzzy find file content' })
+vim.keymap.set('n', '<leader>t', builtin.treesitter, { desc = 'Show sybols of file' })
+vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = 'Continue last fuzzy find' })
