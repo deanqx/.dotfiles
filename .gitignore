@@ -1,1 +1,7 @@
-.config/tmux/plugins
+/.config/tmux/plugins
+
+/.config/GIMP/**
+!/.config/GIMP/*
+!/.config/GIMP/*/sessionrc
+!/.config/GIMP/*/gimprc
+!/.config/GIMP/*/themes/
