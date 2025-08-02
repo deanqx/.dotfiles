@@ -14,7 +14,6 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- without losing buffer
--- vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>D", "\"_D")
 vim.keymap.set("n", "<leader>x", "\"_x")
