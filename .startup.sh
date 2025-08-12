@@ -3,7 +3,6 @@ sleep 2
 
 signal-desktop &
 spotify &
-discord &
 nvidia-settings --load-config-only
 
 while ! pgrep -x "dunst" > /dev/null; do
