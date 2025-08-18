@@ -76,7 +76,7 @@
                     (show-button-bar "true"))))))
 (session-info "toplevel"
     (factory-entry "gimp-file-export-dialog")
-    (position 698 0)
+    (position 696 0)
     (size 887 487))
 (session-info "toplevel"
     (factory-entry "gimp-toolbox-color-dialog")
