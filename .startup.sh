@@ -10,5 +10,3 @@ while ! pgrep -x "dunst" > /dev/null; do
 done
 
 firefox &
-
-i3-msg workspace 9
