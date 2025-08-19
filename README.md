@@ -12,6 +12,8 @@ Minimal i3wm installation with Catppuccin colorscheme.
 - tmux
 - Spotify (with local music support)
 
+TODO: Cleanup this README
+
 ## Switch Audio
 
 This is configured at `.config/i3/config`.
@@ -91,4 +93,18 @@ Hint: Close Neovim after plugins are updated.
 
 ```
 ./update.sh
+```
+
+## Firefox
+
+Add this to `userContent.css` to show background image on Firefox `about:newtab`:
+
+```css
+@-moz-document url-prefix(about:newtab) {
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+            url(Wallpapers/image.JPG) !important;
+        background-size: cover !important ;
+    }
+}
 ```
