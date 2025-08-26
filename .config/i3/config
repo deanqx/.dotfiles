@@ -15,8 +15,8 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next && $refresh_i3status
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous && $refresh_i3status
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim --hidecursor --select "/home/$USER/Pictures/Screenshots/$(date +"%Y_%m_%d_%Hh_%Mm_%Ss").png"
-bindsym Shift+Print exec --no-startup-id maim --hidecursor "/home/$USER/Pictures/Screenshots/$(date +"%Y_%m_%d_%Hh_%Mm_%Ss").png"
+bindsym Print exec --no-startup-id maim --hidecursor --select "/home/$USER/pictures/screenshots/$(date +"%Y_%m_%d_%Hh_%Mm_%Ss").png"
+bindsym Shift+Print exec --no-startup-id maim --hidecursor "/home/$USER/pictures/screenshots/$(date +"%Y_%m_%d_%Hh_%Mm_%Ss").png"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim --hidecursor --select | xclip -selection clipboard -t image/png
