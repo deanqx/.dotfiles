@@ -30,6 +30,14 @@ vim.opt.updatetime = 50
 vim.cmd('set gdefault')
 vim.opt.guicursor = ""
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        -- Disable auto insert comments when pressing o
+        vim.opt.formatoptions:remove({ "o" })
+    end,
+})
+
 vim.cmd("command! -bar Q mksession! .session.vim | execute 'qa'")
 
 -- vim.opt.colorcolumn = "80"
