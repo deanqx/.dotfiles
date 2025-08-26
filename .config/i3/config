@@ -25,8 +25,6 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --hidecursor | xclip -selecti
 # Switch audio device
 bindsym $mod+Shift+a exec --no-startup-id wpctl set-default $(wpctl status | sed -n 's/ │\s*\([0-9]\+\).*Analog Stereo.*/\1/p' | head -n 1)
 
-bindsym $mod+b exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Sunrise.JPG
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
