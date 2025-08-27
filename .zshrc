@@ -29,7 +29,4 @@ function vim_wrapper()
 }
 
 alias vim='vim_wrapper'
-
-# Disable confirm
-alias yayc='yay --noconfirm'
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
