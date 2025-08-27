@@ -28,5 +28,17 @@ function vim_wrapper()
     fi
 }
 
+function open_project_tmux()
+{
+    local path = $1
+
+    tmux new-session -d -s myproj -c $path "git pull && exec vim"
+    tmux new-window -t myproj:2 -c $path
+    tmux attach -t myproj
+}
+
 alias vim='vim_wrapper'
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
+
+# Not working for now
+alias tmuxs='open_project_tmux'

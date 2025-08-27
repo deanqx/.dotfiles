@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script is launched on startup and with <Shift + CMD + r>
+
 if [ "$USER" = "deanqx" ]; then
     xrandr --output DP-4 --primary
     xrandr --output DP-4 --right-of DP-0
@@ -16,14 +18,14 @@ set enable-bracketed-paste Off
 xset r rate 260 35
 
 killall playerctld
-playerctld daemon &
+playerctld daemon & disown
 
 xrdb -merge ~/.Xresources
 feh --bg-fill ~/pictures/wallpapers/bg_*
 ~/.config/polybar/launch.sh
 
 killall dunst
-dunst &
+dunst & disown
 
 killall picom
 picom -b
