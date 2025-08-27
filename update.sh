@@ -1,8 +1,7 @@
-stow -t ~/ .
+#!/bin/bash
+stow --target ~ .
 
 nvim -c 'PackerSync'
 
-sudo pacman -S --needed - < packages-pacman.txt
-yay -S --needed - < packages-yay.txt
-
-sudo npm install -g @fsouza/prettierd
+sudo pacman -Sy --needed - < packages_pacman.txt
+paru - < packages_aur.txt

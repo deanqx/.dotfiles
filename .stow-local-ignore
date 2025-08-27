@@ -2,8 +2,8 @@
 .stow-ignore
 .gitmodules
 README.md
-packages-yay.txt
-packages-pacman.txt
+packages_aur.txt
+packages_pacman.txt
 install.sh
 update.sh
 install.sh
