@@ -1,12 +1,17 @@
 #!/bin/bash
+# Start the server for quicker tmux launch times
+tmux start-server
+
+if [ $USER == "deanqx" ]; then
+    nvidia-settings --load-config-only
+fi
+
+# Wait two seconds for the display to boot
 sleep 2
 
-signal-desktop &
-spotify &
-nvidia-settings --load-config-only
+firefox & disown
+signal-desktop & disown
 
-while ! pgrep -x "dunst" > /dev/null; do
-    sleep 1
-done
-
-firefox &
+if [ $USER == "deanqx" ]; then
+    spotify & disown
+fi
