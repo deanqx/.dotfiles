@@ -34,6 +34,93 @@ to open session from current directory.
 
 # Installation
 
+## 1 Follow Arch Installation guide
+
+[Arch Installation guide](https://wiki.archlinux.org/title/Installation_guide)
+
+Before continuing installation steps sync your package database:
+
+```
+# pacman -Sy
+```
+
+## 2 Install a window system
+
+You can choose between [i3wm]() ([X11]()) or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
+
+### 2.1 Install desktop fonts
+
+```
+# pacman -S noto-fonts ttf-jetbrains-mono-nerd
+```
+
+### 2.2 sway installation
+
+```
+# pacman -S xorg-xwayland sway
+```
+
+## 3 Install basic programs
+
+```
+# pacman -S git pipewire firefox alacritty zsh sudo stow
+```
+
+- `git`
+- `pipewire` Audio manager
+- `alacritty` Terminal emulator
+- `zsh`
+- `sudo`
+- `stow`
+
+## 4 User setup
+
+```
+groupadd sudo
+```
+
+Uncomment this line in `/etc/sudoers` to allow all users in `sudo` group to have root privileges.
+
+```
+%sudo ALL=(ALL:ALL) ALL
+```
+
+```
+# useradd -m -G sudo -s /usr/bin/zsh your_username
+```
+
+- `-m` Create home directory
+- `-G` Group
+- `-s` Default shell
+
+```
+# passwd your_username
+# su your_username
+```
+
+## 5 Download dotfiles
+
+```
+cd ~
+git clone https://github.com/deanqx/.dotfiles
+```
+
+```
+cd .dotfiles
+stow .
+```
+
+TODO install zsh extensions
+
+```
+```
+
+## 6 Launching window manager
+
+Reload env or reboot
+
+Depending on your setup execute [sway](https://swaywm.org/) or [i3wm]().
+
 ## First Installation
 
 After the Arch Installation following the official guide.
