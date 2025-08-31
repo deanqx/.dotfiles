@@ -2,6 +2,7 @@
 .stow-ignore
 .gitmodules
 README.md
+LICENSE
 packages_aur.txt
 packages_pacman.txt
 install.sh
