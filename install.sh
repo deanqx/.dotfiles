@@ -1,4 +1,6 @@
 #!/bin/sh
+stow --target ~ .
+
 sudo pacman -Sy --needed - < packages_pacman.txt
 
 # Install paru (AUR Helper)
