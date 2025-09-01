@@ -1,0 +1,20 @@
+include ~/.config/i3/config
+
+input * {
+    xkb_layout "us"
+    # Used for special german chars
+    xkb_variant "altgr-intl"
+    xkb_options caps:escape
+    repeat_delay 260
+    repeat_rate 35
+}
+
+# output * bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
+
+# Wayland alternatives for X11 tools
+unbindsym $mod+d
+bindsym $mod+d exec "wofi --show drun -modi drun,window"
+
+# Restart inplace does not seam to work
+# unbindsym $mod+Shift+r
+# bindsym $mod+Shift+r exec ""

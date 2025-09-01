@@ -1,4 +1,14 @@
 #!/bin/sh
 exec i3
 
+if [ "$USER" = "deanqx" ]; then
+    xrandr --output DP-4 --primary
+    xrandr --output DP-4 --right-of DP-0
+    polychromatic-cli -e Default
+fi
+
+setxkbmap -layout us -variant altgr-intl
+setxkbmap -option caps:escape
+xset r rate 260 35
+
 xrandr --auto
