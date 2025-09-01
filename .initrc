@@ -1,22 +1,6 @@
 #!/bin/sh
 # This script is launched on startup and with <Shift + CMD + r>
 
-if [ "$USER" = "deanqx" ]; then
-    xrandr --output DP-4 --primary
-    xrandr --output DP-4 --right-of DP-0
-    polychromatic-cli -e Default
-elif [ "$(cat /etc/hostname)" = "archmobile" ]; then
-    xinput set-prop 11 "libinput Tapping Enabled" 1
-    xinput set-prop 11 "libinput Scrolling Pixel Distance" 10
-    xinput set-prop 11 "libinput Accel Speed" 0.2
-    xinput set-prop 11 "libinput Disable While Typing Enabled" 0
-fi
-
-setxkbmap -layout us -variant altgr-intl
-setxkbmap -option caps:escape
-set enable-bracketed-paste Off
-xset r rate 260 35
-
 killall playerctld
 playerctld daemon & disown
 

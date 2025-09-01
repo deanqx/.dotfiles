@@ -4,6 +4,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Djdk.xml.totalEntitySize
 export ARDUINO_LANGUAGE_SERVER_CLIPATH="~/.arduino15/arduino-cli.yaml"
 #export NODE_OPTIONS="--no-experimental-require-module"
 
+set enable-bracketed-paste Off
+
 ZSH_THEME="superjarin"
 
 plugins=(git sudo history encode64 copypath )
