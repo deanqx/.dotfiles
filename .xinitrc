@@ -12,3 +12,20 @@ setxkbmap -option caps:escape
 xset r rate 260 35
 
 xrandr --auto
+
+killall playerctld
+playerctld daemon & disown
+
+xrdb -merge ~/.Xresources
+feh --bg-fill ~/pictures/wallpapers/bg_*
+~/.config/polybar/launch.sh
+
+killall dunst
+dunst & disown
+
+killall picom
+picom -b
+
+# Trying to fix not waking up bug
+xset -dpms
+xset s off
