@@ -1,11 +1,11 @@
 #!/bin/sh
-sudo pacman -Sy --needed git base-devel
+sudo pacman -Sy --needed - < packages_pacman.txt
 
 # Install paru (AUR Helper)
 git clone https://aur.archlinux.org/paru.git /tmp/paru
 makepkg --syncdeps --install --dir /tmp/paru
 
-source update.sh
+paru - < packages_aur.txt
 
 # Enable Ly display manager (login screen)
 sudo systemctl enable ly
@@ -14,4 +14,4 @@ sudo systemctl enable ly
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install ohmyzsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
