@@ -1,10 +1,14 @@
+base-devel
+rustup
+zsh-autosuggestions
+zsh-syntax-highlighting
 openssh
 alacritty
 feh
 htop
 firefox
 stow
-neofetch
+fastfetch
 neovim
 picom
 networkmanager
@@ -13,7 +17,6 @@ tmux
 trash-cli
 ttf-jetbrains-mono-nerd
 wget
-polybar
 rofi
 dunst
 ttf-dejavu

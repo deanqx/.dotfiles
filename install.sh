@@ -1,11 +1,25 @@
 #!/bin/sh
+PARU_TEMP_PATH=/tmp/paru
+
+set -o errexit
+
 stow --target ~ .
 
 sudo pacman -Sy --needed - < packages_pacman.txt
 
+rustup default stable
+
 # Install paru (AUR Helper)
-git clone https://aur.archlinux.org/paru.git /tmp/paru
-makepkg --syncdeps --install --dir /tmp/paru
+if [ ! -d "$PARU_TEMP_PATH" ]; then
+    git clone https://aur.archlinux.org/paru.git "$PARU_TEMP_PATH"
+fi
+
+if command -v paru >/dev/null 2>&1; then
+    # Update all packages
+    paru
+else
+    makepkg --syncdeps --install --dir "$PARU_TEMP_PATH"
+fi
 
 paru - < packages_aur.txt
 
@@ -13,7 +27,9 @@ paru - < packages_aur.txt
 sudo systemctl enable ly
 
 # Install Tmux Plugin Manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "/home/$USER/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
