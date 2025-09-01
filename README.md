@@ -12,8 +12,6 @@ Minimal i3wm installation with Catppuccin colorscheme.
 - tmux
 - Spotify (with local music support)
 
-TODO: Cleanup this README
-
 ## Switch Audio
 
 This is configured at `.config/i3/config`.
@@ -63,15 +61,12 @@ You can choose between [i3wm]() ([X11]()) or [sway](https://swaywm.org/) ([Wayla
 ## 3 Install basic programs
 
 ```
-# pacman -S git pipewire firefox alacritty zsh sudo stow
+# pacman -S git zsh sudo
 ```
 
 - `git`
-- `pipewire` Audio manager
-- `alacritty` Terminal emulator
 - `zsh`
 - `sudo`
-- `stow`
 
 ## 4 User setup
 
@@ -105,9 +100,11 @@ cd ~
 git clone https://github.com/deanqx/.dotfiles
 ```
 
+git pull --recurse-submodules
+
 ```
 cd .dotfiles
-stow .
+./install.sh
 ```
 
 TODO install zsh extensions
