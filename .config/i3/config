@@ -124,16 +124,16 @@ bindsym $alt+Control+4 move container to workspace $wa4
 bindsym $alt+Control+5 move container to workspace $wa5
 
 # move focused container to workspace and switch
-bindsym $mod+Shift+1 move container to workspace $w1 workspace $w1
-bindsym $mod+Shift+2 move container to workspace $w2 workspace $w2
-bindsym $mod+Shift+3 move container to workspace $w3 workspace $w3
-bindsym $mod+Shift+4 move container to workspace $w4 workspace $w4
-bindsym $mod+Shift+5 move container to workspace $w5 workspace $w5
-bindsym $alt+Shift+1 move container to workspace $wa1 workspace $wa1
-bindsym $alt+Shift+2 move container to workspace $wa2 workspace $wa2
-bindsym $alt+Shift+3 move container to workspace $wa3 workspace $wa3
-bindsym $alt+Shift+4 move container to workspace $wa4 workspace $wa4
-bindsym $alt+Shift+5 move container to workspace $wa5 workspace $wa5
+bindsym $mod+Shift+1 move container to workspace $w1; workspace $w1
+bindsym $mod+Shift+2 move container to workspace $w2; workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3; workspace $w3
+bindsym $mod+Shift+4 move container to workspace $w4; workspace $w4
+bindsym $mod+Shift+5 move container to workspace $w5; workspace $w5
+bindsym $alt+Shift+1 move container to workspace $wa1; workspace $wa1
+bindsym $alt+Shift+2 move container to workspace $wa2; workspace $wa2
+bindsym $alt+Shift+3 move container to workspace $wa3; workspace $wa3
+bindsym $alt+Shift+4 move container to workspace $wa4; workspace $wa4
+bindsym $alt+Shift+5 move container to workspace $wa5; workspace $wa5
 
 bindsym $mod+s move workspace to output right
 
