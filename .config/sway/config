@@ -1,5 +1,7 @@
 include ~/.config/i3/config
 
+exec waybar
+
 input * {
     xkb_layout "us"
     # Used for special german chars
