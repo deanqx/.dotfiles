@@ -1,4 +1,4 @@
-Minimal i3wm installation with Catppuccin colorscheme.
+Minimal i3wm installation with Catppuccin color scheme.
 
 # Features
 
@@ -135,12 +135,7 @@ git clone git@github.com:deanqx/dotfiles.git .dotfiles
 I use LTeX for that. Download the [binaries](https://github.com/valentjn/ltex-ls/releases/download/16.0.0/ltex-ls-16.0.0-linux-x64.tar.gz).
 
 ```
-tar -xzf ~/Downloads/ltex-ls-16.0.0-linux-x64.tar.gz ~/.local/share/nvim/language_servers
-cd ~/.local/share/nvim/language_servers
-
-mv ltex-ls-16.0.0-linux-x64 temp
-mv temp/ltex-ls-16.0.0 ltex-ls-16.0.0-linux-x64
-rmdir temp
+tar -xf ~/dload/ltex-ls-16.0.0-linux-x64.tar.gz -C ~/.local/share/nvim/language_servers
 ```
 
 ### Git config
