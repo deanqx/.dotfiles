@@ -4,7 +4,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Djdk.xml.totalEntitySize
 export ARDUINO_LANGUAGE_SERVER_CLIPATH="~/.arduino15/arduino-cli.yaml"
 #export NODE_OPTIONS="--no-experimental-require-module"
 
-set enable-bracketed-paste Off
+# Fix escape sequence with pasted text
+zle_highlight=('paste:none')
 
 ZSH_THEME="superjarin"
 
