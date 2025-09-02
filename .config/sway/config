@@ -11,7 +11,7 @@ input * {
     repeat_rate 35
 }
 
-# output * bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
+output * bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
 
 assign [app_id="firefox"] $w1
 
