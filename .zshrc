@@ -5,7 +5,9 @@ export ARDUINO_LANGUAGE_SERVER_CLIPATH="~/.arduino15/arduino-cli.yaml"
 #export NODE_OPTIONS="--no-experimental-require-module"
 
 # Fix escape sequence with pasted text
-zle_highlight=('paste:none')
+if [[ -n "$TMUX" ]]; then
+  unset zle_bracketed_paste
+fi
 
 ZSH_THEME="superjarin"
 
