@@ -11,7 +11,20 @@ input * {
     repeat_rate 35
 }
 
-output * bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
+input "type:touchpad" {
+    tap enabled
+    natural_scroll disabled # invert scrolling
+    dwt disabled # disable while typing
+    scroll_factor 0.9
+    accel_profile adaptive # or flat
+    pointer_accel 0.5
+    click_method clickfinger  # or buttonareas
+}
+
+output * {
+    scale 1.0 # scaling currently not working with alacritty
+    bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
+}
 
 assign [app_id="firefox"] $w1
 
