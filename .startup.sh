@@ -1,7 +1,6 @@
 #!/bin/bash
 # Start the server for quicker tmux launch times
 tmux start-server
-alacritty & disown
 
 if [ $USER == "deanqx" ]; then
     nvidia-settings --load-config-only
