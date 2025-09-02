@@ -19,5 +19,6 @@ trash-cli
 ttf-dejavu
 ttf-jetbrains-mono-nerd
 ttf-liberation
+unzip
 zsh-autosuggestions
 zsh-syntax-highlighting
