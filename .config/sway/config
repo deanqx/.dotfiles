@@ -15,14 +15,15 @@ input "type:touchpad" {
     tap enabled
     natural_scroll disabled # invert scrolling
     dwt disabled # disable while typing
-    scroll_factor 0.9
+    scroll_factor 0.7
     accel_profile adaptive # or flat
-    pointer_accel 0.5
+    pointer_accel 0.6
     click_method clickfinger  # or buttonareas
 }
 
 output * {
-    scale 1.0 # scaling currently not working with alacritty
+    # scaling currently not working with alacritty
+    scale 1.0
     bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
 }
 
