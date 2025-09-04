@@ -2,6 +2,8 @@
 
 /.config/dconf
 
+/.config/user-dirs*
+
 /.config/GIMP/**
 !/.config/GIMP/*
 !/.config/GIMP/*/sessionrc
