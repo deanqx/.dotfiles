@@ -22,8 +22,8 @@ input "type:touchpad" {
 }
 
 output * {
-    # scaling currently not working with alacritty
-    scale 1.0
+    # scaling not working correctly with X11
+    #scale 1.25
     bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
 }
 
