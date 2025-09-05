@@ -2,6 +2,8 @@
 
 /.config/dconf
 
+/.config/Logic
+
 /.config/user-dirs*
 
 /.config/GIMP/**
