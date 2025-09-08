@@ -3,7 +3,7 @@
 /.config/dconf
 
 /.config/Logic
-
+/.config/libreoffice
 /.config/user-dirs*
 
 /.config/GIMP/**
