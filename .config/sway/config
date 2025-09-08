@@ -7,7 +7,7 @@ input * {
     # Used for special german chars
     xkb_variant "altgr-intl"
     xkb_options caps:escape
-    repeat_delay 260
+    repeat_delay 300
     repeat_rate 35
 }
 
