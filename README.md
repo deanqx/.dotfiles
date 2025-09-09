@@ -1,34 +1,37 @@
-Minimal i3wm installation with Catppuccin color scheme.
+ My Linux configuration files.
 
 # Features
 
 - Distro: Archlinux
-- Works with Nvidia GPU
-- Window Manager: i3wm (ly, polybar, rofi, dunst)
-- Window System: xorg
-- Terminal: Alacritty (transparent)
-- Shell: oh-my-zsh
+- Shell: zsh
 - Editor: Neovim
-- tmux
-- Spotify (with local music support)
+- Terminal multiplexer: tmux
+
+Setup                | Nvidia GPU | AMD GPU
+-------------------- | ---------- | ----------
+Window System        | X11        | Wayland
+Window Manager       | i3wm       | sway
+Terminal Emulator    | Alacritty  | Alacritty
+
 
 ## Switch Audio
 
-This is configured at `.config/i3/config`.
+This is configured in the [i3 config](.config/i3/config).
 
-Press `$i3mod+Shift+a` to switch audio output device.
+Press `CMD+Shift+a` to switch audio output device.
 
 ## Neovim
 
-### How to keep currently open files
+### Keep currently open files
 
-Use `:Q` to quit and save the session in a `.session.vim` file.
+After opening Neovim with:
 
 ```
 vim
 ```
 
-to open session from current directory.
+Use `:Q` to quit and save the session in a `.session.vim` file.
+The same command opens the session from current directory.
 
 # Installation
 
@@ -44,7 +47,8 @@ Before continuing installation steps sync your package database:
 
 ## 2 Install a window system
 
-You can choose between [i3wm]() ([X11]()) or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
+You can choose between [i3wm](https://wiki.archlinux.org/title/I3) ([X11](https://wiki.archlinux.org/title/Xorg))
+or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
 
 ### 2.1 Install desktop fonts
 
@@ -107,27 +111,20 @@ cd .dotfiles
 ./install.sh
 ```
 
-TODO install zsh extensions
-
-```
-```
-
 ## 6 Launching window manager
 
 Reload env or reboot
 
-Depending on your setup execute [sway](https://swaywm.org/) or [i3wm]().
+Depending on your setup execute [sway](https://swaywm.org/) or [i3wm](https://wiki.archlinux.org/title/I3).
 
-## First Installation
+## 7 Optional
 
-After the Arch Installation following the official guide.
+### Apple Emojis
 
-Hint: Close Neovim after plugins are updated.
+Install Apple looking Emojis from the AUR.
 
 ```
-cd ~
-git clone git@github.com:deanqx/dotfiles.git .dotfiles
-.dotfiles/install.sh
+paru -S ttf-apple emoji
 ```
 
 ### LanguageTool for Neovim
@@ -158,23 +155,7 @@ Press `<C-Space>` + `I` to install plugins.
 tmux kill-server
 ```
 
-### Optional programs
-
-```
-yay -S spotify discord_arch_electron
-```
-
-## Update
-
-Update to new commit of this repo.
-
-Hint: Close Neovim after plugins are updated.
-
-```
-./update.sh
-```
-
-## Firefox
+### Firefox custom background
 
 Add this to `userContent.css` to show background image on Firefox `about:newtab`:
 
