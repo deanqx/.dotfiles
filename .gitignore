@@ -21,11 +21,13 @@
 !/.config/GIMP
 /.config/GIMP/**
 !/.config/GIMP/*
-!/.config/GIMP/*/sessionrc
 !/.config/GIMP/*/shortcutsrc
-!/.config/GIMP/*/gimprc
-!/.config/GIMP/*/themes/
+# currently disabled because it may store sensitive data
+#!/.config/GIMP/*/sessionrc
+# !/.config/GIMP/*/gimprc
+#!/.config/GIMP/*/themes/
 
-# Personal
+# Razer RGB
 !/.config/OpenRGB
+/.config/OpenRGB/logs
 !/.config/openrazer
