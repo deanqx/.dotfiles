@@ -13,6 +13,9 @@ Window System        | X11        | Wayland
 Window Manager       | i3wm       | sway
 Terminal Emulator    | Alacritty  | Alacritty
 
+## Preview
+
+![Preview](preview.png)
 
 ## Switch Audio
 
