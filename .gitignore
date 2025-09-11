@@ -1,14 +1,31 @@
+/.config/*
+!/.config/alacritty
+!/.config/dunst
+!/.config/ly
+!/.config/nautilus
+!/.config/nvim
+!/.config/tmux
 /.config/tmux/plugins
 
-/.config/dconf
+# Xorg
+!/.config/i3
+!/.config/picom
+!/.config/polybar
+!/.config/rofi
 
-/.config/Logic
-/.config/libreoffice
-/.config/user-dirs*
+# Wayland
+!/.config/sway
+!/.config/waybar
 
+# GIMP
+!/.config/GIMP
 /.config/GIMP/**
 !/.config/GIMP/*
 !/.config/GIMP/*/sessionrc
 !/.config/GIMP/*/shortcutsrc
 !/.config/GIMP/*/gimprc
 !/.config/GIMP/*/themes/
+
+# Personal
+!/.config/OpenRGB
+!/.config/openrazer
