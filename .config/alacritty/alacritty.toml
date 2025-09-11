@@ -26,6 +26,6 @@ key = "Down"
 mods = "Control"
 
 [general]
-import = ["/home/deanqx/.config/alacritty/dracula.toml"]
+import = ["~/.config/alacritty/dracula.toml"]
 
 [terminal]
