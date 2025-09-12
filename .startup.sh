@@ -13,8 +13,5 @@ picom -b
 sleep 2
 
 firefox & disown
-
-if [ $USER == "deanqx"  ]; then
-    signal-desktop & disown
-    spotify & disown
-fi
+signal-desktop & disown
+spotify & disown
