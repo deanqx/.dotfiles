@@ -32,7 +32,7 @@ assign [app_id="firefox"] $w1
 # Wayland alternatives for X11 tools
 unbindsym $mod+d
 bindsym $mod+d exec "wofi --show drun -modi drun,window"
-bindsym $mod+x exec "swaylock"
+bindsym $mod+x exec "systemctl suspend && swaylock"
 
 # --- Screenshots (https://wiki.archlinux.org/title/Screen_capture#Wayland)
 # selection of screen
