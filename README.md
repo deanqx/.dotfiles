@@ -127,7 +127,7 @@ Depending on your setup execute [sway](https://swaywm.org/) or [i3wm](https://wi
 Install Apple looking Emojis from the AUR.
 
 ```
-paru -S ttf-apple emoji
+paru -S ttf-apple-emoji
 ```
 
 ### LanguageTool for Neovim
