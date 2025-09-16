@@ -29,9 +29,11 @@ output * {
 
 assign [app_id="firefox"] $w1
 
-# Wayland alternatives for X11 tools
+# App launcher like dmenu
 unbindsym $mod+d
-bindsym $mod+d exec "wofi --show drun -modi drun,window"
+bindsym $mod+d exec "fuzzel"
+
+# Lock desktop and suspend
 bindsym $mod+x exec "systemctl suspend && swaylock"
 
 # --- Screenshots (https://wiki.archlinux.org/title/Screen_capture#Wayland)
