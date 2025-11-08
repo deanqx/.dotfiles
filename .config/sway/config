@@ -28,6 +28,7 @@ output * {
 }
 
 assign [app_id="firefox"] $w1
+assign [app_id="signal"] $wa1
 
 # App launcher like dmenu
 unbindsym $mod+d
