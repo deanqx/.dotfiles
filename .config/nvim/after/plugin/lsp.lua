@@ -132,8 +132,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local current_filetype = vim.bo.filetype
         local prettier_filetypes = { "javascript", "svelte", "typescriptreact", "typescript", "css", "html", "json" }
 
+        vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
+
         if table.contains(prettier_filetypes, current_filetype) then
-            vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = format_group,
                 buffer = bufnr,
@@ -141,20 +142,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
                     vim.cmd('Prettier')
                 end
             })
-        elseif client:supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = format_group,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({
-                        filter = function()
-                            return client.name ~= "ts_ls" and client.name ~= "cssls"
-                        end,
-                        bufnr = bufnr,
-                    })
-                end,
-            })
         end
+
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = format_group,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({
+                    bufnr = bufnr,
+                })
+            end,
+        })
     end
 })
