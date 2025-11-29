@@ -16,8 +16,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screenshots
-bindsym Print exec maim --hidecursor --select "/home/$USER/pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
-bindsym Shift+Print exec maim --hidecursor "/home/$USER/pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
+bindsym Print exec maim --hidecursor --select "/home/$USER/Pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
+bindsym Shift+Print exec maim --hidecursor "/home/$USER/Pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
 
 # Clipboard Screenshots
 bindsym Ctrl+Print exec maim --hidecursor --select | xclip -selection clipboard -t image/png
