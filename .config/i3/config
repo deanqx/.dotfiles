@@ -93,12 +93,12 @@ set $wa4 "~4"
 set $wa5 "~5"
 
 assign [class="firefox"] $w1
-assign [class="Signal"] $wa1
-assign [class="Spotify"] $wa2
+assign [class="Signal"] $wa4
+assign [class="Spotify"] $wa5
 
 workspace $w1 output DP-4
-workspace $wa1 output DP-0
-workspace $wa2 output DP-0
+workspace $wa4 output DP-0
+workspace $wa5 output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
