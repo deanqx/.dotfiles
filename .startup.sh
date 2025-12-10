@@ -5,7 +5,6 @@ tmux start-server
 nvidia-settings --load-config-only
 playerctld daemon & disown
 feh --bg-fill ~/Pictures/wallpapers/bg_*
-~/.config/polybar/launch.sh
 dunst & disown
 picom -b
 

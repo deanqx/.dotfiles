@@ -81,16 +81,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # We use variables to avoid repeating the names in multiple places.
-set $w1 "1"
-set $w2 "2"
-set $w3 "3"
-set $w4 "4"
-set $w5 "5"
-set $wa1 "~1"
-set $wa2 "~2"
-set $wa3 "~3"
-set $wa4 "~4"
-set $wa5 "~5"
+set $w1 "1:1"
+set $w2 "3:2"
+set $w3 "5:3"
+set $w4 "7:4"
+set $w5 "9:5"
+set $wa1 "2:~1"
+set $wa2 "4:~2"
+set $wa3 "6:~3"
+set $wa4 "8:~4"
+set $wa5 "10:~5"
 
 assign [class="firefox"] $w1
 assign [class="Signal"] $wa4
@@ -140,7 +140,7 @@ bindsym $mod+s move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 (not sway) inplace
+# restart 83 (not sway) inplace
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
