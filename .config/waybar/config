@@ -6,6 +6,9 @@
   "modules-left": [
     "sway/workspaces",
   ],
+   "sway/workspaces": {
+    "format": "{name}",
+  },
   "modules-center": [
     "clock"
   ],
