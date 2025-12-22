@@ -47,13 +47,13 @@
     "tooltip-format": "CPU",
     "interval": 5,
     "format": " {usage:>2}%",
-    "on-click": "alacritty -e htop"
+    "on-click": "footclient htop"
   },
   "memory": {
     "tooltip-format": "Memory",
     "interval": 5,
     "format": "  {used:0.1f}G/{total:0.1f}G",
-    "on-click": "alacritty -e htop"
+    "on-click": "footclient htop"
   },
   "backlight": {
     "tooltip-format": "Brightness",
