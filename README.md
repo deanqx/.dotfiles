@@ -1,4 +1,5 @@
- My Linux configuration files.
+ My Linux configuration files. This repo serves as backup,
+ everything here should be viewed as experimental and not bug free.
 
 # Features
 
