@@ -65,13 +65,13 @@ bindsym $mod+x exec "systemctl suspend && swaylock"
 # --- Screenshots (https://wiki.archlinux.org/title/Screen_capture#Wayland)
 # selection of screen
 unbindsym Print
-bindsym Print exec grim -g "$(slurp)" "/home/$USER/pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
+bindsym Print exec grim -g "$(slurp -b \#ffffff03)" "/home/$USER/pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
 # whole screen
 unbindsym Shift+Print
 bindsym Shift+Print exec grim "/home/$USER/pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
 # selection of screen to clipboard
 unbindsym Ctrl+Print
-bindsym Ctrl+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Ctrl+Print exec grim -g "$(slurp -b \#ffffff03)" - | wl-copy
 # whole screen to clipboard
 unbindsym Ctrl+Shift+Print
 bindsym Ctrl+Shift+Print exec grim - | wl-copy
