@@ -32,29 +32,44 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'L3MON4D3/LuaSnip'
 
-    use {
-        'lervag/vimtex',
-        lazy = false,
-    }
-
+    -- file exploring
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use({
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup()
+        end,
+    })
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         requires = { { "nvim-lua/plenary.nvim" } }
     }
 
-    use('mbbill/undotree')
+
+    -- git view
     use('tpope/vim-fugitive')
-    use('will133/vim-dirdiff')
+
+    -- formating
+    use('prettier/vim-prettier')
+
+    use('tpope/vim-sleuth')
     use('tpope/vim-commentary')
 
-    use('prettier/vim-prettier')
-    use('tpope/vim-sleuth')
+    -- latex LSP
+    use {
+        'lervag/vimtex',
+        lazy = false,
+    }
 
+
+    use('mbbill/undotree')
+    use('will133/vim-dirdiff')
+
+    -- stop bad vim habits
     use {
         "m4xshen/hardtime.nvim",
         lazy = false,

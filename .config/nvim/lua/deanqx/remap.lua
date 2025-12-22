@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = 'Explore project folder' })
 vim.keymap.set("n", "U", "<C-r>", { desc = 'Redo undo' })
 
 -- Lock cursor and keep cursor in center
