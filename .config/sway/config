@@ -1,6 +1,23 @@
 include ~/.config/i3/config
 
 exec waybar
+exec foot --server
+exec tmux start-server
+exec playerctld daemon
+exec dunst
+
+# Desktop apps
+exec firefox
+exec signal-desktop
+exec spotify
+
+assign [app_id="firefox"] $w1
+assign [app_id="signal"] $wa4
+assign [app_id="spotify"] $wa5
+
+workspace $w1 output DP-3
+workspace $wa4 output DP-1
+workspace $wa5 output DP-1
 
 input * {
     xkb_layout "us"
@@ -22,18 +39,25 @@ input "type:touchpad" {
 }
 
 output * {
-    # scaling not working correctly with X11
-    #scale 1.25
-    bg $(ls ~/pictures/wallpapers/bg_* | head -n 1) fill
+    # scaling not working correctly with X11 apps
+    scale 1.0666666
+    bg $(ls ~/Pictures/wallpapers/bg_* | head -n 1) fill
 }
 
-assign [app_id="firefox"] $w1
-assign [app_id="signal"] $wa4
-assign [app_id="spotify"] $wa5
+output DP-1 {
+    pos 0 0
+}
+
+output DP-3 {
+    pos 2400 0
+}
 
 # App launcher like dmenu
 unbindsym $mod+d
 bindsym $mod+d exec "fuzzel"
+
+unbindsym $mod+Return
+bindsym $mod+Return exec "footclient"
 
 # Lock desktop and suspend
 bindsym $mod+x exec "systemctl suspend && swaylock"

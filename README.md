@@ -62,7 +62,14 @@ or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
 ### 2.2 sway installation
 
 ```
-# pacman -S xorg-xwayland sway
+# pacman -S xorg-xwayland sway waybar fuzzel grim slurp foot swaybg wl-clipboard
+```
+
+ly
+
+```
+cat /usr/share/wayland-sessions/sway.desktop
+Exec=~/launch_sway_nvidia.sh
 ```
 
 ## 3 Install basic programs
