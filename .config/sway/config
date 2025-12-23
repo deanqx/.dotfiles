@@ -44,7 +44,7 @@ input "type:touchpad" {
 
 output * {
     # scaling not working correctly with X11 apps
-    scale 1.0666666
+    # scale 1.0666666
     bg $(ls ~/Pictures/wallpapers/bg_* | head -n 1) fill
 }
 
@@ -53,7 +53,8 @@ output DP-1 {
 }
 
 output DP-3 {
-    pos 2400 0
+    # pos 2400 0
+    pos 2560 0
 }
 
 # App launcher like dmenu
