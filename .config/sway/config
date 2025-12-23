@@ -1,5 +1,9 @@
 include ~/.config/i3/config
 
+# XDG Portal service has to know which desktop is running
+# this is done through environment variables
+include /etc/sway/config.d/*
+
 exec waybar
 exec foot --server
 exec tmux start-server

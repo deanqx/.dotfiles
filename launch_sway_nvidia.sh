@@ -1,7 +1,3 @@
-#for n in "/usr/share" "/usr/local/share"; do
-#  [ -f "$n/wlroots-nvidia/wlroots-env.sh" ] && . "$n/wlroots-nvidia/wlroots-env.sh"
-#done
-
 # Set wlroots renderer to Vulkan to avoid flickering
 export WLR_RENDERER=vulkan
 
