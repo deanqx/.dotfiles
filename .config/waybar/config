@@ -6,31 +6,24 @@
   "modules-left": [
     "sway/workspaces",
   ],
-   "sway/workspaces": {
-    "format": "{name}",
-  },
   "modules-center": [
     "clock"
   ],
   "modules-right": [
-    "network",
     "wireplumber",
+    "network",
     "cpu",
     "memory",
     "backlight",
     "battery",
   ],
+  "sway/workspaces": {
+    "format": "{name}",
+  },
   "clock": {
     "tooltip": false,
     "format": "{:%Y-%m-%d %H:%M:%S}",
     "interval": 1
-  },
-  "network": {
-    "format-wifi": "󰤢 {essid} ({signalStrength}%)",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰤠 ",
-    "interval": 5,
-    "tooltip": false,
   },
   "wireplumber": {
     "format": "{icon} {volume}%",
@@ -42,6 +35,13 @@
         " "
       ]
     },
+  },
+  "network": {
+    "format-wifi": "󰤢 {essid} ({signalStrength}%)",
+    "format-ethernet": "Ethernet",
+    "format-disconnected": "Disconnected",
+    "interval": 3,
+    "tooltip": false,
   },
   "cpu": {
     "tooltip-format": "CPU",
