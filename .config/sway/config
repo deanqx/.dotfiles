@@ -10,6 +10,9 @@ exec tmux start-server
 exec playerctld daemon
 exec dunst
 
+# Deprecated: load razer rgb
+exec polychromatic-cli -e Default
+
 # Desktop apps
 exec firefox
 exec signal-desktop
