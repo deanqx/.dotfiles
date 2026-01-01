@@ -91,23 +91,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
         -- only set keymaps if LSP attaches
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = 'Goto declaration' })
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'Goto definition' })
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = 'Goto references' })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = 'LSP: Goto declaration' })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'LSP: Goto definition' })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = 'LSP: Goto references' })
         -- missing: vim.lsp.buf.type_definition(), vim.lsp.buf.implementation()
 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'Show information of symbol' })
-        vim.keymap.set("i", "<C-f>", vim.lsp.buf.signature_help, { desc = 'Show signature help' })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'LSP: Show information of symbol' })
+        vim.keymap.set("i", "<C-f>", vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })
 
         vim.keymap.set("n", "<leader>k", function()
             vim.diagnostic.jump({ count = -1, float = true })
-        end, { desc = 'Jump to previous diagnostic' })
+        end, { desc = 'LSP: Jump to previous diagnostic' })
         vim.keymap.set("n", "<leader>j", function()
             vim.diagnostic.jump({ count = 1, float = true })
-        end, { desc = 'Jump to next diagnostic' })
+        end, { desc = 'LSP: Jump to next diagnostic' })
 
-        vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = 'Diagnostic action' })
-        vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = 'Rename symbol' })
+        vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = 'LSP: Diagnostic action' })
+        vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
 
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,

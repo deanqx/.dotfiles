@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = 'File explorer' })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = 'Oil: File explorer' })
 
 require("oil").setup({
     columns = {

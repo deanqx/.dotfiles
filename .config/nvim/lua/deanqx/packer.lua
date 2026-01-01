@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'neovim/nvim-lspconfig'
 
+    use {
+        'mfussenegger/nvim-dap',
+        requires = { { 'igorlfs/nvim-dap-view' } }
+    }
+
     -- Autocompletion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
