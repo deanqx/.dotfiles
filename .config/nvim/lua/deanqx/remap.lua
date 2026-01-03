@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "U", "<C-r>", { desc = 'Redo undo' })
 
 -- Lock cursor and keep cursor in center
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Go down' })
