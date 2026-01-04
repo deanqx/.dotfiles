@@ -1,3 +1,4 @@
+export EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.cargo/bin:$PATH"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Djdk.xml.totalEntitySizeLimit=1000000'
