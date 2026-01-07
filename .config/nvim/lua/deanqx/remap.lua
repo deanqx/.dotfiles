@@ -20,6 +20,6 @@ vim.keymap.set("n", "<leader>C", "\"_C", { desc = 'C without losing buffer' })
 -- System clipboard
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = 'Copy to clipboard' })
 vim.keymap.set("v", "<leader>y", "\"+y", { desc = 'Copy to clipboard (visual mode)' })
-vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = 'Copy to clipboard' })
+vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = 'Copy rest of the line to clipboard' })
 
 vim.keymap.set("n", "Q", "<nop>", { desc = 'Unused' })
