@@ -4,6 +4,7 @@ local luasnip = require('luasnip')
 -- clangd is not installed via Mason
 -- to support custom clangd implementations
 vim.lsp.enable('clangd')
+vim.lsp.enable('jdtls')
 
 require('mason').setup()
 require('mason-lspconfig').setup()
@@ -88,13 +89,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
     callback = function(args)
         local bufnr = args.buf
-        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        --local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
         -- only set keymaps if LSP attaches
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = 'LSP: Goto declaration' })
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = 'LSP: Goto implementation' })
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'LSP: Goto definition' })
         vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = 'LSP: Goto references' })
-        -- missing: vim.lsp.buf.type_definition(), vim.lsp.buf.implementation()
+        -- missing: vim.lsp.buf.type_definition()
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'LSP: Show information of symbol' })
         vim.keymap.set("i", "<C-f>", vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })

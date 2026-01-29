@@ -28,7 +28,10 @@ return require('packer').startup(function(use)
 
     use {
         'mfussenegger/nvim-dap',
-        requires = { { 'igorlfs/nvim-dap-view' } }
+        requires = {
+            { 'igorlfs/nvim-dap-view' },
+            { 'mfussenegger/nvim-jdtls' },
+        }
     }
 
     -- Autocompletion
@@ -53,7 +56,6 @@ return require('packer').startup(function(use)
         branch = "harpoon2",
         requires = { { "nvim-lua/plenary.nvim" } }
     }
-
 
     -- git view
     use('tpope/vim-fugitive')
