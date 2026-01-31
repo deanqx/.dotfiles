@@ -17,6 +17,7 @@ Terminal Emulator    | Alacritty  | Alacritty
 ## Preview
 
 ![Preview](preview.png)
+Sep 11, 2025
 
 ## Switch Audio
 
