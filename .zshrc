@@ -10,13 +10,18 @@ if [[ -n "$TMUX" ]]; then
   unset zle_bracketed_paste
 fi
 
-ZSH_THEME="superjarin"
-
-plugins=(git sudo history encode64 copypath )
+plugins=(git sudo history encode64 copypath)
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
+
+PROMPT='%{$fg[magenta]%}[%{$fg_bold[cyan]%}%n%{$fg_bold[white]%}@%{$fg_bold[cyan]%}%M%{$reset_color%}%{$fg[magenta]%}] %{$fg_bold[white]%}%~%{$reset_color%}$(git_prompt_info) %{$fg[magenta]%}$ % %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg_bold[yellow]%} "
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔"
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]='bold'
