@@ -206,8 +206,8 @@
       "Description"
     ],
     "open_libs": [
-      "-- Already Placed --",
       "Connector",
+      "-- Already Placed --",
       "Connector_Generic",
       "Connector_Generic_MountingPin",
       "Connector_Generic_Shielded",
