@@ -18,6 +18,22 @@
 !/.config/sway
 !/.config/waybar
 
+# kicad
+!/.config/kicad
+!/.config/kicad/9.0
+/.config/kicad/9.0/*
+!/.config/kicad/9.0/user.hotkeys
+!/.config/kicad/9.0/3d_viewer.json
+!/.config/kicad/9.0/cvpcb.json
+!/.config/kicad/9.0/eeschema.json
+!/.config/kicad/9.0/fpedit.json
+!/.config/kicad/9.0/gerbview.json
+!/.config/kicad/9.0/kicad.json
+!/.config/kicad/9.0/kicad_common.json
+!/.config/kicad/9.0/pcbnew.json
+!/.config/kicad/9.0/pl_editor.json
+!/.config/kicad/9.0/symbol_editor.json
+
 # GIMP
 !/.config/GIMP
 /.config/GIMP/**
