@@ -6,12 +6,12 @@
     "options": 1,
     "recursive": true,
     "scope": 0,
-    "sort_order": 0
+    "sort_order": 1
   },
   "appearance": {
     "color_theme": "_builtin_default",
     "default_font": "KiCad Font",
-    "edit_label_height": 464,
+    "edit_label_height": 460,
     "edit_label_visible_columns": "0 1 2 3 4 5 6 7",
     "edit_label_width": 939,
     "edit_sheet_height": 444,
@@ -206,27 +206,10 @@
       "Description"
     ],
     "open_libs": [
-      "Connector",
+      "-- Recently Used --",
       "-- Already Placed --",
-      "Connector_Generic",
-      "Connector_Generic_MountingPin",
-      "Connector_Generic_Shielded",
-      "Connector_Audio",
-      "MCU_Module",
-      "Isolator",
-      "Interface_Optical",
-      "Interface_USB",
-      "Oscillator",
-      "Motor",
-      "Device",
-      "Mechanical",
-      "Regulator_Switching",
-      "Relay",
-      "RF_Bluetooth",
-      "RF_Module",
-      "Switch",
-      "Transistor_BJT",
-      "Transistor_FET"
+      "Connector",
+      "Connector_Audio"
     ]
   },
   "lib_view": {
@@ -362,7 +345,7 @@
     "layers": [],
     "monochrome": true,
     "scale": 1.0,
-    "title_block": false,
+    "title_block": true,
     "use_theme": false
   },
   "search_pane": {

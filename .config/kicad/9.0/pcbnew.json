@@ -125,7 +125,7 @@
     "sash_h": 706,
     "sash_v": 679,
     "sort_mode": 0,
-    "use_fp_filters": false,
+    "use_fp_filters": true,
     "width": 1276
   },
   "footprint_viewer": {
@@ -516,12 +516,7 @@
       "Description"
     ],
     "open_libs": [
-      "Battery",
-      "Connector_PinHeader_1.00mm",
-      "Connector_PinHeader_2.54mm",
-      "Connector_Wire",
-      "TerminalBlock_MetzConnect",
-      "TerminalBlock_WAGO"
+      "Resistor_THT"
     ]
   },
   "meta": {
@@ -571,9 +566,9 @@
     "all_layers_on_one_page": 1,
     "as_item_checkboxes": false,
     "check_zones_before_plotting": true,
-    "edgecut_on_all_layers": true,
-    "fine_scale_x": 0.0,
-    "fine_scale_y": 0.0,
+    "edgecut_on_all_layers": false,
+    "fine_scale_x": 1.0,
+    "fine_scale_y": 1.0,
     "mirror": false,
     "pads_drill_mode": 2,
     "ps_fine_width_adjust": 0.0
@@ -583,12 +578,16 @@
   },
   "printing": {
     "background": false,
-    "color_theme": "",
-    "layers": [],
+    "color_theme": "_builtin_classic",
+    "layers": [
+      2,
+      25,
+      39
+    ],
     "monochrome": true,
     "scale": 1.0,
     "title_block": false,
-    "use_theme": false
+    "use_theme": true
   },
   "reannotate_dialog": {
     "annotate_back_prefix": "",
@@ -620,7 +619,7 @@
     "first_run_shown": false,
     "last_footprint3d_dir": "/usr/share/kicad/3dmodels/",
     "last_footprint_lib_dir": "",
-    "last_imperial_units": 5,
+    "last_imperial_units": 0,
     "last_metric_units": 1,
     "max_undo_items": 0,
     "show_import_issues": true,
@@ -680,7 +679,7 @@
       "override_vias_idx": 18,
       "override_wires": false,
       "override_wires_idx": 19,
-      "overrides_enabled": true,
+      "overrides_enabled": false,
       "show": false,
       "sizes": [
         {
@@ -828,6 +827,6 @@
     ]
   },
   "zones": {
-    "net_sort_mode": -1
+    "net_sort_mode": 1
   }
 }

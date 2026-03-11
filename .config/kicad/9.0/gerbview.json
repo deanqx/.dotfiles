@@ -66,10 +66,18 @@
     "selection_zoom": 1
   },
   "system": {
-    "drill_file_history": [],
-    "file_history": [],
+    "drill_file_history": [
+      "/home/deanqx/git/go-kart/docs/circuit/gerber-files/go-kart_cockpit-PTH.drl",
+      "/home/deanqx/git/go-kart/docs/circuit/gerber-files/go-kart_cockpit-NPTH.drl"
+    ],
+    "file_history": [
+      "/home/deanqx/git/go-kart/docs/circuit/gerber-files/go-kart_cockpit-Edge_Cuts.gbr",
+      "/home/deanqx/git/go-kart/docs/circuit/gerber-files/go-kart_cockpit-B_Cu.gbr"
+    ],
     "first_run_shown": false,
-    "job_file_history": [],
+    "job_file_history": [
+      "/home/deanqx/git/go-kart/docs/circuit/gerber-files/go-kart_cockpit-job.gbrjob"
+    ],
     "last_imperial_units": 5,
     "last_metric_units": 1,
     "max_undo_items": 0,
@@ -84,7 +92,7 @@
     },
     "display": 0,
     "grid": {
-      "axes_enabled": false,
+      "axes_enabled": true,
       "fast_grid_1": 15,
       "fast_grid_2": 16,
       "last_size": 15,
@@ -220,12 +228,12 @@
       "user_grid_y": ""
     },
     "maximized": false,
-    "mru_path": "",
-    "perspective": "",
+    "mru_path": "/home/deanqx/git/go-kart/docs/circuit/gerber-files",
+    "perspective": "layout2|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=610;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AuxToolbar;caption=;state=139644;dir=1;layer=4;row=0;pos=0;prop=100000;bestw=1157;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=OptToolbar;caption=;state=139596;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=620;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LayersManager;caption=Layers Manager;state=1532;dir=2;layer=3;row=0;pos=0;prop=100000;bestw=346;besth=32;minw=346;minh=32;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=346;floath=32|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=188;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=38|dock_size(1,4,0)=38|dock_size(3,6,0)=38|dock_size(4,3,0)=34|dock_size(2,3,0)=346|dock_size(5,0,0)=382|",
     "pos_x": 0,
     "pos_y": 0,
-    "size_x": 0,
-    "size_y": 0,
+    "size_x": 1276,
+    "size_y": 674,
     "zoom_factors": [
       0.022,
       0.035,
