@@ -14,9 +14,14 @@ fi
 
 plugins=(git sudo history encode64 copypath)
 
+source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH/oh-my-zsh.sh
+
+# needed for docker autocompletion
+docker() {
+  sudo /usr/bin/docker "$@"
+}
 
 PROMPT='%{$fg[magenta]%}[%{$fg_bold[cyan]%}%n%{$fg_bold[white]%}@%{$fg_bold[cyan]%}%M%{$reset_color%}%{$fg[magenta]%}] %{$fg_bold[white]%}%~%{$reset_color%}$(git_prompt_info) %{$fg[magenta]%}$ % %{$reset_color%}'
 
@@ -43,7 +48,7 @@ function vim_wrapper()
 
 function open_project_tmux()
 {
-    local path = $1
+    local path=$1
 
     tmux new-session -d -s myproj -c $path "git pull && exec vim"
     tmux new-window -t myproj:2 -c $path
