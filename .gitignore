@@ -27,8 +27,8 @@
 # GIMP
 !/.config/GIMP
 /.config/GIMP/**
-!/.config/GIMP/*
-!/.config/GIMP/*/shortcutsrc
+!/.config/GIMP/3.2
+!/.config/GIMP/3.2/shortcutsrc
 # currently disabled because it may store sensitive data
 #!/.config/GIMP/*/sessionrc
 # !/.config/GIMP/*/gimprc
