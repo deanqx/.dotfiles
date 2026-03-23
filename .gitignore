@@ -1,11 +1,12 @@
 /.config/*
-!/.config/alacritty
-!/.config/foot
 !/.config/dunst
+!/.config/foot
+!/.config/fuzzel
 !/.config/ly
-!/.config/nautilus
 !/.config/nvim
+!/.config/sway
 !/.config/tmux
+!/.config/waybar
 /.config/tmux/plugins
 
 # Xorg
@@ -13,10 +14,6 @@
 !/.config/picom
 !/.config/polybar
 !/.config/rofi
-
-# Wayland
-!/.config/sway
-!/.config/waybar
 
 # kicad
 !/.config/kicad
