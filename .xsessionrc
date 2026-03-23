@@ -1,5 +1,0 @@
-#!/bin/sh
-exec i3
-
--Xft.dpi: 94
--Xcursor.theme: Adwaita

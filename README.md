@@ -4,15 +4,10 @@
 # Features
 
 - Distro: Archlinux
+- Desktop: sway (Wayland)
 - Shell: zsh
 - Editor: Neovim
-- Terminal multiplexer: tmux
-
-Setup                | Nvidia GPU | AMD GPU
--------------------- | ---------- | ----------
-Window System        | X11        | Wayland
-Window Manager       | i3wm       | sway
-Terminal Emulator    | Alacritty  | Alacritty
+- Terminal: foot with tmux
 
 ## Preview
 
@@ -64,10 +59,8 @@ or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
 ### 2.2 sway installation
 
 ```
-# pacman -S xorg-xwayland sway waybar fuzzel grim slurp foot swaybg wl-clipboard
+# pacman -S xorg-xwayland sway waybar fuzzel grim slurp foot swaybg wl-clipboard ly
 ```
-
-ly
 
 ```
 cat /usr/share/wayland-sessions/sway.desktop
