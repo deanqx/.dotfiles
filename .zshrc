@@ -18,12 +18,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# needed for docker autocompletion
-docker() {
-  sudo /usr/bin/docker "$@"
-}
-
-PROMPT='%{$fg[magenta]%}[%{$fg_bold[cyan]%}%n%{$fg_bold[white]%}@%{$fg_bold[cyan]%}%M%{$reset_color%}%{$fg[magenta]%}] %{$fg_bold[white]%}%~%{$reset_color%}$(git_prompt_info) %{$fg[magenta]%}$ % %{$reset_color%}'
+PROMPT='%F{magenta}[%B%F{cyan}%n%F{white}@%F{cyan}%M%b%F{magenta}] %B%F{white}%~%b %F{magenta}$ %f'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg_bold[yellow]%} "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -53,6 +48,11 @@ function open_project_tmux()
     tmux new-session -d -s myproj -c $path "git pull && exec vim"
     tmux new-window -t myproj:2 -c $path
     tmux attach -t myproj
+}
+
+# needed for docker autocompletion
+docker() {
+  sudo /usr/bin/docker "$@"
 }
 
 alias vim='vim_wrapper'
