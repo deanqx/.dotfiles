@@ -16,8 +16,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screenshots
-bindsym Print exec maim --hidecursor --select "/home/$USER/Pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
-bindsym Shift+Print exec maim --hidecursor "/home/$USER/Pictures/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
+bindsym Print exec maim --hidecursor --select "/home/$USER/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
+bindsym Shift+Print exec maim --hidecursor "/home/$USER/screenshots/$(date +"%Y-%m-%d_%Hh%Mm%Ss").png"
 
 # Clipboard Screenshots
 bindsym Ctrl+Print exec maim --hidecursor --select | xclip -selection clipboard -t image/png
@@ -244,7 +244,7 @@ input "type:touchpad" {
 output * {
     # scaling not working correctly with X11 apps
     # scale 1.0666666
-    bg $(ls ~/Pictures/wallpapers/bg_* | head -n 1) fill
+    bg $(ls ~/sectors/wallpapers/bg_* | head -n 1) fill
 }
 
 output DP-1 {

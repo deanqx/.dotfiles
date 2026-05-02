@@ -1,10 +1,12 @@
 .git
-.stow-ignore
 .gitmodules
-README.md
+.stow-ignore
 LICENSE
+README.md
+install.sh
+install.sh
+launch_sway_nvidia.sh
 packages_aur.txt
 packages_pacman.txt
-install.sh
+preview.png
 update.sh
-install.sh

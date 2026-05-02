@@ -59,7 +59,7 @@ or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
 ### 2.2 sway installation
 
 ```
-# pacman -S xorg-xwayland sway waybar fuzzel grim slurp foot swaybg wl-clipboard ly
+# pacman -S xorg-xwayland sway waybar fuzzel grim slurp foot swaybg wl-clipboard ly xdg-desktop-portal-wlr
 ```
 
 ```
@@ -116,13 +116,22 @@ cd .dotfiles
 ./install.sh
 ```
 
-## 6 Launching window manager
+## 6 Launching the window manager
 
 Reload env or reboot
 
 Depending on your setup execute [sway](https://swaywm.org/) or [i3wm](https://wiki.archlinux.org/title/I3).
 
 ## 7 Optional
+
+### Recommended folder structure of home directory
+
+1. `archive`: Old projects or general obsolete things. The home structure could be copied here.
+2. `inbox`: Downloads
+3. `projects`: Files that are finished at one point.
+4. `screenshots`: Location of screenshots
+5. `sectors`: Long-lived files like wallpapers or music.
+6. `templates`: Resources to be reused else where.
 
 ### Apple Emojis
 
