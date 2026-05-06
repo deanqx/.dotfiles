@@ -1,5 +1,4 @@
- My Linux configuration files. This repo serves as backup,
- everything here should be viewed as experimental and not bug free.
+ My Linux configuration files for desktop.
 
 # Features
 
@@ -16,9 +15,9 @@ Sep 11, 2025
 
 ## Switch Audio
 
-This is configured in the [i3 config](.config/i3/config).
+This is configured in the [sway config](.config/sway/config).
 
-Press `CMD+Shift+a` to switch audio output device.
+Press `CMD + Shift + a` to switch audio output device.
 
 ## Neovim
 
@@ -35,92 +34,71 @@ The same command opens the session from current directory.
 
 # Installation
 
-## 1 Follow Arch Installation guide
+## 1 Complete the Arch Installation guide
 
 [Arch Installation guide](https://wiki.archlinux.org/title/Installation_guide)
 
 Before continuing installation steps sync your package database:
 
 ```
-# pacman -Sy
+sudo pacman -Sy
 ```
 
-## 2 Install a window system
-
-You can choose between [i3wm](https://wiki.archlinux.org/title/I3) ([X11](https://wiki.archlinux.org/title/Xorg))
-or [sway](https://swaywm.org/) ([Wayland](https://wayland.freedesktop.org/)).
-
-### 2.1 Install desktop fonts
-
-```
-# pacman -S noto-fonts ttf-jetbrains-mono-nerd
-```
-
-### 2.2 sway installation
-
-```
-# pacman -S xorg-xwayland sway waybar fuzzel grim slurp foot swaybg wl-clipboard ly xdg-desktop-portal-wlr
-```
-
-```
-cat /usr/share/wayland-sessions/sway.desktop
-Exec=~/launch_sway_nvidia.sh
-```
-
-## 3 Install basic programs
-
-```
-# pacman -S git zsh sudo
-```
-
-- `git`
-- `zsh`
-- `sudo`
-
-## 4 User setup
-
-```
-groupadd sudo
-```
-
-Uncomment this line in `/etc/sudoers` to allow all users in `sudo` group to have root privileges.
-
-```
-%sudo ALL=(ALL:ALL) ALL
-```
-
-```
-# useradd -m -G sudo -s /usr/bin/zsh your_username
-```
-
-- `-m` Create home directory
-- `-G` Group
-- `-s` Default shell
-
-```
-# passwd your_username
-# su your_username
-```
-
-## 5 Download dotfiles
+After you completed the Arch Installation Guide,
+clone this repo into your home directory:
 
 ```
 cd ~
 git clone https://github.com/deanqx/.dotfiles
 ```
 
-git pull --recurse-submodules
+## 2 Install recommended packages
+
+```
+sudo pacman --needed -S - < ~/.dotfiles/packages_pacman.txt
+```
+
+## 3 AUR Package-Manager
+
+Paru is used for this system:
+
+```
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+```
+
+After installation you can delete the `paru` folder.
+
+## 4 Enable Services
+
+### 4.1 Pipewire for Audio
+
+```
+systemctl enable --now --user pipewire pipewire-pulse wireplumber
+```
+
+### 4.2 Ly as Login-Manager
+
+If you are using an Nvidia GPU modify the `Exec`
+in `/usr/share/wayland-sessions/sway.desktop` as following:
+
+```
+Exec=~/.launch_sway_nvidia.sh
+```
+
+```
+sudo systemctl enable ly@tty1
+sudo systemctl disable getty@tty1
+```
+
+## 5 Install
 
 ```
 cd .dotfiles
+git pull --recurse-submodules
 ./install.sh
 ```
-
-## 6 Launching the window manager
-
-Reload env or reboot
-
-Depending on your setup execute [sway](https://swaywm.org/) or [i3wm](https://wiki.archlinux.org/title/I3).
 
 ## 7 Optional
 
