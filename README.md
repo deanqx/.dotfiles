@@ -111,6 +111,18 @@ git pull --recurse-submodules
 5. `sectors`: Long-lived files like wallpapers or music.
 6. `templates`: Resources to be reused else where.
 
+### Additional Software
+
+```
+sudo pacman -S nautilus mpv gwenview gimp vlc
+```
+
+`nautilus`: file explorer
+`mpv`: high performance video viewer
+`gwenview`: image viewer
+`gimp`: image editor
+`vlc`: versatile video viewer
+
 ### Apple Emojis
 
 Install Apple looking Emojis from the AUR.
