@@ -24,6 +24,7 @@ sway
 swaybg
 tmux
 trash-cli
+tree-sitter-cli
 ttf-jetbrains-mono-nerd
 waybar
 wireplumber

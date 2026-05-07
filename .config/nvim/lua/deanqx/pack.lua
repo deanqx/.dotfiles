@@ -47,3 +47,19 @@ vim.pack.add({
     'https://github.com/m4xshen/hardtime.nvim',
     'https://github.com/MunifTanjim/nui.nvim',
 })
+
+local function hooks(ev)
+  local name, kind = ev.data.spec.name, ev.data.kind
+
+  if name == "nvim-treesitter" and (kind == "install" or kind == "update") then
+    -- ensure plugin is loaded so :TSUpdate exists
+    vim.cmd.packadd("nvim-treesitter")
+
+    -- run parser update
+    vim.cmd("TSUpdate")
+  end
+end
+
+vim.api.nvim_create_autocmd("PackChanged", {
+  callback = hooks,
+})
