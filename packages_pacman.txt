@@ -10,6 +10,7 @@ htop
 ly
 neovim
 noto-fonts
+noto-fonts-cjk
 openssh
 pipewire
 pipewire-alsa
