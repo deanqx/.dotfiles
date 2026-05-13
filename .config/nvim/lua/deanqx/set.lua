@@ -38,6 +38,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        -- only show colorcolumn in .md file
+        vim.opt_local.colorcolumn = "80"
+    end,
+})
+
 vim.cmd("command! -bar Q mksession! .session.vim | execute 'qa'")
 
--- vim.opt.colorcolumn = "80"
