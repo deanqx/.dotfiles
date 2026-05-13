@@ -13,25 +13,6 @@
 ![Preview](preview.png)
 Sep 11, 2025
 
-## Switch Audio
-
-This is configured in the [sway config](.config/sway/config).
-
-Press `CMD + Shift + a` to switch audio output device.
-
-## Neovim
-
-### Keep currently open files
-
-After opening Neovim with:
-
-```
-vim
-```
-
-Use `:Q` to quit and save the session in a `.session.vim` file.
-The same command opens the session from current directory.
-
 # Installation
 
 ## 1 Complete the Arch Installation guide
@@ -172,3 +153,37 @@ Add this to `userContent.css` to show background image on Firefox `about:newtab`
     }
 }
 ```
+
+# Usage
+
+## Switch Audio
+
+This is configured in the [sway config](.config/sway/config).
+
+Press `CMD + Shift + a` to switch audio output device.
+
+## Neovim
+
+### Update packages
+
+[vim.pack](https://neovim.io/doc/user/pack) is used as package manager.
+
+Execute inside Neovim:
+
+```
+:lua vim.pack.update()
+```
+
+This will download updates from source and show confirmation buffer in a separate tabpage.
+Review changes. To confirm all updates execute `:w`. To discard updates execute `:q`.
+
+### Keep currently open files
+
+After opening Neovim with:
+
+```
+vim
+```
+
+Use `:Q` to quit and save the session in a `.session.vim` file.
+The same command opens the session from current directory.

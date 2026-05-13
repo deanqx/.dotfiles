@@ -1,6 +1,6 @@
 vim.pack.add({
     -- Theme
-    'https://github.com/navarasu/onedark.nvim',
+    'https://github.com/catppuccin/nvim',
 
     -- LSP Package manager
     'https://github.com/williamboman/mason.nvim',
@@ -47,6 +47,15 @@ vim.pack.add({
     'https://github.com/m4xshen/hardtime.nvim',
     'https://github.com/MunifTanjim/nui.nvim',
 })
+
+local unused = vim.iter(vim.pack.get())
+  :filter(function(x) return not x.active end)
+  :map(function(x) return x.spec.name end)
+  :totable()
+
+if #unused > 0 then
+    vim.pack.del(unused)
+end
 
 local function hooks(ev)
   local name, kind = ev.data.spec.name, ev.data.kind
