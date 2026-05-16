@@ -49,7 +49,7 @@ cd paru
 makepkg -si
 ```
 
-After installation you can delete the `paru` folder.
+After installation, you can delete the `paru` folder.
 
 ## 4 Enable Services
 
@@ -105,8 +105,8 @@ sudo pacman -S nautilus mpv gwenview gimp vlc
 `gimp`: image editor
 `vlc`: versatile video viewer
 
-Install `xdg-terminal-exec` to allow Nautilus executing terminal apps like nvim
-and edit `.config/xdg-terminals.list` accordingly.
+Install `xdg-terminal-exec` to allow Nautilus executing terminal apps like
+Neovim and edit `.config/xdg-terminals.list` accordingly.
 
 ```zsh
 paru -S xdg-terminal-exec
@@ -120,14 +120,6 @@ Install Apple looking Emojis from the AUR.
 paru -S ttf-apple-emoji
 ```
 
-### LanguageTool for Neovim
-
-I use LTeX for that. Download the [binaries](https://github.com/valentjn/ltex-ls/releases/download/16.0.0/ltex-ls-16.0.0-linux-x64.tar.gz).
-
-```zsh
-tar -xf ~/dload/ltex-ls-16.0.0-linux-x64.tar.gz -C ~/.local/share/nvim/language_servers
-```
-
 ### Git config
 
 To keep for example `git log` on screen after quitting.
@@ -136,7 +128,7 @@ To keep for example `git log` on screen after quitting.
 git config --global core.pager "less -X"
 ```
 
-### tmux
+### Terminal-Multiplexer
 
 ```zsh
 tmux
@@ -182,8 +174,9 @@ Execute inside Neovim:
 :lua vim.pack.update()
 ```
 
-This will download updates from source and show confirmation buffer in a separate tabpage.
-Review changes. To confirm all updates execute `:w`. To discard updates execute `:q`.
+This will download updates from source and show confirmation buffer in a
+separate tabpage. Review changes. To confirm all updates execute `:w`.
+To discard updates execute `:q`.
 
 ### Keep currently open files
 
