@@ -21,21 +21,21 @@ Sep 11, 2025
 
 Before continuing installation steps sync your package database:
 
-```
+```zsh
 sudo pacman -Sy
 ```
 
 After you completed the Arch Installation Guide,
 clone this repo into your home directory:
 
-```
+```zsh
 cd ~
 git clone https://github.com/deanqx/.dotfiles
 ```
 
 ## 2 Install recommended packages
 
-```
+```zsh
 sudo pacman --needed -S - < ~/.dotfiles/packages_pacman.txt
 ```
 
@@ -43,7 +43,7 @@ sudo pacman --needed -S - < ~/.dotfiles/packages_pacman.txt
 
 Paru is used for this system:
 
-```
+```zsh
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
@@ -55,7 +55,7 @@ After installation you can delete the `paru` folder.
 
 ### 4.1 Pipewire for Audio
 
-```
+```zsh
 systemctl enable --now --user pipewire pipewire-pulse wireplumber
 ```
 
@@ -64,18 +64,18 @@ systemctl enable --now --user pipewire pipewire-pulse wireplumber
 If you are using an Nvidia GPU modify the `Exec`
 in `/usr/share/wayland-sessions/sway.desktop` as following:
 
-```
+```ini
 Exec=~/.launch_sway_nvidia.sh
 ```
 
-```
+```zsh
 sudo systemctl enable ly@tty1
 sudo systemctl disable getty@tty1
 ```
 
 ## 5 Install
 
-```
+```zsh
 cd .dotfiles
 git pull --recurse-submodules
 ./install.sh
@@ -95,7 +95,7 @@ git pull --recurse-submodules
 
 ### Additional Software
 
-```
+```zsh
 sudo pacman -S nautilus mpv gwenview gimp vlc
 ```
 
@@ -108,7 +108,7 @@ sudo pacman -S nautilus mpv gwenview gimp vlc
 Install `xdg-terminal-exec` to allow Nautilus executing terminal apps like nvim
 and edit `.config/xdg-terminals.list` accordingly.
 
-```
+```zsh
 paru -S xdg-terminal-exec
 ```
 
@@ -116,7 +116,7 @@ paru -S xdg-terminal-exec
 
 Install Apple looking Emojis from the AUR.
 
-```
+```zsh
 paru -S ttf-apple-emoji
 ```
 
@@ -124,7 +124,7 @@ paru -S ttf-apple-emoji
 
 I use LTeX for that. Download the [binaries](https://github.com/valentjn/ltex-ls/releases/download/16.0.0/ltex-ls-16.0.0-linux-x64.tar.gz).
 
-```
+```zsh
 tar -xf ~/dload/ltex-ls-16.0.0-linux-x64.tar.gz -C ~/.local/share/nvim/language_servers
 ```
 
@@ -132,19 +132,19 @@ tar -xf ~/dload/ltex-ls-16.0.0-linux-x64.tar.gz -C ~/.local/share/nvim/language_
 
 To keep for example `git log` on screen after quitting.
 
-```
+```zsh
 git config --global core.pager "less -X"
 ```
 
 ### tmux
 
-```
+```zsh
 tmux
 ```
 
 Press `<C-Space>` + `I` to install plugins.
 
-```
+```zsh
 tmux kill-server
 ```
 
@@ -189,7 +189,7 @@ Review changes. To confirm all updates execute `:w`. To discard updates execute 
 
 After opening Neovim with:
 
-```
+```zsh
 vim
 ```
 
