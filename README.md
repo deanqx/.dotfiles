@@ -85,7 +85,8 @@ git pull --recurse-submodules
 
 ### Recommended folder structure of home directory
 
-1. `archive`: Old projects or general obsolete things. The home structure could be copied here.
+1. `archive`: Old projects or general obsolete things. The home structure could
+   be copied here.
 2. `inbox`: Downloads
 3. `projects`: Files that are finished at one point.
 4. `screenshots`: Location of screenshots
@@ -103,6 +104,13 @@ sudo pacman -S nautilus mpv gwenview gimp vlc
 `gwenview`: image viewer
 `gimp`: image editor
 `vlc`: versatile video viewer
+
+Install `xdg-terminal-exec` to allow Nautilus executing terminal apps like nvim
+and edit `.config/xdg-terminals.list` accordingly.
+
+```
+paru -S xdg-terminal-exec
+```
 
 ### Apple Emojis
 

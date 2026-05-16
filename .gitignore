@@ -6,14 +6,9 @@
 !/.config/nvim
 !/.config/sway
 !/.config/tmux
-!/.config/waybar
 /.config/tmux/plugins
-
-# Xorg
-!/.config/i3
-!/.config/picom
-!/.config/polybar
-!/.config/rofi
+!/.config/waybar
+!/.config/xdg-terminals.list
 
 # kicad
 !/.config/kicad
