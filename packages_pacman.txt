@@ -11,6 +11,7 @@ ly
 neovim
 noto-fonts
 noto-fonts-cjk
+ntp
 openssh
 pipewire
 pipewire-alsa

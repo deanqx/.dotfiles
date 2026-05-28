@@ -73,6 +73,12 @@ sudo systemctl enable ly@tty1
 sudo systemctl disable getty@tty1
 ```
 
+### 4.3 Enable Time Synchronization
+
+```bash
+sudo systemctl enable --now ntpd
+```
+
 ## 5 Install
 
 ```zsh
