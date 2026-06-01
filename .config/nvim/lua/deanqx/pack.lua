@@ -9,6 +9,7 @@ vim.pack.add({
     -- LSP Support
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/stevearc/conform.nvim',
 
     -- Debugger
     'https://github.com/mfussenegger/nvim-dap',
