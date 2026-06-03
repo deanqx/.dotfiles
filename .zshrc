@@ -12,7 +12,7 @@ if [[ -n "$TMUX" ]]; then
   unset zle_bracketed_paste
 fi
 
-plugins=(git sudo history encode64 copypath)
+plugins=(git sudo history fzf encode64 copypath)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
