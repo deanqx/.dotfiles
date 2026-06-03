@@ -28,6 +28,7 @@ tmux
 trash-cli
 tree-sitter-cli
 ttf-jetbrains-mono-nerd
+ttf-roboto
 waybar
 wireplumber
 wl-clipboard
