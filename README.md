@@ -89,15 +89,13 @@ git pull --recurse-submodules
 
 ## 7 Optional
 
-### Recommended folder structure of home directory
+### Recommended folder structure for the home directory
 
-1. `archive`: Old projects or general obsolete things. The home structure could
-   be copied here.
-2. `inbox`: Downloads
-3. `projects`: Files that are finished at one point.
-4. `screenshots`: Location of screenshots
-5. `sectors`: Long-lived files like wallpapers or music.
-6. `templates`: Resources to be reused else where.
+- `Areas`: [Johny.Decimal System](https://johnnydecimal.com/documentation/introduction)
+- `Inbox`: Downloads
+- `Music`
+- `Screenshots`
+- `Wallpapers`
 
 ### Additional Software
 
