@@ -3,7 +3,17 @@ set $alt Mod1
 
 font pango:JetBrainsMono Nerd Font Mono 8
 
+# XDG Portal service has to know which desktop is running
+# required for dark mode
+include /etc/sway/config.d/*
+
 exec_always --no-startup-id ~/.config/sway/autotiling
+
+exec waybar
+exec foot --server
+exec tmux start-server
+exec playerctld daemon
+exec dunst
 
 set $w1 "1:1"
 set $w2 "3:2"
@@ -24,16 +34,7 @@ workspace $w1 output DP-4
 workspace $wa4 output DP-0
 workspace $wa5 output DP-0
 
-# XDG Portal service has to know which desktop is running
-# this is done through environment variables
-# include /etc/sway/config.d/*
-
-exec waybar
-exec foot --server
-exec tmux start-server
-exec playerctld daemon
-exec dunst
-
+# for Razer devices
 exec polychromatic-cli -e Default
 
 # Desktop apps

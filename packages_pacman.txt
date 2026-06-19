@@ -5,6 +5,7 @@ ffmpeg
 firefox
 foot
 fuzzel
+gnome-themes-extra
 grim
 htop
 ly

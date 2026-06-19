@@ -1,6 +1,6 @@
 export EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Djdk.xml.totalEntitySizeLimit=1000000'
 # use X11 backend for java
 export _JAVA_AWT_WM_NONREPARENTING=1
