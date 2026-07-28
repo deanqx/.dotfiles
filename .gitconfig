@@ -1,5 +1,5 @@
 [user]
-    email = 110404616+deanqx@users.noreply.github.com
+    email = dean2@kowatsch.de
     name = deanqx
 [push]
 	autoSetupRemote = true
@@ -11,5 +11,9 @@
 	directory = /home/dean/server0/root/registry
 [core]
 	editor = nvim
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[rebase]
+	autoStash = true
+[diff]
+	algorithm = histogram
+[rerere]
+	enabled = true
