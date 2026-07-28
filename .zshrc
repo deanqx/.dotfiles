@@ -6,6 +6,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Djdk.xml.totalEntitySize
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ARDUINO_LANGUAGE_SERVER_CLIPATH="~/.arduino15/arduino-cli.yaml"
 #export NODE_OPTIONS="--no-experimental-require-module"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # Fix escape sequence with pasted text
 if [[ -n "$TMUX" ]]; then
