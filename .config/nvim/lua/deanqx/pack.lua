@@ -34,9 +34,8 @@ vim.pack.add({
     -- git view
     'https://github.com/tpope/vim-fugitive',
 
-    -- formating
-    -- 'https://github.com/tpope/vim-sleuth',
-    -- 'https://github.com/tpope/vim-commentary',
+    -- Tab size detection
+    'https://github.com/tpope/vim-sleuth',
 
     -- latex LSP
     'https://github.com/lervag/vimtex',

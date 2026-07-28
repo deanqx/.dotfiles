@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local mason_path = vim.fn.stdpath("data") .. "/mason/packages"
 
 -- clangd is not installed via Mason
 -- to support custom clangd implementations
@@ -18,6 +19,16 @@ vim.lsp.config['rust_analyzer'].settings = {
         procMacro = {
             enable = true,
         },
+    },
+}
+
+local mason_path = vim.fn.stdpath("data") .. "/mason/packages"
+
+vim.lsp.config['astro'] = {
+    init_options = {
+        typescript = {
+            tsdk = mason_path .. "/vtsls/node_modules/@vtsls/language-server/node_modules/typescript/lib"
+        }
     },
 }
 
@@ -130,30 +141,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 exit_timeout = 5000,
             },
         }
-
-        local current_filetype = vim.bo.filetype
-        local prettier_filetypes = { "javascript", "svelte", "typescriptreact", "typescript", "css", "html", "json" }
-
-        vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
-
-        if table.contains(prettier_filetypes, current_filetype) then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = format_group,
-                buffer = bufnr,
-                callback = function()
-                    vim.cmd('Prettier')
-                end
-            })
-        end
-
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = format_group,
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format({
-                    bufnr = bufnr,
-                })
-            end,
-        })
     end
 })
