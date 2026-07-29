@@ -106,6 +106,30 @@ git pull --recurse-submodules
 - `Screenshots`
 - `Wallpapers`
 
+### Emacs (Editor and more)
+
+I currently use Doom Emacs a configuration framework for Emacs for an out of the
+box experience. It's perfect for users coming from Vim as it uses vim keybindings.
+
+```sh
+sudo pacman -S emacs-wayland
+```
+
+Install Doom Emacs:
+
+``` sh
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+```
+
+``` sh
+~/.config/emacs/bin/doom install
+```
+
+When prompted:
+
+- Generate an envvar file? -> Yes (y) (Captures environment variables for Doom).
+- Download font vector icons? -> Yes (y) (Installs all-the-icons).
+
 ### Additional Software
 
 ```sh

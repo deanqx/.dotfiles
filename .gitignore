@@ -9,6 +9,7 @@
 /.config/tmux/plugins
 !/.config/waybar
 !/.config/xdg-terminals.list
+!/.config/doom
 
 # kicad
 !/.config/kicad
