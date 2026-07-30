@@ -23,6 +23,16 @@
 ;;
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 17))
+
+;; Always use block cursor
+(setq evil-normal-state-cursor   'box
+      evil-insert-state-cursor   'box
+      evil-visual-state-cursor   'box
+      evil-motion-state-cursor   'box
+      evil-replace-state-cursor  'box
+      evil-operator-state-cursor 'box
+      evil-emacs-state-cursor    'box)
+
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
