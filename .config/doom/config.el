@@ -24,8 +24,14 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 17))
 
+;; Disable the exit prompt
+(setq confirm-kill-emacs nil)
+
 ;; Disable auto insert closing bracket
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
+(setq scroll-margin 8)
+(setq display-line-numbers-type 'relative)
 
 ;; Always use block cursor
 (setq evil-normal-state-cursor   'box
@@ -46,13 +52,22 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
-
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+
+(setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/ssh-agent.socket"))
+
+(use-package! msgpack)
+(use-package! tramp-rpc)
+
+(after! tramp
+  ;; Ensure NixOS setuid wrappers take precedence over raw system binaries
+  (add-to-list 'tramp-remote-path "/run/wrappers/bin"))
+
+;; Use remote configured shell when using tramp-rpc
+(after! vterm
+  (add-to-list 'vterm-tramp-shells '("rpc" login-shell)))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
