@@ -11,6 +11,11 @@
 !/.config/xdg-terminals.list
 !/.config/doom
 
+# fish
+!/.config/fish
+/.config/fish/*
+!/.config/fish/config.fish
+
 # kicad
 !/.config/kicad
 !/.config/kicad/9.0

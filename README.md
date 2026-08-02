@@ -86,7 +86,13 @@ systemctl --user enable --now ssh-agent
 ```
 
 To make all ssh clients (including git) store keys in the cache on first use,
-add the configuration setting `AddKeysToAgent yes` to `~/.ssh/config`.
+add the configuration setting `AddKeysToAgent yes` to `~/.ssh/config`:
+
+```
+Host *
+   AddKeysToAgent yes
+```
+
 
 ## 5 Install
 
