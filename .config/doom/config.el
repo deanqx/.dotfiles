@@ -3,7 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 ;; (setq user-full-name "John Doe"
@@ -23,9 +22,6 @@
 ;;
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 17))
-
-;; Disable the exit prompt
-(setq confirm-kill-emacs nil)
 
 ;; Disable auto insert closing bracket
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
