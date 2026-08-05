@@ -62,9 +62,8 @@
   (add-to-list 'tramp-remote-path "/run/wrappers/bin"))
 
 ;; Use remote configured shell when using tramp-rpc
-(after! vterm
-  (add-to-list 'vterm-tramp-shells '("rpc" login-shell)))
-
+(after! ghostel
+  (add-to-list 'ghostel-tramp-shells '("rpc" login-shell)))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
