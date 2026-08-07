@@ -1,4 +1,4 @@
- My Linux configuration files for desktop.
+My Linux configuration files for desktop.
 
 # Features
 
@@ -93,7 +93,6 @@ Host *
    AddKeysToAgent yes
 ```
 
-
 ## 5 Install
 
 ```sh
@@ -123,11 +122,11 @@ sudo pacman -S emacs-wayland
 
 Install Doom Emacs:
 
-``` sh
+```sh
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 ```
 
-``` sh
+```sh
 ~/.config/emacs/bin/doom install
 ```
 
@@ -135,6 +134,53 @@ When prompted:
 
 - Generate an envvar file? -> Yes (y) (Captures environment variables for Doom).
 - Download font vector icons? -> Yes (y) (Installs all-the-icons).
+
+#### Email in Emacs
+
+```sh
+mkdir -p ~/.mail/{personal,work}
+```
+
+Setup `notmuch` which acts as the user interface and database to the locally
+synced emails. Choose `/home/USER/.mail` as location:
+
+```sh
+notmuch setup
+```
+
+```
+...
+Top-level directory of your email archive []: /home/USER/.mail
+```
+
+Add the following to your `~/.notmuch-config`:
+
+```
+[new]
+tags=new
+ignore=/.*[.](json|lock|bak)$/
+```
+
+Init `notmuch` database:
+
+```sh
+notmuch new
+```
+
+For **GMail**:
+
+```sh
+paru -S lieer-git
+```
+
+`lieer-git` provides the `gmi` binary.
+
+```sh
+cd ~/Mail/personal
+gmi init YOUR@gmail.com
+gmi set --ignore-tags-local new
+gmi sync
+```
 
 ### Additional Software
 
@@ -189,11 +235,12 @@ Add this to `userContent.css` to show background image on Firefox `about:newtab`
 
 ```css
 @-moz-document url-prefix(about:newtab) {
-    body {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-            url(Wallpapers/image.JPG) !important;
-        background-size: cover !important ;
-    }
+  body {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+      url(Wallpapers/image.JPG) !important;
+    background-size: cover !important ;
+  }
 }
 ```
 

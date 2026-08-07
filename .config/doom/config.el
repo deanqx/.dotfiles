@@ -39,6 +39,9 @@
   ;; Ensure NixOS setuid wrappers take precedence over raw system binaries
   (add-to-list 'tramp-remote-path "/run/wrappers/bin"))
 
-;; Use remote configured shell when using tramp-rpc
 (after! ghostel
+  ;; Use remote configured shell when using tramp-rpc
   (add-to-list 'ghostel-tramp-shells '("rpc" login-shell)))
+
+(after! notmuch
+  (setq +notmuch-mail-folder "~/.mail/personal"))
