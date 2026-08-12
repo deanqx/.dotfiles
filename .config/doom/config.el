@@ -27,6 +27,32 @@
       evil-operator-state-cursor 'box
       evil-emacs-state-cursor    'box)
 
+;; Unlink Evil registers from system clipboard
+(setq select-enable-clipboard nil)
+
+(after! pass
+  (defun custom/pass-copy-to-system (entry)
+    "Copy password to the system clipboard."
+    (let ((proc (start-process "pass-copy-to-system" nil "pass" "-c" entry)))
+      (set-process-filter proc (lambda (_proc output)
+                                 (message "%s" (string-trim output))))))
+
+  (advice-add 'password-store-copy :override #'custom/pass-copy-to-system))
+
+(defun custom/paste-from-clipboard ()
+  (interactive)
+  (insert (gui-get-selection 'CLIPBOARD)))
+
+(defun custom/ghostel-paste-from-clipboard ()
+  (interactive)
+  (let ((text (gui-get-selection 'CLIPBOARD)))
+    (when text
+      (if (derived-mode-p 'ghostel-mode)
+          (ghostel-send-string text)
+        (insert text)))))
+
+(map! :i "C-S-v" #'custom/paste-from-clipboard)
+(map! :map ghostel-mode-map :i "C-S-v" #'custom/ghostel-paste-from-clipboard)
 
 (setq scroll-margin 8)
 (setq display-line-numbers-type 'relative)
