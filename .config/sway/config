@@ -7,7 +7,8 @@ font JetBrainsMono Nerd Font Mono 8
 # required for dark mode
 include /etc/sway/config.d/*
 
-exec_always --no-startup-id ~/.config/sway/autotiling
+# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec_always autotiling-rs
 
 exec waybar
 exec foot --server
