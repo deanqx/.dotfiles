@@ -27,17 +27,7 @@ set $wa3 "6:~3"
 set $wa4 "8:~4"
 set $wa5 "10:~5"
 
-assign [class="firefox"] $w1
-assign [app_id="emacs"] $w2
-assign [class="Signal"] $wa4
-assign [class="Spotify"] $wa5
-
-workspace $w1 output DP-4
-workspace $w2 output DP-4
-workspace $wa4 output DP-0
-workspace $wa5 output DP-0
-
-# for Razer devices
+# For Razer devices
 exec polychromatic-cli -e Default
 
 # Desktop apps
@@ -46,11 +36,15 @@ exec emacs
 exec signal-desktop
 exec spotify
 
+# Find application specifier with: swaymsg -t get_tree
 assign [app_id="firefox"] $w1
+assign [app_id="emacs"] $w2
 assign [app_id="signal"] $wa4
-assign [app_id="spotify"] $wa5
+assign [class="Spotify"] $wa5
 
+# swaymsg -t get_outputs
 workspace $w1 output DP-3
+workspace $w2 output DP-3
 workspace $wa4 output DP-1
 workspace $wa5 output DP-1
 
