@@ -1,10 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
-
 ;; 'C-h v doom-font'
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 17))
@@ -45,3 +40,13 @@
 
 (after! notmuch
   (setq +notmuch-mail-folder "~/.mail/personal"))
+
+(after! markdown-mode
+  (setq markdown-fontify-code-blocks-natively t))
+
+(use-package! jinx
+  :hook (text-mode . jinx-mode)
+  :config
+  (setq jinx-languages "de_DE en_US")
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))

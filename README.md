@@ -120,6 +120,12 @@ box experience. It's perfect for users coming from Vim as it uses vim keybinding
 sudo pacman -S emacs-wayland
 ```
 
+For spell checking:
+
+```sh
+sudo pacman -S enchant hunspell-de hunspell-en-us
+```
+
 Install Doom Emacs:
 
 ```sh
