@@ -82,13 +82,13 @@ output DP-3 {
 }
 
 # launch app launcher like dmenu
-bindsym $mod+d exec "fuzzel"
+bindsym $mod+x exec "fuzzel"
 # launch terminal
 bindsym $mod+t exec "footclient"
 # launch file explorer
 bindsym $mod+e exec "nautilus"
 # lock desktop and suspend
-bindsym $mod+x exec "systemctl suspend && swaylock"
+bindsym $mod+b exec "systemctl suspend && swaylock"
 
 # --- Screenshots (https://wiki.archlinux.org/title/Screen_capture#Wayland)
 # selection of screen
