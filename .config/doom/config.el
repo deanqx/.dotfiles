@@ -61,7 +61,7 @@
 ;; Disable auto insert closing bracket
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
-(setq org-directory "~/org/")
+(setq org-directory "~/.org/")
 
 (setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/ssh-agent.socket"))
 

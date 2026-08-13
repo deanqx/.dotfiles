@@ -188,6 +188,33 @@ gmi set --ignore-tags-local new
 gmi sync
 ```
 
+### Syncing files between devices
+
+Syncthing provides encrypted, peer-to-peer file synchronization directly between
+devices without a server required.
+
+#### 1 Installation
+
+```sh
+sudo pacman -S syncthing
+systemctl enable --user --now syncthing
+```
+
+Web interface is available at [http://localhost:8384/](http://localhost:8384/).
+
+#### 2 Pair devices and Sync
+
+1. Open [http://localhost:8384/](http://localhost:8384/)
+2. Select a folder to synchronize (e.g. `~/.org`).
+3. Get PC Device ID by going to `Actions` -> `Show ID`.
+4. For Android install the `Syncthing-Fork` app.
+5. In the app select `Devices` -> `Add device` (top right corner).
+6. Scan the QR-Code
+7. On the PC accept the Android phone and select folders to synchronize in
+   the `Sharing` tab.
+7. On mobile go to `Web Interface` and accept the folders, the location
+   should be under `~`.
+
 ### Additional Software
 
 ```sh
