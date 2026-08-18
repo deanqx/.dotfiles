@@ -109,7 +109,7 @@
        ;;pdf               ; pdf enhancements
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       (tree-sitter +build)       ; syntax and parsing, sitting in a tree...
+       (tree-sitter +tree-sitter) ; +tree-sitter (native), +build (legacy)
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -148,7 +148,7 @@
        ;;idris             ; a language you can depend on
        ;;janet             ; Fun fact: Janet is me!
        (java +lsp)       ; the poster child for carpal tunnel syndrome
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
@@ -180,7 +180,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       (web +lsp)               ; the tubes
        yaml
        zig               ; C, but simpler
 

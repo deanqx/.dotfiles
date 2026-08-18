@@ -98,3 +98,15 @@
   (setq jinx-languages "de_DE en_US")
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages)))
+
+;; --- Language servers ---
+(add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
+
+(after! eglot
+  (add-to-list 'eglot-server-programs
+               '(web-mode . ("astro-ls" "--stdio"))))
+
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-match-p "\\.astro\\'" (or buffer-file-name ""))
+              (eglot-ensure))))
