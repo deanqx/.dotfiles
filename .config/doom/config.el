@@ -51,15 +51,18 @@
           (ghostel-send-string text)
         (insert text)))))
 
+;; Replicate vim behaviour
 (map! :i "C-S-v" #'custom/paste-from-clipboard)
 (map! :map ghostel-mode-map :i "C-S-v" #'custom/ghostel-paste-from-clipboard)
+(map! :n "s" #'evil-substitute
+      :n "S" #'evil-change-whole-line)
 
 (setq scroll-margin 8)
 (setq display-line-numbers-type 'relative)
-(after! evil
-  (setq +evil-want-o/O-to-continue-comments nil))
 ;; Disable auto insert closing bracket
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+(after! evil
+  (setq +evil-want-o/O-to-continue-comments nil))
 
 (setq org-directory "~/.org/")
 
