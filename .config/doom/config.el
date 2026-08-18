@@ -68,6 +68,8 @@
 
 (setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/ssh-agent.socket"))
 
+(setq projectile-enable-caching nil)
+
 (use-package! msgpack)
 (use-package! tramp-rpc)
 
