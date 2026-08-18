@@ -70,6 +70,11 @@
 
 (setq projectile-enable-caching nil)
 
+(add-hook! 'markdown-mode-hook
+  (setq fill-column 80)
+  (visual-line-mode 1)
+  (display-fill-column-indicator-mode 1))
+
 (use-package! msgpack)
 (use-package! tramp-rpc)
 
