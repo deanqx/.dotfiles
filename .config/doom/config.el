@@ -87,6 +87,8 @@
   (add-to-list 'ghostel-tramp-shells '("rpc" login-shell)))
 
 (after! notmuch
+  ;; Open all notmuch buffers in full screen
+  (set-popup-rule! "^\\*notmuch" :ignore t)
   (setq +notmuch-mail-folder "~/.mail/personal"))
 
 (after! markdown-mode
