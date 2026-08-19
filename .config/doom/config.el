@@ -82,6 +82,7 @@
   ;; Ensure NixOS setuid wrappers take precedence over raw system binaries
   (add-to-list 'tramp-remote-path "/run/wrappers/bin"))
 
+(add-hook 'ghostel-mode-hook #'doom-disable-line-numbers-h)
 (after! ghostel
   ;; Use remote configured shell when using tramp-rpc
   (add-to-list 'ghostel-tramp-shells '("rpc" login-shell)))
