@@ -234,6 +234,23 @@ Neovim and edit `.config/xdg-terminals.list` accordingly.
 paru -S xdg-terminal-exec
 ```
 
+### Gaming
+
+Proton by Valve can be used to run Windows games on Linux. Valve focus their
+development on Xorg desktop environments. I primarily use Wayland with Sway.
+[Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom)
+can be used on Wayland with the Launch Options:
+
+```sh
+PROTON_ENABLE_WAYLAND=1 %command%
+```
+
+To run the original Proton I recommend installing a small Xorg desktop like XFCE:
+
+```sh
+sudo pacman -S xfce4 xorg
+```
+
 ### Apple Emojis
 
 Install Apple looking Emojis from the AUR.
@@ -250,7 +267,7 @@ To keep for example `git log` on screen after quitting.
 git config --global core.pager "less -X"
 ```
 
-### Terminal-Multiplexer
+### Setup Terminal-Multiplexer
 
 ```sh
 tmux
@@ -284,6 +301,18 @@ Add this to `userContent.css` to show background image on Firefox `about:newtab`
 This is configured in the [sway config](.config/sway/config).
 
 Press `CMD + Shift + a` to switch audio output device.
+
+## Emacs
+
+### Email Client: Notmuch
+
+Keybinds:
+
+- `SPC o m` Open Notmuch in new workspace
+- `SPC m u` Update local database
+- `J` Quick search jump
+- `J i` Open Inbox
+- `SPC TAB d` Close current workspace
 
 ## Neovim
 
