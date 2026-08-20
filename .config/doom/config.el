@@ -41,7 +41,8 @@
 
 (defun custom/paste-from-clipboard ()
   (interactive)
-  (insert (gui-get-selection 'CLIPBOARD)))
+  ;; UTF8_STRING tells clipboard manager to give utf-8
+  (insert (gui-get-selection 'CLIPBOARD 'UTF8_STRING)))
 
 (defun custom/ghostel-paste-from-clipboard ()
   (interactive)
