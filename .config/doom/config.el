@@ -53,7 +53,7 @@
         (insert text)))))
 
 ;; Replicate vim behaviour
-(map! :i "C-S-v" #'custom/paste-from-clipboard)
+(define-key general-override-mode-map (kbd "C-S-v") #'custom/paste-from-clipboard)
 (map! :map ghostel-mode-map :i "C-S-v" #'custom/ghostel-paste-from-clipboard)
 (map! :n "s" #'evil-substitute
       :n "S" #'evil-change-whole-line)
