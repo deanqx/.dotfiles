@@ -106,8 +106,11 @@
 (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
 
 (after! eglot
+  ;; sudo npm install -g typescript @astrojs/language-server
   (add-to-list 'eglot-server-programs
-               '(web-mode . ("astro-ls" "--stdio"))))
+               '(web-mode . ("astro-ls" "--stdio"
+                             :initializationOptions
+                             (:typescript (:tsdk "./node_modules/typescript/lib"))))))
 
 (add-hook 'web-mode-hook
           (lambda ()
