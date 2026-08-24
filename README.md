@@ -234,23 +234,6 @@ Neovim and edit `.config/xdg-terminals.list` accordingly.
 paru -S xdg-terminal-exec
 ```
 
-### Gaming
-
-Proton by Valve can be used to run Windows games on Linux. Valve focus their
-development on Xorg desktop environments. I primarily use Wayland with Sway.
-[Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom)
-can be used on Wayland with the Launch Options:
-
-```sh
-PROTON_ENABLE_WAYLAND=1 %command%
-```
-
-To run the original Proton I recommend installing a small Xorg desktop like XFCE:
-
-```sh
-sudo pacman -S xfce4 xorg
-```
-
 ### Apple Emojis
 
 Install Apple looking Emojis from the AUR.

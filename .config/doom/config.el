@@ -6,7 +6,7 @@
 
 (setq doom-theme 'doom-one)
 
-(add-to-list 'default-frame-alist '(alpha-background . 97))
+(add-to-list 'default-frame-alist '(alpha-background . 82))
 
 (with-eval-after-load 'doom-themes
   (custom-set-faces!
