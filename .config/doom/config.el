@@ -90,7 +90,16 @@
 (after! notmuch
   ;; Open all notmuch buffers in full screen
   (set-popup-rule! "^\\*notmuch" :ignore t)
-  (setq +notmuch-mail-folder "~/.mail/personal"))
+  (setq +notmuch-mail-folder "~/.mail/personal")
+  (defun +notmuch-search-archive-thread-up ()
+    "Archive the current thread and move to the thread above."
+    (interactive)
+    (notmuch-search-archive-thread)
+    (notmuch-search-previous-thread)
+    (notmuch-search-previous-thread))
+
+  (map! :map notmuch-search-mode-map
+        :n "a" #'+notmuch-search-archive-thread-up))
 
 (after! markdown-mode
   (setq markdown-fontify-code-blocks-natively t))
