@@ -39,22 +39,8 @@
 
   (advice-add 'password-store-copy :override #'custom/pass-copy-to-system))
 
-(defun custom/paste-from-clipboard ()
-  (interactive)
-  ;; UTF8_STRING tells clipboard manager to give utf-8
-  (insert (gui-get-selection 'CLIPBOARD 'UTF8_STRING)))
-
-(defun custom/ghostel-paste-from-clipboard ()
-  (interactive)
-  (let ((text (gui-get-selection 'CLIPBOARD)))
-    (when text
-      (if (derived-mode-p 'ghostel-mode)
-          (ghostel-send-string text)
-        (insert text)))))
-
 ;; Replicate vim behaviour
-(define-key general-override-mode-map (kbd "C-S-v") #'custom/paste-from-clipboard)
-(map! :map ghostel-mode-map :i "C-S-v" #'custom/ghostel-paste-from-clipboard)
+(map! "C-S-v" #'clipboard-yank)
 (map! :n "s" #'evil-substitute
       :n "S" #'evil-change-whole-line)
 
