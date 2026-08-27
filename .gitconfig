@@ -1,6 +1,7 @@
 [user]
     email = dean2@kowatsch.de
     name = deanqx
+	signingkey = /home/dean/.ssh/id_ed25519_dean_home_linux.pub
 [push]
 	autoSetupRemote = true
 [credential]
@@ -17,3 +18,7 @@
 	algorithm = histogram
 [rerere]
 	enabled = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
