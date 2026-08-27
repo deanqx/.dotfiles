@@ -18,9 +18,10 @@
 
 # kicad
 !/.config/kicad
-!/.config/kicad/9.0
-/.config/kicad/9.0/*
-!/.config/kicad/9.0/user.hotkeys
+/.config/kicad/*
+!/.config/kicad/10.0
+/.config/kicad/10.0/*
+!/.config/kicad/10.0/user.hotkeys
 
 # GIMP
 !/.config/GIMP
