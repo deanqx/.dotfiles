@@ -97,7 +97,7 @@
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages)))
 
-;; --- Language servers ---
+;; --- Setup Languages ---
 (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
 
 (after! eglot
@@ -111,3 +111,12 @@
           (lambda ()
             (when (string-match-p "\\.astro\\'" (or buffer-file-name ""))
               (eglot-ensure))))
+
+(after! typst-ts-mode
+  (setq typst-ts-mode-watch-options "--open=false")
+  ;; Automatically start watch mode when opening a typst file
+  (add-hook 'typst-ts-mode-hook #'typst-ts-watch-mode))
+
+(use-package! typst-preview
+  :custom
+  (typst-preview-invert-colors "never"))
