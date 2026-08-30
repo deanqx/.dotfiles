@@ -22,3 +22,5 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[gpg "ssh"]
+	program = /home/dean/.local/bin/git-ssh-sign-wrapper.sh
