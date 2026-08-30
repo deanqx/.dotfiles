@@ -19,10 +19,11 @@ Sep 11, 2025
 
 [Arch Installation guide](https://wiki.archlinux.org/title/Installation_guide)
 
-Before continuing installation steps sync your package database:
+Before continuing installation steps sync your local package database.
+This should always be combined with an upgrade (`-u`).
 
 ```sh
-sudo pacman -Sy
+sudo pacman -Syu
 ```
 
 After you completed the Arch Installation Guide,
