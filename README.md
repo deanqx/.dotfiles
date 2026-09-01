@@ -324,3 +324,18 @@ vim
 
 Use `:Q` to quit and save the session in a `.session.vim` file.
 The same command opens the session from current directory.
+
+## Extra
+
+### Remove location data from Git
+
+Many image formats include location data, particularly photos taken with a phone.
+[`mat2`](https://github.com/tpet/mat2) can be used remove meta data.
+
+To clean a whole `git` repo you can use this script (use with extreme caution):
+
+```sh
+git clone REPO
+cd REPO
+git filter-repo --force --file-info-callback "$(cat ~/.local/bin/clean_git_location_data.py)"
+```
