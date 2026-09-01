@@ -97,6 +97,11 @@
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages)))
 
+(use-package! dtrt-indent
+  :hook ((prog-mode text-mode conf-mode) . dtrt-indent-mode)
+  :config
+  (setq dtrt-indent-verbosity 0))
+
 ;; --- Setup Languages ---
 (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
 
