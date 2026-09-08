@@ -12,10 +12,10 @@
   "modules-right": [
     "wireplumber",
     "network",
-    "cpu",
-    "memory",
     "backlight",
     "battery",
+    "cpu",
+    "memory",
   ],
   "sway/workspaces": {
     "format": "{name}",
