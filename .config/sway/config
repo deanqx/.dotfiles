@@ -11,7 +11,6 @@ include /etc/sway/config.d/*
 exec_always autotiling-rs
 
 exec waybar
-exec foot --server
 exec tmux start-server
 exec playerctld daemon
 exec dunst
@@ -84,7 +83,7 @@ output DP-3 {
 # launch app launcher like dmenu
 bindsym $mod+x exec "fuzzel"
 # launch terminal
-bindsym $mod+t exec "footclient"
+bindsym $mod+t exec "ghostty"
 # launch file explorer
 bindsym $mod+e exec "nautilus"
 # lock desktop and suspend
@@ -103,17 +102,17 @@ bindsym Ctrl+Shift+Print exec grim - | wl-copy
 # switch audio device
 bindsym $mod+a exec --no-startup-id wpctl set-default $(wpctl status | sed -n 's/ │\s*\([0-9]\+\).*Analog Stereo.*/\1/p' | head -n 1)
 
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0 && $refresh_i3status
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $refresh_i3status
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # reload the configuration file
 bindsym $mod+c reload
-bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway? This will close all open windows.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway? This will keep the programs running.' -B 'Yes, exit sway' 'swaymsg exit'
 
 bindsym $mod+r mode "resize"
 

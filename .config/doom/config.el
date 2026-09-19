@@ -102,6 +102,10 @@
   :config
   (setq dtrt-indent-verbosity 0))
 
+(after! magit
+  ;; Never highlight individual changed characters in diffs
+  (setq magit-diff-refine-hunk nil))
+
 ;; --- Setup Languages ---
 (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
 

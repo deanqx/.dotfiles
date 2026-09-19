@@ -213,7 +213,7 @@ Web interface is available at [http://localhost:8384/](http://localhost:8384/).
 6. Scan the QR-Code
 7. On the PC accept the Android phone and select folders to synchronize in
    the `Sharing` tab.
-7. On mobile go to `Web Interface` and accept the folders, the location
+8. On mobile go to `Web Interface` and accept the folders, the location
    should be under `~`.
 
 ### Additional Software
@@ -297,6 +297,14 @@ Keybinds:
 - `J` Quick search jump
 - `J i` Open Inbox
 - `SPC TAB d` Close current workspace
+
+### Tips
+
+**Disable text highlighting:**
+
+```
+M-: font-lock-mode
+```
 
 ## Neovim
 
