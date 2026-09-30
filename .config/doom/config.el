@@ -107,6 +107,20 @@
   (setq magit-diff-refine-hunk nil))
 
 ;; --- Setup Languages ---
+(use-package! languagetool
+  :commands (languagetool-check
+             languagetool-clear-suggestions
+             languagetool-correct-at-point
+             languagetool-correct-buffer
+             languagetool-set-language
+             languagetool-server-mode
+             languagetool-server-start
+             languagetool-server-stop)
+  :config
+  (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8" "-cp" "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+  (setq languagetool-console-command "org.languagetool.commandline.Main")
+  (setq languagetool-server-command "org.languagetool.server.HTTPServer"))
+
 (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
 
 (after! eglot

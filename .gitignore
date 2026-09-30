@@ -11,6 +11,8 @@
 !/.config/xdg-terminals.list
 !/.config/doom
 
+/.config/doom/flycheck_config.el
+
 # fish
 !/.config/fish
 /.config/fish/*

@@ -80,6 +80,9 @@ sudo systemctl disable getty@tty1
 sudo systemctl enable --now ntpd
 ```
 
+TODO
+systemctl --user enable --now waybar
+
 ### 4.4 SSH Password Caching
 
 ```sh
@@ -297,6 +300,15 @@ Keybinds:
 - `J` Quick search jump
 - `J i` Open Inbox
 - `SPC TAB d` Close current workspace
+
+### Spell checking
+
+Jinx is always running and fast. For grammar checking use `languagetool`, it can
+be installed with your package manager. To check the current document:
+
+```
+M-: languagetool-check
+```
 
 ### Tips
 

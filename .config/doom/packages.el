@@ -11,6 +11,7 @@
 (package! msgpack)
 (package! tramp-rpc :recipe (:host github :repo "ArthurHeymans/emacs-tramp-rpc" :files ("lisp/*.el")))
 (package! jinx)
+(package! languagetool)
 (package! evil-snipe :disable t)
 (package! typst-ts-mode :recipe (:host codeberg :repo "meow_king/typst-ts-mode"))
 (package! typst-preview :recipe (:host github :repo "havarddj/typst-preview.el"))
