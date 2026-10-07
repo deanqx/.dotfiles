@@ -74,6 +74,20 @@ sudo systemctl enable ly@tty1
 sudo systemctl disable getty@tty1
 ```
 
+To add environment variables for every program, edit `/etc/ly/config.ini`:
+
+```
+login_cmd = /etc/ly/login.sh
+```
+
+And create a script at `/etc/ly/login.sh` like this:
+
+```sh
+#!/bin/sh
+export _JAVA_AWT_WM_NONREPARENTING=1
+exec "$@"
+```
+
 ### 4.3 Enable Time Synchronization
 
 ```sh
