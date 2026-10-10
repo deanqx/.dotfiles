@@ -8,6 +8,11 @@
 
 (add-to-list 'default-frame-alist '(alpha-background . 82))
 
+(setq mode-line-collapse-minor-modes t)
+
+;; preload for faster response
+(require 'projectile)
+
 (with-eval-after-load 'doom-themes
   (custom-set-faces!
     '(font-lock-comment-face :foreground "#999")
