@@ -26,7 +26,8 @@
     "interval": 1
   },
   "wireplumber": {
-    "format": "{icon} {volume}%",
+    "format": "{icon} {volume}% → {node_name}",
+    "node-type": "Audio/Sink",
     "format-muted": "",
     "format-icons": {
       "default": [
