@@ -60,9 +60,9 @@ input "type:touchpad" {
     tap enabled
     natural_scroll disabled # invert scrolling
     dwt disabled # disable while typing
-    scroll_factor 0.7
+    scroll_factor 0.8
     accel_profile adaptive # adaptive or flat
-    pointer_accel 0.5
+    pointer_accel 0.2
     click_method clickfinger  # or buttonareas
 }
 
