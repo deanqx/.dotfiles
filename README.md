@@ -252,6 +252,22 @@ Neovim and edit `.config/xdg-terminals.list` accordingly.
 paru -S xdg-terminal-exec
 ```
 
+### Dark mode in GTK
+
+To enable dark mode in GTK programs like Nautilus:
+
+```sh
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark' # for GTK3 apps
+```
+
+Make sure the portals are running:
+
+```sh
+systemctl --user status xdg-desktop-portal
+systemctl --user status xdg-desktop-portal-gtk
+```
+
 ### Apple Emojis
 
 Install Apple looking Emojis from the AUR.
