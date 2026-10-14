@@ -1,0 +1,514 @@
+#+TITLE: deanqx's Emacs config
+#+AUTHOR: deanqx
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+
+* Table of Contents :toc:
+- [[#code-dependencies][Code Dependencies]]
+  - [[#package-manager][Package Manager]]
+  - [[#configure-built-in-emacs-features][Configure built-in Emacs features]]
+  - [[#evil-mode-vim-keybindings][Evil Mode (vim keybindings)]]
+  - [[#keybindings][Keybindings]]
+- [[#colors-and-font][Colors and Font]]
+- [[#completion-ui][Completion UI]]
+  - [[#preview-attributes][Preview attributes]]
+  - [[#fuzzy-finding][Fuzzy Finding]]
+- [[#editor][Editor]]
+  - [[#indentation][Indentation]]
+  - [[#multiple-cursors][Multiple Cursors]]
+  - [[#completion-popup-ui][Completion Popup UI]]
+  - [[#lsp][LSP]]
+  - [[#spell-checking][Spell checking]]
+  - [[#grammar][Grammar]]
+  - [[#markdown][Markdown]]
+  - [[#org-mode][Org Mode]]
+- [[#tools][Tools]]
+  - [[#git-magit][Git: Magit]]
+  - [[#ssh-tramp-rpc][SSH: tramp-rpc]]
+  - [[#terminal-emulation-ghostel][Terminal emulation: Ghostel]]
+  - [[#password-manager-pass][Password manager: pass]]
+
+* Code Dependencies
+
+** Package Manager
+
+#+begin_src emacs-lisp
+  ;;; config.el --- -*- lexical-binding: t; -*-
+  ;; NEVER EDIT config.el ONLY config.org
+
+  (defvar elpaca-installer-version 0.12)
+  (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
+  (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+  (defvar elpaca-sources-directory (expand-file-name "sources/" elpaca-directory))
+  (defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
+                                :ref nil :depth 1 :inherit ignore
+                                :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+                                :build (:not elpaca-activate)))
+  (let* ((repo  (expand-file-name "elpaca/" elpaca-sources-directory))
+         (build (expand-file-name "elpaca/" elpaca-builds-directory))
+         (order (cdr elpaca-order))
+         (default-directory repo))
+    (add-to-list 'load-path (if (file-exists-p build) build repo))
+    (unless (file-exists-p repo)
+      (make-directory repo t)
+      (when (<= emacs-major-version 28) (require 'subr-x))
+      (condition-case-unless-debug err
+          (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                    ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
+                                                    ,@(when-let* ((depth (plist-get order :depth)))
+                                                        (list (format "--depth=%d" depth) "--no-single-branch"))
+                                                    ,(plist-get order :repo) ,repo))))
+                    ((zerop (call-process "git" nil buffer t "checkout"
+                                          (or (plist-get order :ref) "--"))))
+                    (emacs (concat invocation-directory invocation-name))
+                    ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                          "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                    ((require 'elpaca))
+                    ((elpaca-generate-autoloads "elpaca" repo)))
+              (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+            (error "%s" (with-current-buffer buffer (buffer-string))))
+        ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+    (unless (require 'elpaca-autoloads nil t)
+      (require 'elpaca)
+      (elpaca-generate-autoloads "elpaca" repo)
+      (let ((load-source-file-function nil)) (load "./elpaca-autoloads"))))
+  (add-hook 'after-init-hook #'elpaca-process-queues)
+  (elpaca `(,@elpaca-order))
+
+  ;; Install a package via the elpaca macro
+  ;; See the "recipes" section of the manual for more details.
+
+  ;; Install use-package support
+  (elpaca elpaca-use-package
+    ;; Enable use-package :ensure support for Elpaca.
+    (elpaca-use-package-mode))
+#+end_src
+
+** Configure built-in Emacs features
+
+#+begin_src emacs-lisp
+  (use-package emacs :ensure nil
+    :config
+    (setq ring-bell-function #'ignore))
+
+  (setq inhibit-startup-screen t)
+  (setq initial-scratch-message "")
+  (setq mode-line-collapse-minor-modes t)
+#+end_src
+
+** Evil Mode (vim keybindings)
+
+#+begin_src emacs-lisp
+  (use-package evil
+    :ensure t
+    :demand t
+    :init
+    (setq evil-want-keybinding nil
+          evil-want-integration t)
+    (setq evil-want-C-u-scroll t
+          evil-want-C-u-delete t
+          evil-want-C-g-bindings t
+          evil-want-Y-yank-to-eol t)
+    ;; Always use block cursor
+    (setq evil-insert-state-cursor 'box
+          evil-replace-state-cursor 'box
+          evil-operator-state-cursor 'box)
+    :config
+    (evil-mode))
+
+  (use-package evil-collection
+    :ensure t
+    :after evil
+    :config
+    (setq evil-collection-mode-list '(dashboard dired magit ibuffer))
+    (evil-collection-init))
+
+  ;; Replicate Vim behaviour
+
+  ;; Unlink Evil registers from system clipboard
+  (setq select-enable-clipboard nil)
+
+  (keymap-global-set "C-S-v" #'clipboard-yank)
+  (keymap-global-set "<escape>" #'keyboard-escape-quit)
+  (setq scroll-margin 8)
+  (setq display-line-numbers-type 'relative)
+  (add-hook 'text-mode-hook #'display-line-numbers-mode)
+  ;;(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  ;;(add-hook 'conf-mode-hook #'display-line-numbers-mode)
+#+end_src
+
+** Keybindings
+
+#+begin_src emacs-lisp
+  (use-package which-key
+    :ensure nil
+    :init 
+    (which-key-mode 1)
+    :config
+    (setq which-key-idle-delay 0.8))
+
+  (with-eval-after-load 'evil
+    (keymap-set evil-normal-state-map "SPC y y" "\" + y y")
+    (keymap-set evil-visual-state-map "SPC y"   "\" + y")
+    (keymap-set evil-normal-state-map "SPC Y"   "\" + Y"))
+
+  (use-package general
+    :ensure (:wait t)
+    :demand t
+    :config
+    (general-evil-setup)
+
+    (general-create-definer my/leader-def
+      :states '(normal visual motion emacs insert)
+      :keymaps 'override
+      :prefix "SPC"
+      :global-prefix "M-SPC")
+
+    (my/leader-def
+      "."  '(find-file :which-key "Find file")
+      "n"  '(mc/mark-next-like-this :which-key "Multicursor mark next")
+      "p"  '(mc/mark-previous-like-this :which-key "Multicursor mark previous"))
+    (my/leader-def
+      "o"  '(:ignore t :which-key "open")
+      "o -"  '(dired-jump :which-key "Open Dired")
+      "o p"  '(pass :which-key "Open pass")
+      "o t"  '(ghostel :which-key "Open Terminal"))
+    (my/leader-def
+      "e"  '(:ignore t :which-key "eval")
+      "e c" '((lambda () (interactive) (load-file (expand-file-name "init.el" user-emacs-directory)))
+              :which-key "Reload config"))
+    (my/leader-def
+      "b"  '(:ignore t :which-key "buffer")
+      "b b" '(switch-to-buffer :which-key "Switch buffer")
+      "b k" '(kill-current-buffer :which-key "Kill buffer"))
+    (my/leader-def
+      "f"  '(:ignore t :which-key "file")
+      "f c"  '((lambda () (interactive) (find-file (expand-file-name "config.org" user-emacs-directory)))
+               :which-key "Open config.org")
+      "f r"  '(recentf-open :which-key "Recent files"))
+    (my/leader-def
+      "g"  '(:ignore t :which-key "git")
+      "g b"  '(magit-blame-addition :which-key "Git blame")
+      "g d"  '(magit-diff-buffer-file :which-key "Git file diff")
+      "g F"  '(magit-pull :which-key "Git pull")
+      "g g"  '(magit-status :which-key "Open magit")
+      "g L"  '(magit-log-buffer-file :which-key "Git file log"))
+    (my/leader-def
+      "h"  '(:ignore t :which-key "help")
+      "h f"  '(describe-function :which-key "Describe function")
+      "h v"  '(describe-variable :which-key "Describe variable")))
+#+end_src
+
+* Colors and Font
+
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil
+                      :family "JetBrainsMono Nerd Font"
+                      :height 130
+                      :weight 'semi-light)
+
+  (set-face-attribute 'variable-pitch nil
+                      :family "Noto Sans"
+                      :height 1.0)
+
+  (set-face-attribute 'fixed-pitch nil
+                      :family "JetBrainsMono Nerd Font"
+                      :height 1.0)
+
+  (use-package doom-themes
+    :ensure t
+    :custom
+    (doom-themes-enable-bold t)
+    (doom-themes-enable-italic t)
+    :config
+    (load-theme 'doom-one t)
+    (doom-themes-org-config))
+
+  (let ((bg "#000000"))
+    (custom-set-faces
+     `(default ((t (:background ,bg))))
+     `(org-block ((t (:background ,bg))))
+     `(org-block-begin-line ((t (:background ,bg))))
+     `(org-block-end-line ((t (:background ,bg))))
+     `(org-code ((t (:background ,bg))))
+     `(org-verbatim ((t (:background ,bg))))
+     `(markdown-code-face ((t (:background ,bg))))
+     `(magit-diff-context-highlight ((t (:background ,bg))))
+     '(font-lock-doc-face ((t (:foreground "#aaaaaa"))))
+     '(line-number ((t (:foreground "#666666"))))))
+#+end_src
+
+* Completion UI
+
+#+begin_src emacs-lisp
+  (defun my/minibuffer-kill-to-start ()
+    "Delete from the prompt to point, like C-u in a shell."
+    (interactive)
+    (delete-region (minibuffer-prompt-end) (point)))
+
+  (use-package dired
+    :ensure nil
+    :demand t) ; makes sure dired-directory face exists
+
+  (defun my/vertico-color-directories (args)
+    "Apply `dired-directory' face to directory candidates in file prompts."
+    (pcase-let ((`(,cand . ,rest) args))
+      (if (and minibuffer-completing-file-name
+               (string-suffix-p "/" cand))
+          (cons (propertize cand 'face 'dired-directory) rest)
+        args)))
+
+  (use-package vertico
+    :ensure t
+    :init (vertico-mode)
+    :custom (vertico-cycle t) ; wrap around
+    :bind (:map vertico-map
+                ("C-u" . my/minibuffer-kill-to-start)
+                ("C-w" . vertico-directory-delete-word))
+    :config
+    (advice-add 'vertico--format-candidate
+                :filter-args #'my/vertico-color-directories))
+#+end_src
+
+** Preview attributes
+
+#+begin_src emacs-lisp
+  (use-package marginalia
+    :ensure t
+    :init
+    (marginalia-mode))
+#+end_src
+
+** Fuzzy Finding
+
+#+begin_src emacs-lisp
+  (use-package orderless
+    :ensure t
+    :custom
+    (completion-styles '(orderless basic))
+    (completion-category-defaults nil)
+    (completion-category-overrides
+     '((file (styles partial-completion orderless)))))
+#+end_src
+
+* Editor
+
+** Indentation
+
+#+begin_src emacs-lisp
+  (use-package dtrt-indent
+    :ensure t
+    :hook ((prog-mode text-mode conf-mode) . dtrt-indent-mode)
+    :custom
+    (dtrt-indent-verbosity 0))
+#+end_src
+
+** Multiple Cursors
+
+#+begin_src emacs-lisp
+  (use-package multiple-cursors :ensure t)
+#+end_src
+
+** Completion Popup UI
+
+#+begin_src emacs-lisp
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (add-hook 'completion-at-point-functions
+                        (lambda ()
+                          (when (equal (car (org-babel-get-src-block-info t)) "emacs-lisp")
+                            (elisp-completion-at-point)))
+                        nil t)))
+
+  (use-package corfu
+    :ensure t
+    :custom
+    (corfu-auto t)
+    (corfu-auto-delay 0.1)
+    (corfu-auto-prefix 2)
+    :init
+    (global-corfu-mode))
+#+end_src
+
+** LSP
+
+#+begin_src emacs-lisp
+  ;; Install the servers first:
+  ;;   sudo npm install -g typescript @astrojs/language-server
+  (use-package web-mode
+    :ensure t
+    :init
+    ;; Own mode for .astro files so the LSP setup doesn't affect other web-mode buffers.
+    (define-derived-mode astro-mode web-mode "Astro"
+      "Major mode for Astro files, based on `web-mode'.")
+    :mode ("\\.astro\\'" . astro-mode))
+
+  (defun my/astro-ls-contact (&rest _)
+    "Return the eglot contact for astro-ls, pointing at an absolute TypeScript SDK path."
+    (let* ((local (locate-dominating-file default-directory "node_modules/typescript/lib"))
+           (tsdk (if local
+                     (expand-file-name "node_modules/typescript/lib" local)
+                   (expand-file-name "typescript/lib"
+                                     (string-trim (shell-command-to-string "npm root -g"))))))
+      `("astro-ls" "--stdio"
+        :initializationOptions (:typescript (:tsdk ,tsdk)))))
+
+  (use-package eglot
+    :ensure nil
+    :hook (astro-mode . eglot-ensure)
+    :config
+    (add-to-list 'eglot-server-programs '(astro-mode . my/astro-ls-contact)))
+#+end_src
+
+** Spell checking
+
+#+begin_src emacs-lisp
+  ;; Needs libenchant + a C compiler on first run (jinx builds a native module).
+  (use-package jinx
+    :ensure t
+    :hook (text-mode . jinx-mode)
+    :custom
+    (jinx-languages "de_DE en_US")
+    :bind (("M-$"   . jinx-correct)
+           ("C-M-$" . jinx-languages)))
+#+end_src
+
+** Grammar
+
+#+begin_src emacs-lisp
+  (use-package languagetool
+    :ensure t
+    :commands (languagetool-check
+               languagetool-clear-suggestions
+               languagetool-correct-at-point
+               languagetool-correct-buffer
+               languagetool-set-language
+               languagetool-server-mode
+               languagetool-server-start
+               languagetool-server-stop)
+    :custom
+    (languagetool-java-arguments '("-Dfile.encoding=UTF-8"
+                                   "-cp"
+                                   "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+    (languagetool-console-command "org.languagetool.commandline.Main")
+    (languagetool-server-command "org.languagetool.server.HTTPServer"))
+#+end_src
+
+** Markdown
+
+#+begin_src emacs-lisp
+  (defun my/markdown-setup ()
+    "Buffer-local settings for Markdown."
+    (setq-local fill-column 80)
+    (visual-line-mode 1)
+    (display-fill-column-indicator-mode 1))
+
+  (use-package markdown-mode
+    :ensure t
+    :hook (markdown-mode . my/markdown-setup))
+#+end_src
+
+** Org Mode
+
+#+begin_src emacs-lisp
+  (setq org-directory "~/.org/")
+#+end_src
+
+*** Add Table of Contents package
+
+#+begin_src emacs-lisp
+  (use-package toc-org
+    :ensure t
+    :commands toc-org-enable
+    :init (add-hook 'org-mode-hook 'toc-org-enable))
+#+end_src
+
+*** Add Bulletpoints
+
+#+begin_src emacs-lisp
+  (add-hook 'org-mode-hook 'org-indent-mode)
+  (use-package org-bullets :ensure t :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+#+end_src
+
+*** Autoformatting
+
+#+begin_src emacs-lisp
+  (defun my/org-format-elisp-blocks ()
+    "Indent emacs-lisp source blocks in the current org buffer."
+    (interactive)
+    (save-excursion
+      (org-babel-map-src-blocks nil
+        (when (member lang '("emacs-lisp" "elisp"))
+          (org-babel-do-in-edit-buffer
+           (indent-region (point-min) (point-max)))))))
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook #'my/org-format-elisp-blocks nil t)))
+#+end_src
+
+* Tools
+
+** Git: Magit
+
+#+begin_src emacs-lisp
+  (use-package magit
+    :ensure t
+    :custom
+    (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+#+end_src
+
+** SSH: tramp-rpc
+
+#+begin_src emacs-lisp
+  (setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/ssh-agent.socket"))
+
+  (use-package tramp
+    :ensure nil ; built in
+    :config
+    ;; Ensure NixOS setuid wrappers take precedence over raw system binaries
+    (add-to-list 'tramp-remote-path "/run/wrappers/bin"))
+
+  (use-package tramp-rpc
+    :after tramp
+    :vc (:url "https://github.com/ArthurHeymans/emacs-tramp-rpc"
+              :rev :newest
+              :lisp-dir "lisp"))
+#+end_src
+
+** Terminal emulation: Ghostel
+
+#+begin_src emacs-lisp
+  (use-package ghostel
+    :ensure t
+    :defer t
+    :config
+    ;; Replicate normal terminal
+    (setq ghostel-keymap-exceptions
+          (seq-difference ghostel-keymap-exceptions '("C-c" "C-x" "C-u" "C-h" "C-\\")))
+    (with-eval-after-load 'evil
+      (evil-define-key 'insert ghostel-mode-map (kbd "C-c") #'ghostel-send-C-c)
+      (evil-define-key 'insert ghostel-mode-map (kbd "C-d") #'ghostel-send-C-d))
+    ;; Use the remote configured shell when using tramp-rpc
+    (add-to-list 'ghostel-tramp-shells '("rpc" login-shell)))
+#+end_src
+
+** Password manager: pass
+
+#+begin_src emacs-lisp
+  (defun custom/pass-copy-to-system (entry)
+    "Copy the password of ENTRY to the system clipboard."
+    (make-process
+     :name "pass-copy-to-system"
+     :command (list "pass" "-c" entry)
+     :noquery t
+     :filter (lambda (_proc output)
+               (message "%s" (string-trim output)))))
+
+  (use-package pass
+    :ensure t
+    :defer t
+    :config
+    (advice-add 'password-store-copy :override #'custom/pass-copy-to-system))
+#+end_src

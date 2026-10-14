@@ -5,34 +5,33 @@
 !/.config/ly
 !/.config/nvim
 !/.config/sway
-!/.config/tmux
-/.config/tmux/plugins
 !/.config/waybar
 !/.config/xdg-terminals.list
-!/.config/doom
 
-/.config/doom/flycheck_config.el
+!/.config/tmux
+/.config/tmux/plugins
 
-# fish
+!/.config/emacs
+/.config/emacs/*
+!/.config/emacs/init.el
+!/.config/emacs/early-init.el
+
 !/.config/fish
 /.config/fish/*
 !/.config/fish/config.fish
 
-# kicad
 !/.config/kicad
 /.config/kicad/*
 !/.config/kicad/10.0
 /.config/kicad/10.0/*
 !/.config/kicad/10.0/user.hotkeys
 
-# GIMP
 !/.config/GIMP
 /.config/GIMP/**
 !/.config/GIMP/3.2
 !/.config/GIMP/*/shortcutsrc
 !/.config/GIMP/*/sessionrc
 
-# Razer RGB
 !/.config/OpenRGB
 /.config/OpenRGB/logs
 !/.config/openrazer
