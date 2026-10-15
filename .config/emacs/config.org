@@ -326,6 +326,8 @@
     (corfu-auto t)
     (corfu-auto-delay 0.1)
     (corfu-auto-prefix 2)
+    :bind
+    (:map corfu-map ("RET" . nil))
     :init
     (global-corfu-mode))
 #+end_src
