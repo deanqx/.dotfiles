@@ -120,7 +120,7 @@
     :ensure t
     :after evil
     :config
-    (setq evil-collection-mode-list '(dashboard dired magit ibuffer))
+    (setq evil-collection-mode-list '(dashboard dired magit ibuffer pass))
     (evil-collection-init))
 
   ;; Replicate Vim behaviour
@@ -133,8 +133,8 @@
   (setq scroll-margin 8)
   (setq display-line-numbers-type 'relative)
   (add-hook 'text-mode-hook #'display-line-numbers-mode)
-  ;;(add-hook 'prog-mode-hook #'display-line-numbers-mode)
-  ;;(add-hook 'conf-mode-hook #'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  (add-hook 'conf-mode-hook #'display-line-numbers-mode)
 #+end_src
 
 ** Keybindings
@@ -165,38 +165,44 @@
       :global-prefix "M-SPC")
 
     (my/leader-def
-      "."  '(find-file :which-key "Find file")
-      "n"  '(mc/mark-next-like-this :which-key "Multicursor mark next")
-      "p"  '(mc/mark-previous-like-this :which-key "Multicursor mark previous"))
+      "." '(find-file :which-key "Find file"))
     (my/leader-def
-      "o"  '(:ignore t :which-key "open")
-      "o -"  '(dired-jump :which-key "Open Dired")
-      "o p"  '(pass :which-key "Open pass")
-      "o t"  '(ghostel :which-key "Open Terminal"))
-    (my/leader-def
-      "e"  '(:ignore t :which-key "eval")
-      "e c" '((lambda () (interactive) (load-file (expand-file-name "init.el" user-emacs-directory)))
-              :which-key "Reload config"))
-    (my/leader-def
-      "b"  '(:ignore t :which-key "buffer")
+      "b" '(:ignore t :which-key "buffer")
       "b b" '(switch-to-buffer :which-key "Switch buffer")
       "b k" '(kill-current-buffer :which-key "Kill buffer"))
     (my/leader-def
-      "f"  '(:ignore t :which-key "file")
-      "f c"  '((lambda () (interactive) (find-file (expand-file-name "config.org" user-emacs-directory)))
-               :which-key "Open config.org")
-      "f r"  '(recentf-open :which-key "Recent files"))
+      "c" '(:ignore t :which-key "buffer")
+      "c n" '(mc/mark-next-like-this :which-key "Multicursor mark next")
+      "c p" '(mc/mark-previous-like-this :which-key "Multicursor mark previous"))
     (my/leader-def
-      "g"  '(:ignore t :which-key "git")
-      "g b"  '(magit-blame-addition :which-key "Git blame")
-      "g d"  '(magit-diff-buffer-file :which-key "Git file diff")
-      "g F"  '(magit-pull :which-key "Git pull")
-      "g g"  '(magit-status :which-key "Open magit")
-      "g L"  '(magit-log-buffer-file :which-key "Git file log"))
+      "e" '(:ignore t :which-key "eval")
+      "e c" '((lambda () (interactive) (load-file (expand-file-name "init.el" user-emacs-directory)))
+              :which-key "Reload config"))
     (my/leader-def
-      "h"  '(:ignore t :which-key "help")
-      "h f"  '(describe-function :which-key "Describe function")
-      "h v"  '(describe-variable :which-key "Describe variable")))
+      "f" '(:ignore t :which-key "file")
+      "f c" '((lambda () (interactive) (find-file (expand-file-name "config.org" user-emacs-directory)))
+              :which-key "Open config.org")
+      "f r" '(recentf-open :which-key "Recent files"))
+    (my/leader-def
+      "g" '(:ignore t :which-key "git")
+      "g b" '(magit-blame-addition :which-key "Git blame")
+      "g d" '(magit-diff-buffer-file :which-key "Git file diff")
+      "g F" '(magit-pull :which-key "Git pull")
+      "g g" '(magit-status :which-key "Open magit")
+      "g L" '(magit-log-buffer-file :which-key "Git file log"))
+    (my/leader-def
+      "h" '(:ignore t :which-key "help")
+      "h f" '(describe-function :which-key "Describe function")
+      "h v" '(describe-variable :which-key "Describe variable"))
+    (my/leader-def
+      "n" '(:ignore t :which-key "notes")
+      "n f" '((lambda () (interactive) (let ((default-directory org-directory)) (call-interactively #'find-file))) :which-key "Find note"))
+    (my/leader-def
+      "o" '(:ignore t :which-key "open")
+      "o -" '(dired-jump :which-key "Open Dired")
+      "o p" '(pass :which-key "Open pass")
+      "o t" '(ghostel :which-key "Open Terminal")))
+
 #+end_src
 
 * Colors and Font
@@ -414,6 +420,11 @@
 
 #+begin_src emacs-lisp
   (setq org-directory "~/.org/")
+
+  ;; fix return is not following links
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (evil-local-set-key 'normal (kbd "RET") #'org-open-at-point)))
 #+end_src
 
 *** Add Table of Contents package
@@ -491,7 +502,11 @@
           (seq-difference ghostel-keymap-exceptions '("C-c" "C-x" "C-u" "C-h" "C-\\")))
     (with-eval-after-load 'evil
       (evil-define-key 'insert ghostel-mode-map (kbd "C-c") #'ghostel-send-C-c)
-      (evil-define-key 'insert ghostel-mode-map (kbd "C-d") #'ghostel-send-C-d))
+      (evil-define-key 'insert ghostel-mode-map (kbd "C-d") #'ghostel-send-C-d)
+      (evil-define-key 'insert ghostel-mode-map
+        (kbd "C-w") (lambda () (interactive) (ghostel-send-string "\C-w")))
+      (evil-define-key 'insert ghostel-mode-map
+        (kbd "C-u") (lambda () (interactive) (ghostel-send-string "\C-u"))))
     ;; Use the remote configured shell when using tramp-rpc
     (add-to-list 'ghostel-tramp-shells '("rpc" login-shell)))
 #+end_src
