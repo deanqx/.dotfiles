@@ -28,6 +28,7 @@
   "wireplumber": {
     "format": "{icon} {volume}% → {node_name}",
     "node-type": "Audio/Sink",
+    "on-click": "pwvucontrol --tab=4",
     "format-muted": "",
     "format-icons": {
       "default": [
