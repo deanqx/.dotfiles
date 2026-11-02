@@ -24,6 +24,7 @@
   - [[#org-mode][Org Mode]]
 - [[#tools][Tools]]
   - [[#git-magit][Git: Magit]]
+  - [[#project-manager-projectile][Project manager: Projectile]]
   - [[#ssh-tramp-rpc][SSH: tramp-rpc]]
   - [[#terminal-emulation-ghostel][Terminal emulation: Ghostel]]
   - [[#password-manager-pass][Password manager: pass]]
@@ -165,7 +166,8 @@
       :global-prefix "M-SPC")
 
     (my/leader-def
-      "." '(find-file :which-key "Find file"))
+      "." '(find-file :which-key "Find file")
+      "SPC" '(projectile-find-file :which-key "Find file"))
     (my/leader-def
       "b" '(:ignore t :which-key "buffer")
       "b b" '(switch-to-buffer :which-key "Switch buffer")
@@ -201,7 +203,9 @@
       "o" '(:ignore t :which-key "open")
       "o -" '(dired-jump :which-key "Open Dired")
       "o p" '(pass :which-key "Open pass")
-      "o t" '(ghostel :which-key "Open Terminal")))
+      "o t" '(ghostel :which-key "Open Terminal"))
+    (my/leader-def
+      "p" '(projectile-switch-project :which-key "Switch project")))
 
 #+end_src
 
@@ -470,6 +474,18 @@
     :ensure t
     :custom
     (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+#+end_src
+
+** Project manager: Projectile
+
+#+begin_src emacs-lisp
+  (use-package projectile
+    :ensure t
+    :custom
+    (projectile-enable-caching nil)   ; fd is fast enough, and no stale file lists
+    (projectile-generic-command
+     "fd . -0 --type f --color=never --hidden --exclude .git")
+    (projectile-mode 1))
 #+end_src
 
 ** SSH: tramp-rpc
