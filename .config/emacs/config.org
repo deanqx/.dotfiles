@@ -503,6 +503,7 @@
 #+begin_src emacs-lisp
   (use-package magit
     :ensure t
+    :hook (git-commit-setup . evil-insert-state)
     :custom
     (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 #+end_src
