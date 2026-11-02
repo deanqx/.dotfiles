@@ -17,6 +17,7 @@
   - [[#indentation][Indentation]]
   - [[#multiple-cursors][Multiple Cursors]]
   - [[#completion-popup-ui][Completion Popup UI]]
+  - [[#code-highlighting][Code Highlighting]]
   - [[#lsp][LSP]]
   - [[#spell-checking][Spell checking]]
   - [[#grammar][Grammar]]
@@ -136,6 +137,12 @@
   (add-hook 'text-mode-hook #'display-line-numbers-mode)
   (add-hook 'prog-mode-hook #'display-line-numbers-mode)
   (add-hook 'conf-mode-hook #'display-line-numbers-mode)
+
+  (add-hook 'after-change-major-mode-hook
+            (lambda ()
+              (when (and (eq major-mode 'fundamental-mode)
+                         (not (string-prefix-p " " (buffer-name))))
+                (display-line-numbers-mode 1))))
 #+end_src
 
 ** Keybindings
@@ -340,6 +347,30 @@
     (:map corfu-map ("RET" . nil))
     :init
     (global-corfu-mode))
+#+end_src
+
+** Code Highlighting
+
+#+begin_src emacs-lisp
+  (require 'compile)
+
+  (use-package typst-ts-mode
+    :ensure (:type git :host codeberg :repo "meow_king/typst-ts-mode" :branch "main")
+    :init
+    (add-to-list 'treesit-language-source-alist
+                 '(typst "https://github.com/uben0/tree-sitter-typst"))
+    (unless (treesit-language-available-p 'typst)
+      (treesit-install-language-grammar 'typst)))
+
+  (use-package yaml-mode
+    :ensure t
+    )
+
+  (use-package highlight-indent-guides
+    :ensure t
+    :config
+    (setq highlight-indent-guides-method 'character)
+    (add-hook 'text-mode-hook 'highlight-indent-guides-mode))
 #+end_src
 
 ** LSP
