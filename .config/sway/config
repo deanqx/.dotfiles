@@ -80,6 +80,16 @@ output DP-3 {
     pos 2560 0
 }
 
+# Laptop
+
+output eDP-1 {
+    pos 0 0
+}
+
+output HDMI-A-1 {
+    pos 1920 0
+}
+
 # launch app launcher like dmenu
 bindsym $mod+x exec "fuzzel"
 # launch terminal
