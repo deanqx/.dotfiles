@@ -17,6 +17,7 @@
   - [[#indentation][Indentation]]
   - [[#multiple-cursors][Multiple Cursors]]
   - [[#completion-popup-ui][Completion Popup UI]]
+  - [[#search-consult][Search: Consult]]
   - [[#code-highlighting][Code Highlighting]]
   - [[#lsp][LSP]]
   - [[#spell-checking][Spell checking]]
@@ -25,7 +26,6 @@
   - [[#org-mode][Org Mode]]
 - [[#tools][Tools]]
   - [[#git-magit][Git: Magit]]
-  - [[#project-manager-projectile][Project manager: Projectile]]
   - [[#ssh-tramp-rpc][SSH: tramp-rpc]]
   - [[#terminal-emulation-ghostel][Terminal emulation: Ghostel]]
   - [[#password-manager-pass][Password manager: pass]]
@@ -166,53 +166,55 @@
     :config
     (general-evil-setup)
 
-    (general-create-definer my/leader-def
+    (general-create-definer qx/leader-def
       :states '(normal visual motion emacs insert)
       :keymaps 'override
       :prefix "SPC"
       :global-prefix "M-SPC")
 
-    (my/leader-def
+    (qx/leader-def
       "." '(find-file :which-key "Find file")
-      "SPC" '(projectile-find-file :which-key "Find file"))
-    (my/leader-def
+      "/" '(consult-ripgrep :which-key "Grep in project")
+      "SPC" '(project-find-file :which-key "Find file"))
+    (qx/leader-def
       "b" '(:ignore t :which-key "buffer")
       "b b" '(switch-to-buffer :which-key "Switch buffer")
       "b k" '(kill-current-buffer :which-key "Kill buffer"))
-    (my/leader-def
+    (qx/leader-def
       "c" '(:ignore t :which-key "buffer")
       "c n" '(mc/mark-next-like-this :which-key "Multicursor mark next")
       "c p" '(mc/mark-previous-like-this :which-key "Multicursor mark previous"))
-    (my/leader-def
+    (qx/leader-def
       "e" '(:ignore t :which-key "eval")
       "e c" '((lambda () (interactive) (load-file (expand-file-name "init.el" user-emacs-directory)))
               :which-key "Reload config"))
-    (my/leader-def
+    (qx/leader-def
       "f" '(:ignore t :which-key "file")
       "f c" '((lambda () (interactive) (find-file (expand-file-name "config.org" user-emacs-directory)))
               :which-key "Open config.org")
+      "f f" '((lambda () (interactive) (consult-fd "~/")) :which-key "Fuzzy find in ~/")
       "f r" '(recentf-open :which-key "Recent files"))
-    (my/leader-def
+    (qx/leader-def
       "g" '(:ignore t :which-key "git")
       "g b" '(magit-blame-addition :which-key "Git blame")
       "g d" '(magit-diff-buffer-file :which-key "Git file diff")
       "g F" '(magit-pull :which-key "Git pull")
       "g g" '(magit-status :which-key "Open magit")
       "g L" '(magit-log-buffer-file :which-key "Git file log"))
-    (my/leader-def
+    (qx/leader-def
       "h" '(:ignore t :which-key "help")
       "h f" '(describe-function :which-key "Describe function")
       "h v" '(describe-variable :which-key "Describe variable"))
-    (my/leader-def
+    (qx/leader-def
       "n" '(:ignore t :which-key "notes")
       "n f" '((lambda () (interactive) (let ((default-directory org-directory)) (call-interactively #'find-file))) :which-key "Find note"))
-    (my/leader-def
+    (qx/leader-def
       "o" '(:ignore t :which-key "open")
       "o -" '(dired-jump :which-key "Open Dired")
       "o p" '(pass :which-key "Open pass")
       "o t" '(ghostel :which-key "Open Terminal"))
-    (my/leader-def
-      "p" '(projectile-switch-project :which-key "Switch project")))
+    (qx/leader-def
+      "p" '(project-switch-project :which-key "Switch project")))
 
 #+end_src
 
@@ -258,7 +260,7 @@
 * Completion UI
 
 #+begin_src emacs-lisp
-  (defun my/minibuffer-kill-to-start ()
+  (defun qx/minibuffer-kill-to-start ()
     "Delete from the prompt to point, like C-u in a shell."
     (interactive)
     (delete-region (minibuffer-prompt-end) (point)))
@@ -267,7 +269,7 @@
     :ensure nil
     :demand t) ; makes sure dired-directory face exists
 
-  (defun my/vertico-color-directories (args)
+  (defun qx/vertico-color-directories (args)
     "Apply `dired-directory' face to directory candidates in file prompts."
     (pcase-let ((`(,cand . ,rest) args))
       (if (and minibuffer-completing-file-name
@@ -280,11 +282,11 @@
     :init (vertico-mode)
     :custom (vertico-cycle t) ; wrap around
     :bind (:map vertico-map
-                ("C-u" . my/minibuffer-kill-to-start)
+                ("C-u" . qx/minibuffer-kill-to-start)
                 ("C-w" . vertico-directory-delete-word))
     :config
     (advice-add 'vertico--format-candidate
-                :filter-args #'my/vertico-color-directories))
+                :filter-args #'qx/vertico-color-directories))
 #+end_src
 
 ** Preview attributes
@@ -349,6 +351,29 @@
     (global-corfu-mode))
 #+end_src
 
+** Search: Consult
+
+#+begin_src emacs-lisp
+  (use-package consult
+    :ensure t
+    :custom
+    (consult-async-min-input 2)          ; start searching after 2 chars (default 3)
+    (consult-async-input-debounce 0.1)   ; wait after typing stops
+    (consult-async-refresh-delay 0.1)    ; how often results refresh while fd runs
+    (consult-fd-args
+     '((if (executable-find "fdfind" 'remote) "fdfind" "fd")
+       "--full-path --color=never --hidden"
+       "--exclude .git --exclude node_modules --exclude .cache"))
+    :config
+    (setq consult-ripgrep-args
+          (concat consult-ripgrep-args " --hidden --glob=!.git/")))
+
+  (setq project-switch-commands
+        '((project-find-file "Find file")
+          (magit-project-status "Magit" ?m)
+          (consult-ripgrep "Grep" ?/)))
+#+end_src
+
 ** Code Highlighting
 
 #+begin_src emacs-lisp
@@ -386,7 +411,7 @@
       "Major mode for Astro files, based on `web-mode'.")
     :mode ("\\.astro\\'" . astro-mode))
 
-  (defun my/astro-ls-contact (&rest _)
+  (defun qx/astro-ls-contact (&rest _)
     "Return the eglot contact for astro-ls, pointing at an absolute TypeScript SDK path."
     (let* ((local (locate-dominating-file default-directory "node_modules/typescript/lib"))
            (tsdk (if local
@@ -400,7 +425,7 @@
     :ensure nil
     :hook (astro-mode . eglot-ensure)
     :config
-    (add-to-list 'eglot-server-programs '(astro-mode . my/astro-ls-contact)))
+    (add-to-list 'eglot-server-programs '(astro-mode . qx/astro-ls-contact)))
 #+end_src
 
 ** Spell checking
@@ -440,7 +465,7 @@
 ** Markdown
 
 #+begin_src emacs-lisp
-  (defun my/markdown-setup ()
+  (defun qx/markdown-setup ()
     "Buffer-local settings for Markdown."
     (setq-local fill-column 80)
     (visual-line-mode 1)
@@ -448,7 +473,7 @@
 
   (use-package markdown-mode
     :ensure t
-    :hook (markdown-mode . my/markdown-setup))
+    :hook (markdown-mode . qx/markdown-setup))
 #+end_src
 
 ** Org Mode
@@ -482,7 +507,7 @@
 *** Autoformatting
 
 #+begin_src emacs-lisp
-  (defun my/org-format-elisp-blocks ()
+  (defun qx/org-format-elisp-blocks ()
     "Indent emacs-lisp source blocks in the current org buffer."
     (interactive)
     (save-excursion
@@ -493,7 +518,7 @@
 
   (add-hook 'org-mode-hook
             (lambda ()
-              (add-hook 'before-save-hook #'my/org-format-elisp-blocks nil t)))
+              (add-hook 'before-save-hook #'qx/org-format-elisp-blocks nil t)))
 #+end_src
 
 * Tools
@@ -506,18 +531,6 @@
     :hook (git-commit-setup . evil-insert-state)
     :custom
     (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
-#+end_src
-
-** Project manager: Projectile
-
-#+begin_src emacs-lisp
-  (use-package projectile
-    :ensure t
-    :custom
-    (projectile-enable-caching nil)   ; fd is fast enough, and no stale file lists
-    (projectile-generic-command
-     "fd . -0 --type f --color=never --hidden --exclude .git")
-    (projectile-mode 1))
 #+end_src
 
 ** SSH: tramp-rpc
